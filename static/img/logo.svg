@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="192" height="192" version="1.1" viewBox="0 0 50.8 50.8" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(0 -246.2)">
+  <path transform="matrix(.26458 0 0 .26458 0 246.2)" d="m107.92 6.8926c-29.756-0.47541-36.179 30.18-27.25 52.93-2.0205-29.668 4.2577-45.015 26.957-43.328 31.189 2.3174 27.225 33.539 13.998 51.336 14.789-2.8413 33.085-6.6539 44.658 13.877 5.7954 12.38 1.3839 29.429-11.871 32.768-23.434 5.9017-30.557-1.1222-42.139-6.1445 12.312 12.98 0.085 40.146-11.742 46.123-12.378 5.7946-28.263 0.65473-31.506-12.621-5.4915-22.485 4.1356-31.019 7.8985-42.407-33.374 19.075-49.998 53.274-54.779 82.233l9.9648 0.88477c1.6852-39.407 17.804-59.085 31.445-71.125-7.1595 9.896-9.0125 23.018-3.5859 34.645v8e-3c8.0871 17.274 28.788 24.77 46.062 16.684 16.182-7.5761 23.254-26.161 17.502-42.689 9.957 7.2729 23.394 8.9389 35.109 3.4688h8e-3v-8e-3c17.274-8.0871 24.768-28.788 16.681-46.062-7.2132-15.407-24.388-22.347-40.289-18.078 8.9241-31.488-3.5894-52.116-27.123-52.492z" color="#000000" color-rendering="auto" dominant-baseline="auto" fill="#81c784" image-rendering="auto" opacity=".99" shape-rendering="auto" solid-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;paint-order:markers stroke fill;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+  <g transform="matrix(.25576 .067767 -.067767 .25576 4.0426 234.91)" fill="#64b5f6" aria-label="C">
+   <path d="m73.32 67.525q3.12 0 6.36 3.96 3.36 3.96 3.36 6.6 0 2.52-0.96 2.52-0.84 0-3.36-0.84-2.52-0.96-4.56-0.96-4.68 0-11.4 4.8-6.6 4.8-12.6 11.88-5.88 7.08-10.08 16.2-4.2 9-4.2 15.6t3.36 9.72q3.48 3 9 3t11.4-1.56q5.88-1.68 9.6-3.72 9.6-5.16 10.56-5.16 2.04 0 2.04 2.76 0 2.64-5.52 7.2-5.52 4.44-13.68 8.04t-14.64 3.6q-8.4 0-15.84-7.2-7.44-7.32-7.44-16.08 0-11.28 7.32-25.44 7.44-14.28 18.96-24.6 11.64-10.32 22.32-10.32z" fill="#64b5f6"/>
+  </g>
+ </g>
+</svg>
