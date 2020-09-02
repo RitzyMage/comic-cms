@@ -8,12 +8,13 @@
 import ComicPage from "@/components/ComicPage.vue";
 
 import { Vue, Component, Watch } from "vue-property-decorator";
+import { Route } from "vue-router";
 
 @Component({
   components: {
     "comic-page": ComicPage,
   },
-  transition: (to, from) => {
+  transition: (to: Route, from: Route) => {
     if (!to || !from) {
       return "";
     }
@@ -21,7 +22,7 @@ import { Vue, Component, Watch } from "vue-property-decorator";
     let fromIndex = from.params.index;
 
     let fadeOut = toIndex > fromIndex;
-    if (toIndex == 1 || fromIndex == 1) {
+    if (toIndex === "1" || fromIndex === "1") {
       fadeOut = !fadeOut;
     }
     let name = fadeOut ? "fade-out" : "fade-in";

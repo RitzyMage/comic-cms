@@ -15,16 +15,18 @@
     "@nuxt/types": "^2.14.4",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/pwa": "^3.0.2",
+    "@types/swiper": "^5.3.1",
+    "fs-extra": "^9.0.1",
     "node-sass": "^4.14.1",
     "nuxt": "^2.14.4",
     "sass-loader": "^8.0.2",
+    "swiper": "^5.4.0",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-class-component": "^7.2.5",
     "vue-feather-icon": "^1.2.0",
     "vue-property-decorator": "^8.5.1",
-    "vuex-class": "^0.3.2",
-    "@types/swiper": "^5.3.1",
-    "swiper": "^5.4.0",
-    "vue-awesome-swiper": "^4.1.1"
+    "vue-server-renderer": "^2.6.12",
+    "vuex-class": "^0.3.2"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.7",
