@@ -1,8 +1,10 @@
 import express from 'express';
 import ClientController from './controllers/ClientController';
+import cors from 'cors';
 require('dotenv').config();
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT;
 
 const clientController = new ClientController();

@@ -1,4 +1,4 @@
-import axios from 'axios';
+require('dotenv').config();
 
 export default {
 	mode: 'universal',
@@ -33,7 +33,7 @@ export default {
 	/*
 	 ** Nuxt.js dev-modules
 	 */
-	buildModules: ['@nuxt/typescript-build'],
+	buildModules: ['@nuxt/typescript-build', '@nuxtjs/dotenv', '@nuxtjs/axios'],
 	/*
 	 ** Nuxt.js modules
 	 */
@@ -41,6 +41,7 @@ export default {
 	/*
 	 ** Build configuration
 	 */
+	server: { port: 3311 },
 	build: {
 		/*
 		 ** You can extend webpack config here
@@ -48,9 +49,13 @@ export default {
 		extend(config, ctx) {},
 	},
 
+	axios: {
+		baseURL: process.env.API_URL,
+	},
+
 	generate: {
 		routes() {
-			return axios.get('http://localhost:8000/api/count').then(res => {
+			return axios.get('/count').then(res => {
 				let count = res.data.count;
 				return [...Array(count - 1).keys()].map(item => '/comic/' + (item + 1));
 			});
