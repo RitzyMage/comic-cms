@@ -11,10 +11,24 @@
 
 <script>
 import NavHeader from "~/components/NavHeader.vue";
+import {Vue, Component, Prop } from 'vue-property-decorator';
+import { State, Mutation } from 'vuex-class';
+import axios from 'axios';
 
-export default {
+
+@Component({
   components: {
     NavHeader,
+  }
+})
+export default class Default extends Vue {
+  
+  @Mutation setMax;
+   created() {
+     axios.get('http://localhost:3002/comic').then((res) => {
+        this.setMax(res.data.count);
+      }
+    );
   }
 }
 </script>
@@ -31,7 +45,7 @@ export default {
 
 @font-face {
     font-family: "Komika Axis";
-    src: url("/static/fonts/KOMIKAX_.ttf") format("truetype");
+    src: url("/fonts/KOMIKAX_.ttf") format("truetype");
 }
 
 body {

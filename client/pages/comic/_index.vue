@@ -1,28 +1,48 @@
 <template>
-	<div class="comic">
-		<comic-page :page="this.$route.params.index" />
-	</div>
+  <div class="comic">
+    <comic-page :page="this.$route.params.index" />
+  </div>
 </template>
 
 <script lang="ts">
-import ComicPage from '@/components/ComicPage.vue';
+import ComicPage from "@/components/ComicPage.vue";
 
-import { Vue, Component, Watch } from 'vue-property-decorator';
+import { Vue, Component, Watch } from "vue-property-decorator";
 
 @Component({
-	components: {
-		'comic-page': ComicPage,
-	},
-	validate({ params, $axios }: any) {
-		let index = parseInt(params.index);
+  components: {
+    "comic-page": ComicPage,
+  },
+  transition: (to, from) => {
+    if (!to || !from) {
+      return "";
+    }
+    let toIndex = to.params.index;
+    let fromIndex = from.params.index;
 
-		return $axios.get('/count').then(({ data }: { data: { count: number } }) => {
-			return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
-		});
-	},
+    let fadeOut = toIndex > fromIndex;
+    if (toIndex == 1 || fromIndex == 1) {
+      fadeOut = !fadeOut;
+    }
+    let name = fadeOut ? "fade-out" : "fade-in";
+
+    return {
+      name,
+      mode: "in-out",
+    };
+  },
+  validate({ params, $axios }: any) {
+    let index = parseInt(params.index);
+
+    return $axios
+      .get("/count")
+      .then(({ data }: { data: { count: number } }) => {
+        return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
+      });
+  },
 } as any)
 export default class Page extends Vue {
-	transition = 'test';
+  transition = "test";
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
     <div class="header">
-        <h1 class="title">{{ name }}</h1>
+        <h1 class="title"><nuxt-link to="/">{{ name }}</nuxt-link></h1>
         <div class="links">
-            <a v-for="link in links" :href="link.href" :key="link.href" class="link">{{link.name}}</a>
+            <nuxt-link v-for="link in links" :to="link.href" :key="link.href" class="link">{{link.name}}</nuxt-link>
         </div>
     </div>
 </template>
