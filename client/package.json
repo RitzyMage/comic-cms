@@ -12,17 +12,17 @@
   },
   "dependencies": {
     "@fdstack/vue-feather-icon": "^1.1.4",
-    "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/pwa": "^3.0.2",
     "axios": "^0.19.2",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.14.4",
     "sass-loader": "^8.0.2",
-    "vue-class-component": "^7.2.3",
+    "vue-class-component": "^7.2.5",
     "vue-feather-icon": "^1.2.0",
-    "vue-property-decorator": "^8.4.2",
+    "vue-property-decorator": "^8.5.1",
     "vuex-class": "^0.3.2"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "^0.6.0"
+    "@nuxt/typescript-build": "^0.6.7"
   }
 }
