@@ -1,6 +1,6 @@
 <template>
   <div class="comic">
-    <comic-page :page="this.$route.params.index" />
+    <comic-page :page="this.$route.params.index" :comic-info="comicInfo" />
   </div>
 </template>
 
@@ -12,7 +12,11 @@ import { Route } from "vue-router";
 
 @Component({
   components: {
-    "comic-page": ComicPage,
+    "comic-page": ComicPage
+  },
+  async asyncData({ $axios, params }: any) {
+    let comicInfo = (await $axios.get(`/${params.index}`)).data;
+    return { comicInfo };
   },
   transition: (to: Route, from: Route) => {
     if (!to || !from) {
@@ -29,7 +33,7 @@ import { Route } from "vue-router";
 
     return {
       name,
-      mode: "in-out",
+      mode: "in-out"
     };
   },
   validate({ params, $axios }: any) {
@@ -40,9 +44,10 @@ import { Route } from "vue-router";
       .then(({ data }: { data: { count: number } }) => {
         return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
       });
-  },
+  }
 } as any)
 export default class Page extends Vue {
+  testVar!: string;
   transition = "test";
 }
 </script>
