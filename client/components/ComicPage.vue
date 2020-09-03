@@ -36,8 +36,8 @@ import { State } from "vuex-class";
 
 interface Image {
   src: string;
-  alt: string;
-  title: string;
+  alt?: string;
+  title?: string;
 }
 
 @Component({
@@ -72,7 +72,11 @@ export default class ComicPage extends Vue {
   }
 
   private get images(): Image[] {
-    return [this.infoAsImage, this.infoAsImage, this.infoAsImage];
+    return [
+      { src: this.comicInfo.previmage },
+      this.infoAsImage,
+      { src: this.comicInfo.nextimage }
+    ];
   }
 
   private get nav(): ComicNavigation {
