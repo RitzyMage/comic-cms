@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <NavHeader/>
-    <div class='pageAnchor'>
+    <NavHeader />
+    <div class="pageAnchor">
       <div class="pageContainer">
         <nuxt />
       </div>
@@ -11,50 +11,43 @@
 
 <script>
 import NavHeader from "~/components/NavHeader.vue";
-import {Vue, Component, Prop } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
-import axios from 'axios';
-
+import { Vue, Component, Prop } from "vue-property-decorator";
+import { State, Mutation } from "vuex-class";
 
 @Component({
   components: {
-    NavHeader,
+    NavHeader
   }
 })
 export default class Default extends Vue {
-  
   @Mutation setMax;
-   created() {
-     axios.get('http://localhost:3002/comic').then((res) => {
-        this.setMax(res.data.count);
-      }
-    );
+  mounted() {
+    this.$axios.get("/count").then(res => {
+      this.setMax(res.data.count);
+    });
   }
 }
 </script>
 
 <style lang="scss">
-
-@import 'assets/scss/colors.scss';
-
+@import "assets/scss/colors.scss";
 
 @font-face {
-    font-family: "Kalam";
-    src: url("/fonts/Kalam-Regular.ttf") format("truetype");
+  font-family: "Kalam";
+  src: url("/fonts/Kalam-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "Komika Axis";
-    src: url("/fonts/KOMIKAX_.ttf") format("truetype");
+  font-family: "Komika Axis";
+  src: url("/fonts/KOMIKAX_.ttf") format("truetype");
 }
 
 body {
   margin: 0;
 }
 
-
 #app {
-   font-family: "Kalam", sans-serif;
+  font-family: "Kalam", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -63,13 +56,14 @@ body {
   min-height: 100vh;
 }
 
-  a, a:visited {
-    font-weight: bold;
-    color: $primary;
-    text-decoration: none;
-  }
+a,
+a:visited {
+  font-weight: bold;
+  color: $primary;
+  text-decoration: none;
+}
 
-  .pageContainer {
+.pageContainer {
   max-width: 100vw;
   overflow: hidden;
 }
