@@ -1,0 +1,4 @@
+optimize calls to server; see if can do all in one call
+test client on 3G
+images use lowres first
+no flicker on image load

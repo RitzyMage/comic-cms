@@ -1,31 +1,39 @@
-.test-enter-active, .test-leave-active {
-    transition: opacity .1s;
+.test-enter-active,
+.test-leave-active {
+  transition: opacity 0.1s;
 }
 
-.test-enter, .test-leave-active {
-    opacity: 0;
+.test-enter,
+.test-leave-active {
+  opacity: 0;
 }
 
-.fade-in-enter-active, .fade-out-leave-active {
-    transition-duration: 100ms;
+.fade-in-enter-active,
+.fade-out-leave-active {
+  transition-duration: 3000ms;
 }
 
-.fade-in-leave-active, .fade-out-enter-active {
-    transition-duration: 20ms;
+.fade-in-leave-active,
+.fade-out-enter-active {
+  transition-duration: 1000ms;
 }
 
-.fade-in-enter-active , .fade-in-leave-active,
-.fade-out-enter-active , .fade-out-leave-active {
-    transition-property: opacity;
-    transition-timing-function: ease-in-out;
-    position: absolute;
-    top: 0;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-  }
+.fade-in-enter-active,
+.fade-in-leave-active,
+.fade-out-enter-active,
+.fade-out-leave-active {
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
 
-.fade-in-enter, .fade-in-leave-to,
-.fade-out-enter, .fade-out-leave-to {
-    opacity: 0;
+.fade-in-enter,
+.fade-in-leave-to,
+.fade-out-enter,
+.fade-out-leave-to {
+  opacity: 0;
 }

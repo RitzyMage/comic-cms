@@ -12,6 +12,9 @@ const clientController = new ClientController();
 app.get("/api/count", async (req, res) =>
   res.send(await clientController.getComicCount())
 );
+app.get("/api/ends", async (req, res) => {
+  res.send(await clientController.getEndImages());
+});
 app.get("/api/:id", async (req, res) => {
   let id = parseInt(req.params.id);
   res.send(await clientController.getComic(id));

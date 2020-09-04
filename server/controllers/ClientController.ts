@@ -6,6 +6,15 @@ export default class ClientController {
     return await connection("comics").count("id", { as: "count" }).first();
   }
 
+  async getEndImages() {
+    let [first, last] = await connection
+      .select("image")
+      .from("comics")
+      .whereNull("next")
+      .orWhereNull("previous");
+    return { firstImage: first.image, lastImage: last.image };
+  }
+
   async getComic(id: number) {
     return await connection
       .select(

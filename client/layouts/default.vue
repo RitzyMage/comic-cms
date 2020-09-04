@@ -19,14 +19,7 @@ import { State, Mutation } from "vuex-class";
     NavHeader
   }
 })
-export default class Default extends Vue {
-  @Mutation setMax;
-  mounted() {
-    this.$axios.get("/count").then(res => {
-      this.setMax(res.data.count);
-    });
-  }
-}
+export default class Default extends Vue {}
 </script>
 
 <style lang="scss">

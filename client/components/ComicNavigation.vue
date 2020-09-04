@@ -1,8 +1,14 @@
 <template>
   <div class="links">
-    <nuxt-link :to="firstURL" v-if="previousExists" class="link first"
-      >first</nuxt-link
+    <nuxt-link
+      :to="firstURL"
+      :event="''"
+      @click.native.prevent="navigateFirst"
+      v-if="previousExists"
+      class="link first"
     >
+      first
+    </nuxt-link>
     <div v-else class="empty first"></div>
 
     <nuxt-link
@@ -29,9 +35,15 @@
     </nuxt-link>
     <div v-else class="empty next"></div>
 
-    <nuxt-link :to="lastURL" v-if="nextExists" class="link last"
-      >last</nuxt-link
+    <nuxt-link
+      :to="lastURL"
+      :event="''"
+      @click.native.prevent="navigateLast"
+      v-if="nextExists"
+      class="link last"
     >
+      last
+    </nuxt-link>
     <div v-else class="empty last"></div>
   </div>
 </template>
@@ -48,14 +60,10 @@ export default class Navigation extends Vue {
   @Prop() private page!: number;
   @Prop() private next!: number;
   @Prop() private previous!: number;
-
-  private navigatePrevious() {
-    this.getSwiper().slideTo(0, 200);
-  }
-
-  private navigateNext() {
-    this.getSwiper().slideTo(2, 200);
-  }
+  @Prop() private navigateFirst!: () => void;
+  @Prop() private navigatePrevious!: () => void;
+  @Prop() private navigateNext!: () => void;
+  @Prop() private navigateLast!: () => void;
 
   public get nextURL(): string {
     return this.getLink(this.next);
@@ -65,11 +73,11 @@ export default class Navigation extends Vue {
     return this.getLink(this.previous);
   }
 
-  private get firstURL(): string {
+  public get firstURL(): string {
     return this.getLink(1);
   }
 
-  private get lastURL(): string {
+  public get lastURL(): string {
     return this.getLink(this.maxComic);
   }
 
