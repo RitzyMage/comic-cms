@@ -1,17 +1,5 @@
-interface State {
-    name: string, 
-    maxComic: number,
-}
+interface State {}
 
-export const state: () => State = () => {
-    return {
-        name: 'The Boswell Monastery',
-        maxComic: 1,
-    };
-};
+export const state: () => State = () => ({});
 
-export const mutations = {
-    setMax(state:State, newMax:number) {
-        state.maxComic = newMax;
-    }
-}
+export const mutations = {};

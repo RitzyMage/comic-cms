@@ -1,6 +1,10 @@
 <template>
   <div class="comic">
-    <comic-page :page="this.$route.params.index" :comic-info="comicInfo" />
+    <comic-page
+      :page="this.$route.params.index"
+      :comic-info="comicInfo"
+      :max-comic="parseInt(comicCount)"
+    />
   </div>
 </template>
 
@@ -15,8 +19,11 @@ import { Route } from "vue-router";
     "comic-page": ComicPage
   },
   async asyncData({ $axios, params }: any) {
-    let comicInfo = (await $axios.get(`/${params.index}`)).data;
-    return { comicInfo };
+    let [comicCount, comicInfo] = await Promise.all([
+      $axios.get(`/count`),
+      $axios.get(`/${params.index}`)
+    ]);
+    return { comicInfo: comicInfo.data, comicCount: comicCount.data.count };
   },
   transition: (to: Route, from: Route) => {
     if (!to || !from) {

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="comic">
-      <h2 class="title">{{ this.name }}</h2>
+      <h2 class="title">{{ this.title }}</h2>
       <div
         v-swiper:mySwiper="{
           initialSlide: 1,
@@ -10,7 +10,7 @@
         }"
       >
         <div class="swiper-wrapper">
-          <div class="swiper-slide" :key="image" v-for="image in images">
+          <div class="swiper-slide" :key="image.src" v-for="image in images">
             <div class="comicImageArea">
               <img :src="image.src" :alt="image.alt" :title="image.title" />
             </div>
@@ -21,8 +21,10 @@
     <ComicNavigation
       ref="nav"
       :getSwiper="getSwiper"
-      :maxComic="maximum"
-      :page="page"
+      :maxComic="maxComic"
+      :previous="comicInfo.previous"
+      :page="comicInfo.id"
+      :next="comicInfo.next"
     />
   </div>
 </template>
@@ -50,12 +52,12 @@ interface Image {
   }
 })
 export default class ComicPage extends Vue {
-  @Prop(String) private page!: string;
-  @Prop(String) private comicInfo!: any;
+  @Prop() private comicInfo!: any;
+  @Prop() private maxComic!: number;
   private mySwiper!: any;
-  @State("maxComic") maximum!: number;
+  public $axios!: any;
 
-  private get name() {
+  private get title() {
     return this.comicInfo.title;
   }
 
@@ -91,21 +93,36 @@ export default class ComicPage extends Vue {
     };
   }
 
+  private getApiURL(index: number) {
+    return "/" + index;
+  }
+
+  private get previousAPI() {
+    return this.getApiURL(this.comicInfo.previous);
+  }
+
+  private get nextAPI() {
+    return this.getApiURL(this.comicInfo.next);
+  }
+
   mounted() {
-    this.mySwiper.on("slideChangeTransitionEnd", () => {
+    this.mySwiper.on("slideChangeTransitionEnd", async () => {
       if (this.mySwiper.realIndex == 0) {
+        //console.log(await this.$axios.get(this.previousAPI));
         this.$router.push(this.nav.previousURL);
       } else if (this.mySwiper.realIndex == 2) {
         this.mySwiper.removeSlide([0, 1]);
+        //console.log("getting", this.nextAPI);
+        //console.log(await this.$axios.get(this.nextAPI));
         this.$router.push(this.nav.nextURL);
       }
     });
 
     this.mySwiper.on("slideChange", () => {
-      if (this.mySwiper.realIndex == 2 && !this.nav.nextExists) {
+      if (this.mySwiper.realIndex == 2 && !this.comicInfo.next) {
         this.mySwiper.slideTo(1);
       }
-      if (this.mySwiper.realIndex == 0 && !this.nav.previousExists) {
+      if (this.mySwiper.realIndex == 0 && !this.comicInfo.previous) {
         this.mySwiper.slideTo(1);
       }
     });
