@@ -45,8 +45,6 @@ import { Route } from "vue-router";
     }
     let name = fadeOut ? "fade-out" : "fade-in";
 
-    console.log(name);
-
     return {
       name,
       mode: "in-out"

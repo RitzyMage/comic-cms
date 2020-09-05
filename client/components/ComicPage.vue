@@ -179,11 +179,4 @@ export default class ComicPage extends Vue {
 .fade-out-enter-active .title {
   opacity: 0;
 }
-
-.fade-in-enter-active .comicImageArea,
-.fade-in-leave-active .comicImageArea,
-.fade-out-enter-active .comicImageArea,
-.fade-out-leave-active .comicImageArea {
-  opacity: 5;
-}
 </style>
