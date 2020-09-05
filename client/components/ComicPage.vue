@@ -44,7 +44,7 @@ import "swiper/css/swiper.css";
 import ComicNavigation from "~/components/ComicNavigation.vue";
 import { State } from "vuex-class";
 
-const SWIPER_ANIMATION_LENGTH = 2000;
+const SWIPER_ANIMATION_LENGTH = 200;
 const FILLER_SLIDES = 2;
 const FILLER_TIME = 20;
 
@@ -116,7 +116,7 @@ export default class ComicPage extends Vue {
   }
 
   private get lastImageIndex() {
-    return this.startingImage + FILLER_SLIDES + 1;
+    return this.startingImage + FILLER_SLIDES + 2;
   }
 
   private get nav(): ComicNavigation {
@@ -143,15 +143,25 @@ export default class ComicPage extends Vue {
     return this.getApiURL(this.comicInfo.next);
   }
 
+  private removeAllSlidesExcept(index: number) {
+    let allSlides = [...Array(this.lastImageIndex + 1).keys()];
+    let toRemove = allSlides.filter(slide => slide !== index);
+    this.mySwiper.removeSlide(toRemove);
+  }
+
   mounted() {
-    this.mySwiper.on("slideChangeTransitionEnd", async () => {
+    this.mySwiper.on("slideChangeTransitionEnd", () => {
       if (this.mySwiper.realIndex == 0) {
+        this.removeAllSlidesExcept(0);
         this.$router.push(this.nav.firstURL);
       } else if (this.mySwiper.realIndex == this.startingImage - 1) {
+        this.removeAllSlidesExcept(this.startingImage - 1);
         this.$router.push(this.nav.previousURL);
       } else if (this.mySwiper.realIndex == this.startingImage + 1) {
-        await this.$router.push(this.nav.nextURL);
+        this.removeAllSlidesExcept(this.startingImage + 1);
+        this.$router.push(this.nav.nextURL);
       } else if (this.mySwiper.realIndex == this.lastImageIndex) {
+        this.removeAllSlidesExcept(this.lastImageIndex);
         this.$router.push(this.nav.lastURL);
       } else {
         this.mySwiper.slideTo(this.startingImage);
@@ -166,7 +176,14 @@ export default class ComicPage extends Vue {
 
 <style lang="scss" scoped>
 .fade-in-leave-active .title,
-.fade-out-leave-active .title {
+.fade-out-enter-active .title {
   opacity: 0;
+}
+
+.fade-in-enter-active .comicImageArea,
+.fade-in-leave-active .comicImageArea,
+.fade-out-enter-active .comicImageArea,
+.fade-out-leave-active .comicImageArea {
+  opacity: 5;
 }
 </style>

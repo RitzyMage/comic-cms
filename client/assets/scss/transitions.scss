@@ -10,12 +10,12 @@
 
 .fade-in-enter-active,
 .fade-out-leave-active {
-  transition-duration: 3000ms;
+  transition-duration: 400ms;
 }
 
 .fade-in-leave-active,
 .fade-out-enter-active {
-  transition-duration: 1000ms;
+  transition-duration: 200ms;
 }
 
 .fade-in-enter-active,
@@ -23,7 +23,7 @@
 .fade-out-enter-active,
 .fade-out-leave-active {
   transition-property: opacity;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: linear;
   position: absolute;
   top: 0;
   margin: 0 auto;
