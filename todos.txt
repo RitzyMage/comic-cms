@@ -1,4 +1,36 @@
-optimize calls to server; see if can do all in one call
-test client on 3G
-images use lowres first
-no flicker on image load
+NEXT STEPS
+	deploy to server
+
+OPTIMIZATIONS (MAKE BLAZING FAST)
+	optimize calls to server; see if can do all in one call
+
+	images use lowres first
+	optimized images
+
+	static build
+	optimize JS/CSS/other size
+
+	test client on 3G
+
+	host images on cdn (?)
+
+COMIC PAGE
+	tags
+
+	show post date
+
+OTHER PAGES
+	search by content
+	archives page
+	about page
+	blog section
+	rss feed
+	main page layout and styling
+
+
+ADMIN PORTION
+	front end for adding comics
+	endpoint for adding comics
+	differentiation between admin database user and client database user
+	re-build static build on add comic
+
