@@ -19,6 +19,10 @@ COMIC PAGE
 
 	show post date
 
+	don't scroll to top on navigate
+
+	hide header when reading?
+
 OTHER PAGES
 	search by content
 	archives page
