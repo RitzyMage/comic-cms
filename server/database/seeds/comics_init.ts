@@ -15,8 +15,7 @@ export async function seed(knex: Knex): Promise<void> {
         "oh no it's another spot arc it's been years but it still happens too often somehow",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-13-the-secret.png",
-      image_lowres:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-13-the-secret.png",
+      image_lowres: "/2020/03/2020-03-13-the-secret.webp",
       posted: "2020-03-13",
     },
     {
@@ -28,8 +27,7 @@ export async function seed(knex: Knex): Promise<void> {
         "also it's cold now, I had to drop off everyone else's orders on the way up",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-16-jim-jimminy-jim-jimminy-jim-jim-jerry.png",
-      image_lowres:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-16-jim-jimminy-jim-jimminy-jim-jim-jerry.png",
+      image_lowres: "/2020-03-16-jim-jimminy-jim-jimminy-jim-jim-jerry.webp",
       posted: "2020-03-16",
     },
     {
@@ -41,8 +39,7 @@ export async function seed(knex: Knex): Promise<void> {
         "unless there's someone I'm forgetting, and his superpower is to make us forget every time we look at him, but that'd be extremely silly and convoluted",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-18-super-camouflage.png",
-      image_lowres:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-18-super-camouflage.png",
+      image_lowres: "/2020-03-18-super-camouflage.webp",
       posted: "2020-03-18",
     },
     {
@@ -53,8 +50,7 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "that sounded like YOUR car",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-20-this-looks-like-a-job-for-the-intern.png",
-      image_lowres:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-20-this-looks-like-a-job-for-the-intern.png",
+      image_lowres: "/2020-03-20-this-looks-like-a-job-for-the-intern.webp",
       posted: "2020-03-20",
     },
     {
@@ -66,8 +62,7 @@ export async function seed(knex: Knex): Promise<void> {
         "The next fifty comics is just them lampshading the previous comic",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-23-then-who-was-car.png",
-      image_lowres:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-23-then-who-was-car.png",
+      image_lowres: "/2020/03/2020-03-23-then-who-was-car.webp",
       posted: "2020-03-23",
     },
     {
@@ -78,8 +73,7 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "Well Turn Me Into A Newt",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-25-well-turn-me-into-a-newt.png",
-      image_lowres:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-25-well-turn-me-into-a-newt.png",
+      image_lowres: "/2020-03-25-well-turn-me-into-a-newt.webp",
       posted: "2020-03-25",
     },
     {
@@ -90,8 +84,7 @@ export async function seed(knex: Knex): Promise<void> {
         'you\'ll look up and shout "Save us!"... and I\'ll look down, and whisper "kay."',
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-27-exactly-what-spot-would-have-done.png",
-      image_lowres:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-27-exactly-what-spot-would-have-done.png",
+      image_lowres: "/2020-03-27-exactly-what-spot-would-have-done.webp",
       posted: "2020-03-27",
     },
     {
@@ -102,8 +95,7 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "to probably never be continued",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-30-shocking-reveal.png",
-      image_lowres:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-30-shocking-reveal.pngg",
+      image_lowres: "/2020-03-30-shocking-reveal.webp",
       posted: "2020-03-30",
     },
   ]);
