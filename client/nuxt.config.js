@@ -1,4 +1,5 @@
 require("dotenv").config();
+import axios from "axios";
 
 export default {
   mode: "universal",
@@ -57,7 +58,7 @@ export default {
 
   generate: {
     routes() {
-      return axios.get("/count").then(res => {
+      return axios.get(process.env.API_URL + "/count").then(res => {
         let count = res.data.count;
         return [...Array(count - 1).keys()].map(item => "/comic/" + (item + 1));
       });
