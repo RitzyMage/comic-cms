@@ -4,7 +4,7 @@ NEXT STEPS
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimize calls to server; see if can do all in one call
 
-	images use lowres first
+	[DONE] images use lowres first
 	optimized images
 
 	static build
@@ -22,6 +22,10 @@ COMIC PAGE
 	don't scroll to top on navigate
 
 	hide header when reading?
+
+	when loading new page, get new title (and other info) and display
+	when loading new page and can't navigate, gray out navigation (?)
+		(maybe only if it takes too long? it might flicker otherwise)
 
 OTHER PAGES
 	search by content

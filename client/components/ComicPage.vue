@@ -15,9 +15,7 @@
             :key="index"
             v-for="(image, index) in images"
           >
-            <div class="comicImageArea">
-              <img :src="image.src" :alt="image.alt" :title="image.title" />
-            </div>
+            <ComicImage :info="image" />
           </div>
         </div>
       </div>
@@ -42,17 +40,11 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import { directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import ComicNavigation from "~/components/ComicNavigation.vue";
-import { State } from "vuex-class";
+import { ComicImage, ImageInfo } from "~/components/ComicImage.vue";
 
 const SWIPER_ANIMATION_LENGTH = 200;
 const FILLER_SLIDES = 2;
 const FILLER_TIME = 20;
-
-interface Image {
-  src: string;
-  alt?: string;
-  title?: string;
-}
 
 @Component({
   name: "Comic",
@@ -60,14 +52,15 @@ interface Image {
     swiper: directive
   },
   components: {
-    ComicNavigation
+    ComicNavigation,
+    ComicImage
   }
 })
 export default class ComicPage extends Vue {
   @Prop() private comicInfo!: any;
   @Prop() private maxComic!: number;
-  @Prop() private firstImage!: string;
-  @Prop() private lastImage!: string;
+  @Prop() private firstImage!: any;
+  @Prop() private lastImage!: any;
   private mySwiper!: any;
   public $axios!: any;
 
@@ -95,18 +88,37 @@ export default class ComicPage extends Vue {
     this.mySwiper.slideTo(this.lastImageIndex, SWIPER_ANIMATION_LENGTH);
   }
 
-  private get images(): Image[] {
+  private databaseToImage(databaseObject: any) {
+    return {
+      src: databaseObject.image,
+      height: databaseObject.height,
+      width: databaseObject.width,
+      smallSrc: databaseObject.image_lowres
+    };
+  }
+
+  private get images(): ImageInfo[] {
     return [
       ...[
-        { src: this.firstImage, alt: "", title: "" },
+        this.databaseToImage(this.firstImage),
         ...Array(FILLER_SLIDES).fill(this.infoAsImage)
       ],
-      { src: this.comicInfo.previmage },
+      {
+        src: this.comicInfo.previmage,
+        height: this.comicInfo.prevheight,
+        width: this.comicInfo.prevwidth,
+        smallSrc: this.comicInfo.prevlowres
+      },
       this.infoAsImage,
-      { src: this.comicInfo.nextimage },
+      {
+        src: this.comicInfo.nextimage,
+        height: this.comicInfo.nextheight,
+        width: this.comicInfo.nextwidth,
+        smallSrc: this.comicInfo.nextlowres
+      },
       ...[
         ...Array(FILLER_SLIDES).fill(this.infoAsImage),
-        { src: this.lastImage, alt: "", title: "" }
+        this.databaseToImage(this.lastImage)
       ]
     ];
   }
@@ -123,11 +135,14 @@ export default class ComicPage extends Vue {
     return this.$refs.nav as ComicNavigation;
   }
 
-  private get infoAsImage(): Image {
+  private get infoAsImage(): ImageInfo {
     return {
       src: this.comicInfo.image,
+      height: this.comicInfo.height,
+      width: this.comicInfo.width,
       alt: this.comicInfo.transcript,
-      title: this.comicInfo.mouseover
+      title: this.comicInfo.mouseover,
+      smallSrc: this.comicInfo.image_lowres
     };
   }
 

@@ -8,11 +8,11 @@ export default class ClientController {
 
   async getEndImages() {
     let [first, last] = await connection
-      .select("image")
+      .select("image", "image_lowres", "height", "width")
       .from("comics")
       .whereNull("next")
       .orWhereNull("previous");
-    return { firstImage: first.image, lastImage: last.image };
+    return { first, last };
   }
 
   async getComic(id: number) {
@@ -25,9 +25,17 @@ export default class ClientController {
         "comics.transcript",
         "comics.mouseover",
         "comics.image",
+        "comics.height",
+        "next.height as nextHeight",
+        "prev.height as prevHeight",
+        "next.width as nextWidth",
+        "comics.width",
+        "prev.width as prevWidth",
         "next.image as nextImage",
         "prev.image as prevImage",
+        "prev.image_lowres as prevLowres",
         "comics.image_lowres",
+        "next.image_lowres as nextLowres",
         "comics.posted"
       )
       .from("comics")

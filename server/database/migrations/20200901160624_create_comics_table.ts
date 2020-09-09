@@ -10,6 +10,8 @@ export async function up(knex: Knex): Promise<void> {
     table.string("IMAGE_LOWRES").notNullable();
     table.dateTime("POSTED").notNullable();
     table.integer("PREVIOUS").unsigned();
+    table.integer("HEIGHT").notNullable();
+    table.integer("WIDTH").notNullable();
     table.foreign("PREVIOUS").references("ID").inTable("COMICS");
     table.integer("NEXT").unsigned();
     table.foreign("NEXT").references("ID").inTable("COMICS");

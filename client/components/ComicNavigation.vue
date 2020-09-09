@@ -85,7 +85,7 @@ export default class Navigation extends Vue {
     return "/";
   }
 
-  private getLink(index: number): string {
+  private getLink(index?: number): string {
     return "/comic/" + index;
   }
 

@@ -4,8 +4,8 @@
       :page="this.$route.params.index"
       :comic-info="comicInfo"
       :max-comic="parseInt(comicCount)"
-      :first-image="extraImages.firstImage"
-      :last-image="extraImages.lastImage"
+      :first-image="extraImages.first"
+      :last-image="extraImages.last"
     />
   </div>
 </template>
