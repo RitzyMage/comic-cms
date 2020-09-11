@@ -1,5 +1,6 @@
 NEXT STEPS
 	deploy to server
+	fix gitignore to ignore build files
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimize calls to server; see if can do all in one call
