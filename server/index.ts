@@ -20,6 +20,15 @@ app.get("/api/:id", async (req, res) => {
   res.send(await clientController.getComic(id));
 });
 
+app.get("/api/:id/all", async (req, res) => {
+  let id = parseInt(req.params.id);
+  res.send({
+    comicInfo: await clientController.getComic(id),
+    comicCount: (await clientController.getComicCount())?.count,
+    extraImages: await clientController.getEndImages(),
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });

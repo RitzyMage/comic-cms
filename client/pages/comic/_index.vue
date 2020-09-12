@@ -3,7 +3,7 @@
     <comic-page
       :page="this.$route.params.index"
       :comic-info="comicInfo"
-      :max-comic="parseInt(comicCount)"
+      :max-comic="comicCount"
       :first-image="extraImages.first"
       :last-image="extraImages.last"
     />
@@ -21,16 +21,7 @@ import { Route } from "vue-router";
     "comic-page": ComicPage
   },
   async asyncData({ $axios, params }: any) {
-    let [comicCount, comicInfo, extraImages] = await Promise.all([
-      $axios.get(`/count`),
-      $axios.get(`/${params.index}`),
-      $axios.get(`/ends`)
-    ]);
-    return {
-      comicInfo: comicInfo.data,
-      comicCount: comicCount.data.count,
-      extraImages: extraImages.data
-    };
+    return await $axios.$get(`/${params.index}/all`);
   },
   transition: (to: Route, from: Route) => {
     if (!to || !from) {
