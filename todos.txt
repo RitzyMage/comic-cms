@@ -4,7 +4,7 @@ NEXT STEPS
 	figure out /comic/null error
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
-	optimize calls to server; see if can do all in one call
+	[DONE] optimize calls to server; see if can do all in one call
 
 	[DONE] images use lowres first
 	optimized images
@@ -30,6 +30,7 @@ COMIC PAGE
 	when loading new page, get new title (and other info) and display
 	when loading new page and can't navigate, gray out navigation (?)
 		(maybe only if it takes too long? it might flicker otherwise)
+		(or show loading spinner?)
 
 OTHER PAGES
 	search by content
