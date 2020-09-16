@@ -1,6 +1,12 @@
 <template>
   <div class="comicImageArea" :style="containerStyle">
-    <img ref="image" :src="info.src" :alt="info.alt" :title="info.title" />
+    <img
+      v-if="info.src"
+      ref="image"
+      :src="info.src"
+      :alt="info.alt"
+      :title="info.title"
+    />
   </div>
 </template>
 
@@ -25,13 +31,15 @@ export class ComicImage extends Vue {
   private imageLoaded = false;
 
   mounted() {
-    (this.$refs.image as HTMLElement).onload = () => {
-      this.imageLoaded = true;
-    };
+    if (this.info.src) {
+      (this.$refs.image as HTMLElement).onload = () => {
+        this.imageLoaded = true;
+      };
+    }
   }
 
   private get containerStyle() {
-    if (!this.imageLoaded) {
+    if (!this.imageLoaded && this.info.smallSrc) {
       return (
         "background-image: url('" +
         this.info.smallSrc +

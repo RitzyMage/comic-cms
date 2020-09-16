@@ -1,7 +1,5 @@
 NEXT STEPS
 	deploy to server
-	fix gitignore to ignore build files
-	figure out /comic/null error
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	[DONE] optimize calls to server; see if can do all in one call
@@ -49,4 +47,5 @@ ADMIN PORTION
 
 OTHER TASKS
 	error handling (e.g. no server or database)
-
+	[DONE] fix gitignore to ignore build files
+	[DONE] figure out /comic/null error
