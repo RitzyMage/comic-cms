@@ -19,7 +19,7 @@ OPTIMIZATIONS (MAKE BLAZING FAST)
 COMIC PAGE
 	tags
 
-	show post date
+	[DONE] show post date
 
 	don't scroll to top on navigate
 

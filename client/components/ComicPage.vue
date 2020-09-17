@@ -32,6 +32,9 @@
       :navigate-next="navigateNext"
       :navigate-last="navigateLast"
     />
+    <p>
+      {{ postedDate }}
+    </p>
   </div>
 </template>
 
@@ -66,6 +69,15 @@ export default class ComicPage extends Vue {
 
   private get title() {
     return this.comicInfo.title;
+  }
+
+  private get postedDate() {
+    return new Date(this.comicInfo.posted).toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
   }
 
   private getSwiper() {
@@ -165,6 +177,7 @@ export default class ComicPage extends Vue {
   }
 
   mounted() {
+    console.log(this.comicInfo);
     this.mySwiper.on("slideChangeTransitionEnd", () => {
       if (this.mySwiper.realIndex == 0) {
         this.removeAllSlidesExcept(0);
