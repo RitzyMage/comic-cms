@@ -1,5 +1,7 @@
 NEXT STEPS
-	deploy to server
+	[DONE] deploy to server
+	remove loading bar
+	make deployment automated
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	[DONE] optimize calls to server; see if can do all in one call
@@ -20,6 +22,8 @@ COMIC PAGE
 	tags
 
 	[DONE] show post date
+
+	[DONE] don't get taller than screen
 
 	don't scroll to top on navigate
 

@@ -1,7 +1,8 @@
 <template>
-  <div class="comicImageArea" :style="containerStyle">
+  <div class="comicImageArea no-overflow" :style="containerStyle">
     <img
       v-if="info.src"
+      class="no-overflow"
       ref="image"
       :src="info.src"
       :alt="info.alt"
@@ -60,5 +61,9 @@ export default ComicImage;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.no-overflow {
+  max-height: 100%;
 }
 </style>

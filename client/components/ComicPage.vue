@@ -3,6 +3,7 @@
     <div class="comic">
       <h2 class="title">{{ this.title }}</h2>
       <div
+        class="comic-height"
         v-swiper:mySwiper="{
           initialSlide: startingImage,
           centeredSlides: true,
@@ -206,5 +207,13 @@ export default class ComicPage extends Vue {
 .fade-in-leave-active .title,
 .fade-out-enter-active .title {
   opacity: 0;
+}
+
+.title {
+  margin: 5px 0;
+}
+
+.comic-height {
+  height: calc(100vh - 223px);
 }
 </style>
