@@ -1,27 +1,30 @@
 <template>
-      <div class="comicList">
-      <router-link :to="searchLink">search</router-link>
-          <PageLink
-          v-for="page in pages" 
-          :name="page.name"
-          :key="page.name"
-          :index='page.index'
-          />
-      </div>
+  <div class="comicList">
+    <router-link :to="searchLink">search</router-link>
+    <PageLink
+      v-for="page in pages"
+      :image="page.image"
+      :key="page.name"
+      :index="page.id"
+    />
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import PageLink from '../components/PageLink.vue';
+import { Component, Vue } from "vue-property-decorator";
+import PageLink from "../components/PageLink.vue";
 
 @Component({
-  name: 'ComicArchives',
+  name: "ComicArchives",
   components: {
-    PageLink,
+    PageLink
+  },
+  async asyncData({ $axios }: any) {
+    let pages = await $axios.$get("/images?first=1&last=3");
+    return { pages };
   }
-})
+} as any)
 export default class ComicArchives extends Vue {
-
   private get params() {
     return this.$route.params;
   }
@@ -30,34 +33,20 @@ export default class ComicArchives extends Vue {
     return this.params.name;
   }
 
-  private getLink(name: string) {
-    return '/comic/' + this.name + '/' + name;
-  }
-
   private get searchLink() {
-    return '/comic/' + this.name + '/search';
-  }
-
-  mounted() {
-    this.pages =[
-      {name:'Page 1', index: 1},
-      {name:'Page 2', index: 2},
-      {name:'Page 3', index: 3},
-      {name:'Page 4', index: 4},
-    ];
+    return "/comic/" + this.name + "/search";
   }
 
   constructor() {
     super();
-    this.pages = [];
   }
 
-  private pages: Array<{name: string; index: number}>;
+  private pages!: Array<{ id: number; image: string; image_lowres: string }>;
 }
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/colors.scss';
+@import "~/assets/scss/colors.scss";
 
 .comicList {
   display: flex;
@@ -66,5 +55,4 @@ export default class ComicArchives extends Vue {
   max-width: 800px;
   margin: 0 auto;
 }
-
 </style>

@@ -1,41 +1,27 @@
 <template>
-    <ListLink :name="name" :path="path" :backgroundImage="backgroundImage"/>
+  <ListLink name="link" :path="path" :backgroundImage="image" />
 </template>
 
 <script lang="ts">
-
-import { Component, Vue, Prop } from 'vue-property-decorator';
-import ListLink from './ListLink.vue';
+import { Component, Vue, Prop } from "vue-property-decorator";
+import ListLink from "./ListLink.vue";
 @Component({
-    name: 'PageLink',
-    props: {
-        name
-    },
-    components: {
-        ListLink
-    }
+  name: "PageLink",
+  components: {
+    ListLink
+  }
 })
 export default class PageLink extends Vue {
-    @Prop(String)
-    private name!: string;
+  @Prop(String)
+  private image!: string;
 
-    @Prop(Number)
-    private index!: number;
+  @Prop(Number)
+  private index!: number;
 
-    private get comicName(): string {
-        return this.$route.params.name;
-    }
-
-    private get path(): string {
-        return "/comic/" + this.comicName + "/" + this.index;
-    }
-    
-    private get backgroundImage(): string {
-        return "/img/comics/" + this.comicName + "/page" + this.index + ".png";
-    }
+  private get path(): string {
+    return "/comic/" + this.index;
+  }
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

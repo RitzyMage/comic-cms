@@ -15,6 +15,14 @@ export default class ClientController {
     return { first, last };
   }
 
+  async getBlockImages(start: number, end: number) {
+    return await connection
+      .select("id", "image", "image_lowres")
+      .from("comics")
+      .where("id", ">=", start)
+      .andWhere("id", "<=", end);
+  }
+
   async getComic(id: number) {
     return await connection
       .select(
