@@ -49,6 +49,7 @@ ADMIN PORTION
 	endpoint for adding comics
 	differentiation between admin database user and client database user
 	re-build static build on add comic
+	re-build only sigle page on edit comic
 
 OTHER TASKS
 	error handling (e.g. no server or database)
