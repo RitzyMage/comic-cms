@@ -86,7 +86,7 @@ export default class ComicPage extends Vue {
   }
 
   private navigateFirst() {
-    this.mySwiper.slideTo(0, SWIPER_ANIMATION_LENGTH);
+    this.mySwiper.slideTo(1, SWIPER_ANIMATION_LENGTH);
   }
 
   private navigatePrevious() {
@@ -112,6 +112,7 @@ export default class ComicPage extends Vue {
 
   private get images(): ImageInfo[] {
     return [
+      this.infoAsImage,
       ...[
         this.databaseToImage(this.firstImage),
         ...Array(FILLER_SLIDES).fill(this.infoAsImage)
@@ -137,7 +138,7 @@ export default class ComicPage extends Vue {
   }
 
   private get startingImage() {
-    return FILLER_SLIDES + 2;
+    return FILLER_SLIDES + 3;
   }
 
   private get lastImageIndex() {
@@ -178,10 +179,9 @@ export default class ComicPage extends Vue {
   }
 
   mounted() {
-    console.log(this.comicInfo);
     this.mySwiper.on("slideChangeTransitionEnd", () => {
-      if (this.mySwiper.realIndex == 0) {
-        this.removeAllSlidesExcept(0);
+      if (this.mySwiper.realIndex == 1) {
+        this.removeAllSlidesExcept(1);
         this.$router.push(this.nav.firstURL);
       } else if (this.mySwiper.realIndex == this.startingImage - 1) {
         this.removeAllSlidesExcept(this.startingImage - 1);
@@ -214,6 +214,6 @@ export default class ComicPage extends Vue {
 }
 
 .comic-height {
-  height: calc(100vh - 223px);
+  max-height: calc(100vh - 223px);
 }
 </style>
