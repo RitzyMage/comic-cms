@@ -1,6 +1,6 @@
 NEXT STEPS
 	[DONE] deploy to server
-	remove loading bar
+	[DONE] remove loading bar
 	make deployment automated
 	[DONE] fix shows first image when loading slow
 

@@ -212,8 +212,4 @@ export default class ComicPage extends Vue {
 .title {
   margin: 5px 0;
 }
-
-.comic-height {
-  max-height: calc(100vh - 223px);
-}
 </style>

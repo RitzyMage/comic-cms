@@ -1,5 +1,5 @@
 <template>
-  <div class="comicImageArea no-overflow" :style="containerStyle">
+  <div class="comicImageArea comic-height" :style="containerStyle">
     <img
       v-if="info.src"
       class="no-overflow"
