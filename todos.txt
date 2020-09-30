@@ -35,6 +35,13 @@ COMIC PAGE
 		(maybe only if it takes too long? it might flicker otherwise)
 		(or show loading spinner?)
 
+ARCHIVES PAGE
+	image background transparency fix
+	use min image
+	use comic name
+	lazy loading
+
+
 OTHER PAGES
 	search by content
 	archives page
@@ -55,3 +62,5 @@ OTHER TASKS
 	error handling (e.g. no server or database)
 	[DONE] fix gitignore to ignore build files
 	[DONE] figure out /comic/null error
+	custom color themes
+	custom button images
