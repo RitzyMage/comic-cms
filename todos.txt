@@ -1,7 +1,7 @@
 NEXT STEPS
 	[DONE] deploy to server
 	[DONE] remove loading bar
-	make deployment automated
+	[DONE] make deployment automated
 	[DONE] fix shows first image when loading slow
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
