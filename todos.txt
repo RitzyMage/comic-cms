@@ -36,7 +36,8 @@ COMIC PAGE
 		(or show loading spinner?)
 
 ARCHIVES PAGE
-	image background transparency fix
+	[DONE] image background transparency fix
+	new styles
 	use min image
 	use comic name
 	lazy loading

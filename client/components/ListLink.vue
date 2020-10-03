@@ -29,23 +29,20 @@ export default class ComicLink extends Vue {
 @import "~/assets/scss/colors.scss";
 .listLink {
   height: 120px;
-  width: calc(100% - 100px);
+  width: 100%;
   margin: 10px 0;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: flex-start;
-  padding: 0px 50px;
   box-shadow: 1px 1px 3px #0008;
   position: relative;
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
+  background-size: 0%;
 }
 
 .listLink:hover {
   box-shadow: 1px 1px 6px #000c;
   color: $primaryLight;
-  background-color: $mediumBackground;
   font-size: 1.05em;
   text-shadow: 1px 1px 2px black;
   transition: all 50ms ease-in;
@@ -56,27 +53,41 @@ export default class ComicLink extends Vue {
   position: absolute;
   width: 110%;
   height: 300%;
-  background: inherit;
-  z-index: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
   filter: brightness(55%) contrast(50%) saturate(50%);
   left: -5%;
   top: -100%;
   transform: rotate(11deg);
 }
+.listLink:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to left,
+    $primaryLight,
+    $primary,
+    $primaryDark
+  );
+  z-index: 0;
+}
 
 .listLink:hover:before {
-  filter: brightness(70%);
+  filter: none;
   -webkit-transition: -webkit-filter 50ms ease-in;
 }
 
 .innerLink {
   z-index: 1;
-  font-size: 3em;
-}
-
-@media screen and (max-width: 600px) {
-  .innerLink {
-    font-size: 1.2em;
-  }
+  font-size: 1.2em;
+  background: #111;
+  padding: 16px 64px;
+  clip-path: pol;
+  clip-path: polygon(30% 0%, 100% 10%, 70% 100%, 0% 90%);
+  margin: 8px;
 }
 </style>

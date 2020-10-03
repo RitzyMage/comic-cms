@@ -4,7 +4,7 @@
     <PageLink
       v-for="page in pages"
       :image="page.image"
-      :key="page.name"
+      :key="page.title"
       :index="page.id"
     />
   </div>
