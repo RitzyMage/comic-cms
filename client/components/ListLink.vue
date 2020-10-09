@@ -85,9 +85,8 @@ export default class ComicLink extends Vue {
   z-index: 1;
   font-size: 1.2em;
   background: #111;
-  padding: 16px 64px;
-  clip-path: pol;
-  clip-path: polygon(30% 0%, 100% 10%, 70% 100%, 0% 90%);
+  padding: 8px 32px 8px 16px;
+  clip-path: polygon(0% 0%, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
   margin: 8px;
 }
 </style>
