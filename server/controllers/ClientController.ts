@@ -17,7 +17,7 @@ export default class ClientController {
 
   async getBlockImages(start: number, end: number) {
     return await connection
-      .select("id", "image", "image_lowres")
+      .select("id", "image", "image_lowres", "title")
       .from("comics")
       .where("id", ">=", start)
       .andWhere("id", "<=", end);

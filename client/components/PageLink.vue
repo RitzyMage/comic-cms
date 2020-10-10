@@ -1,5 +1,5 @@
 <template>
-  <ListLink name="link" :path="path" :backgroundImage="image" />
+  <ListLink :name="page.title" :path="path" :backgroundImage="page.image" />
 </template>
 
 <script lang="ts">
@@ -12,14 +12,11 @@ import ListLink from "./ListLink.vue";
   }
 })
 export default class PageLink extends Vue {
-  @Prop(String)
-  private image!: string;
-
-  @Prop(Number)
-  private index!: number;
+  @Prop(Object)
+  private page!: { title: string; image: string; id: number };
 
   private get path(): string {
-    return "/comic/" + this.index;
+    return "/comic/" + this.page.id;
   }
 }
 </script>

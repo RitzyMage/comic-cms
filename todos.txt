@@ -40,9 +40,9 @@ COMIC PAGE
 
 ARCHIVES PAGE
 	[DONE] image background transparency fix
-	new styles
+	[DONE] new styles
 	use min image
-	use comic name
+	[DONE] use comic name
 	lazy loading
 
 
