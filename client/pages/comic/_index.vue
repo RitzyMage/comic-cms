@@ -20,8 +20,15 @@ import { Route } from "vue-router";
   components: {
     "comic-page": ComicPage
   },
-  async asyncData({ $axios, params }: any) {
-    return await $axios.$get(`/${params.index}/all`);
+  async asyncData({ $axios, params, error }: any) {
+    try {
+      return await $axios.$get(`/${params.index}/all`);
+    } catch (e) {
+      console.log(e);
+      error({
+        message: e.response.statusText
+      });
+    }
   },
   transition: (to: Route, from: Route) => {
     if (!to || !from) {
@@ -41,14 +48,22 @@ import { Route } from "vue-router";
       mode: "in-out"
     };
   },
-  validate({ params, $axios }: any) {
+  async validate({ params, $axios, error }: any) {
     let index = parseInt(params.index);
-
-    return $axios
-      .get("/count")
-      .then(({ data }: { data: { count: number } }) => {
-        return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
+    console.log(params);
+    try {
+      return await $axios
+        .get("/count")
+        .then(({ data }: { data: { count: number } }) => {
+          return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
+        });
+    } catch (e) {
+      console.log(e.response.statusText);
+      error({
+        message: e.response.statusText
       });
+    }
+    return true;
   }
 } as any)
 export default class Page extends Vue {

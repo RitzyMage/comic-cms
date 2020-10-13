@@ -1,4 +1,5 @@
 import express from "express";
+require("express-async-errors");
 import ClientController from "./controllers/ClientController";
 import cors from "cors";
 require("dotenv").config();
