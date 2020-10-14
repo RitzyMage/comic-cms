@@ -212,4 +212,11 @@ export default class ComicPage extends Vue {
 .title {
   margin: 5px 0;
 }
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 1.2em;
+    max-height: 1.2em;
+  }
+}
 </style>

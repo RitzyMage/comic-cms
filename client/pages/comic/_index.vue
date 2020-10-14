@@ -24,7 +24,6 @@ import { Route } from "vue-router";
     try {
       return await $axios.$get(`/${params.index}/all`);
     } catch (e) {
-      console.log(e);
       error({
         message: e.response.statusText
       });
@@ -50,7 +49,6 @@ import { Route } from "vue-router";
   },
   async validate({ params, $axios, error }: any) {
     let index = parseInt(params.index);
-    console.log(params);
     try {
       return await $axios
         .get("/count")
@@ -58,7 +56,6 @@ import { Route } from "vue-router";
           return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
         });
     } catch (e) {
-      console.log(e.response.statusText);
       error({
         message: e.response.statusText
       });

@@ -2,7 +2,7 @@
   <div class="comicImageArea comic-height" :style="containerStyle">
     <img
       v-if="info.src"
-      class="no-overflow"
+      class="no-overflow comicImage"
       ref="image"
       :src="info.src"
       :alt="info.alt"
@@ -56,11 +56,19 @@ export class ComicImage extends Vue {
 export default ComicImage;
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .comicImageArea {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comicImage {
+  max-width: 100vw;
 }
 
 .no-overflow {

@@ -3,7 +3,7 @@ NEXT STEPS
 	[DONE] remove loading bar
 	[DONE] make deployment automated
 	[DONE] fix shows first image when loading slow
-	fix swipe on mobile
+	[DONE] fix swipe on mobile
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	[DONE] optimize calls to server; see if can do all in one call
@@ -32,6 +32,8 @@ COMIC PAGE
 	hide header when reading?
 
 	custom URL's (or based on name)
+
+	image zoomable on mobile
 
 	when loading new page, get new title (and other info) and display
 	when loading new page and can't navigate, gray out navigation (?)
