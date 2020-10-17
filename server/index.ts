@@ -37,6 +37,7 @@ app.get("/api/:id/all", async (req, res) => {
     comicInfo: await clientController.getComic(id),
     comicCount: (await clientController.getComicCount())?.count,
     extraImages: await clientController.getEndImages(),
+    tags: await clientController.getTags(id),
   });
 });
 

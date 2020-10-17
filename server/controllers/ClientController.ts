@@ -23,6 +23,14 @@ export default class ClientController {
       .andWhere("id", "<=", end);
   }
 
+  async getTags(id: number) {
+    return await connection
+      .select("tags.name as name", "tags.id as id")
+      .from("tags")
+      .leftJoin("comic_tags", "tags.id", "comic_tags.tag")
+      .where({ "comic_tags.comic": id });
+  }
+
   async getComic(id: number) {
     return await connection
       .select(
