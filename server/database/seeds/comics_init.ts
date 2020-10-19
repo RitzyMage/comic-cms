@@ -23,7 +23,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 2,
       title: "Our Nation’s Enemy",
       transcript:
-        "STRIPE: Well what about about brathing fire on it?* SPOT: No, ...",
+        "STRIPE: Well what about about brathing fire on it?*(One of...) SPOT: No, ...",
       mouseover: "W . . . wait . . . is THAT how orphans (do not) dress?",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2011-03-02-our-nations-enemy.png",
@@ -48,13 +48,13 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 4,
       title: "If I Had A Hammer",
-      transcript: "GRAOE: Peanut, is something wrong? PWANUT: No... Why?",
+      transcript: "GRAPE: Peanut, is something wrong? PEANUT: No... Why? ...",
       mouseover:
         "Peanut and Grape feature because lets face it, if these go on longer than a week you complain voraciously",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2011-03-07-if-i-had-a-hammer.png",
       image_lowres: "/img/comics/2020-03-13-the-secret.webp",
-      posted: "2011-03-04",
+      posted: "2011-03-07",
       height: 458,
       width: 619,
     },
@@ -62,12 +62,12 @@ export async function seed(knex: Knex): Promise<void> {
       id: 5,
       title: "Ending This Nightmare",
       transcript:
-        "STRIPE: Psst.. just tell them to say NO. SPOT: Oh right... the old standby!",
+        "STRIPE: Psst.. just tell them to say NO. SPOT: Oh right... the old standby! ...",
       mouseover: "I was justified! You saw his angry eyebrows!",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2011-03-09-ending-this-nightmare.png",
       image_lowres: "/img/comics/2020-03-13-the-secret.webp",
-      posted: "2011-03-04",
+      posted: "2011-03-09",
       height: 458,
       width: 619,
     },
@@ -100,7 +100,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 8,
       title: "In All Fairness",
-      transcript: "Mr. Sorceror: STAY THY HAND. THE KRUNLK: KRUNLK DENIED?",
+      transcript: "Mr. Sorceror: STAY THY HAND. THE KRUNLK: KRUNLK DENIED? ...",
       mouseover: "and far away, the faint sound of maniacal laughter",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2012-05-11-in-all-fairness.png",
@@ -113,7 +113,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 9,
       title: "Spot The Difference",
       transcript:
-        "GRAPE: Hey Peanut, whatever happened oto that story with the cyborg?...",
+        "GRAPE: Hey Peanut, whatever happened to that story with the cyborg? ...",
       mouseover:
         "It's a good thing I ingrained that habit when I got that short term memory disorder . . . no wait, that was Memento. What was I thinking of?",
       image:
@@ -140,7 +140,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 11,
       title: "The Retcon Retcon",
       transcript:
-        "PEANUT: Come On! It can be the start of an awesome gritty reboot!",
+        "PEANUT: Come On! It can be the start of an awesome gritty reboot! ...",
       mouseover:
         "'So why did they make a clone of Stripe too?' 'Universal matter vibrations.' 'So, just because?' 'Yeah, pretty much.'",
       image:
@@ -166,7 +166,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 13,
       title: "The Pending Litigation Of Spot",
       transcript:
-        "Spot (Superdog) in THE TRIAL fof ZE-DOK! BRAN OF THE UNIVERSE: Spoy, we the brans of the universe, hereby call you...",
+        "Spot (Superdog) in THE TRIAL of ZE-DOK! BRAN OF THE UNIVERSE: Spot, we the brans of the universe, hereby call you ...",
       mouseover: "Everything I need to know I learned from Star Trek",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2013-02-06-the-pending-litigation-of-spot.png",
@@ -178,7 +178,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 14,
       title: "The END Of Spot",
-      transcript: "TODAY, SPOT (supredog) will DIE! SPOT: I will?",
+      transcript: "TODAY, SPOT (superdog) will DIE! SPOT: I will? ...",
       mouseover: "My favorite part was where he didn't die",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2013-06-26-the-end-of-spot.png",
@@ -191,7 +191,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 15,
       title: "The Boring Adventures Of Spot",
       transcript:
-        "The Adventures of Spot (superdog): SPOT and the COST of BUSINESS",
+        "The Adventures of Spot (superdog): SPOT and the COST of BUSINESS ...",
       mouseover:
         "It's simple math: everything is exactly equivalent to everything else and there are no extraneous details worth worrying about",
       image:
@@ -218,7 +218,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 17,
       title: "Spot And The Unfortunate Intermission",
       transcript:
-        "When get-well cards aren't enough! SPOT (Supredog) is sick!...",
+        "When get-well cards aren't enough! SPOT (Supredog) is sick! ...",
       mouseover: "sorry I forgot to draw them entirely poorly",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-02-07-spot-and-the-unfortunate-intermission.png",
@@ -231,7 +231,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 18,
       title: "Not That Kind Of Grounded",
       transcript:
-        "Truth, Justice and the What-ican Way?! SPOT: (Superdog)Grounded!...",
+        "Truth, Justice and the What-ican Way?! SPOT: (Superdog)Grounded! ...",
       mouseover: "keep forgetting he has the fire breath",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-06-02-not-that-kind-of-grounded.png",
@@ -244,13 +244,13 @@ export async function seed(knex: Knex): Promise<void> {
       id: 19,
       title: "Off The Record",
       transcript:
-        "GANG MEMBER: Yo yo what do we have here, some kind of stupid punk...",
+        "STRIPE: SUPERDOG! Stripe Sylv, Triweekly Globe ...",
       mouseover:
-        '"But how did you know which houses were the gang members?" "I did?"',
+        'I see Regular Hawk has an axe to grind',
       image:
-        "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-06-06-wrong-side-of-the-trax.png",
+        "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-06-04-off-the-record.png",
       image_lowres: "/img/comics/2020-03-13-the-secret.webp",
-      posted: "2014-06-06",
+      posted: "2014-06-04",
       height: 888,
       width: 1200,
     },
@@ -264,14 +264,14 @@ export async function seed(knex: Knex): Promise<void> {
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-06-06-wrong-side-of-the-trax.png",
       image_lowres: "/img/comics/2020-03-13-the-secret.webp",
-      posted: "2014-06-08",
+      posted: "2014-06-06",
       height: 888,
       width: 1200,
     },
     {
       id: 21,
       title: "Spot And The Exposition Of Evil",
-      transcript: "SPOT: Continues to be GROUNDED!...",
+      transcript: "SPOT: Continues to be GROUNDED! ...",
       mouseover:
         "No, they're explosions, not daises!! And our flag's color is just lightish red!",
       image:
@@ -284,25 +284,25 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 22,
       title: "Saving Lives, Taking Names",
-      transcript: "SO THEN??? SPOT: This is Fine...",
+      transcript: "SO THEN??? SPOT: This is Fine ...",
       mouseover:
         "Who are you going to trust--me, or an infallible supercomputer?",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-07-23-saving-lives-taking-names.png",
       image_lowres: "/img/comics/2020-03-13-the-secret.webp",
-      posted: "2014-06-21",
+      posted: "2014-06-23",
       height: 458,
       width: 619,
     },
     {
       id: 23,
       title: "Battle Of Epic Proportions",
-      transcript: "And so, the REGULAR HAWK flew to Colorado.",
+      transcript: "And so, the REGULAR HAWK flew to Colorado. ...",
       mouseover: "*gasp* you can't say butt on the internet",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-07-25-battle-of-epic-proportions.png",
       image_lowres: "/img/comics/2020-03-13-the-secret.webp",
-      posted: "2014-06-21",
+      posted: "2014-06-25",
       height: 458,
       width: 619,
     },
@@ -310,7 +310,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 24,
       title: "The Secret",
       transcript:
-        "SPOT (SUPERDOG) in... the IDENTITY OF SPOT (SUPERDOG); onde day at the triweekly globe!!!...",
+        "SPOT (SUPERDOG) in... the IDENTITY OF SPOT (SUPERDOG); one day at the triweekly globe!!!...",
       mouseover:
         "oh no it's another spot arc it's been years but it still happens too often somehow",
       image:
@@ -324,7 +324,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 25,
       title: "Jim Jimminy Jim Jimminy Jim Jim Jerry",
       transcript:
-        "Stripe: The fact is, he has a secret identity, and I've tracked it to this very building!...",
+        "Stripe: The fact is, he has a secret identity, and I've tracked it to this very building! ...",
       mouseover:
         "also it's cold now, I had to drop off everyone else's orders on the way up",
       image:
@@ -339,7 +339,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 26,
       title: "Super Camouflage",
       transcript:
-        "Houndstooth: Do you REALLY think Jim-Jim is Spot (superdog)?...",
+        "Houndstooth: Do you REALLY think Jim-Jim is Spot (superdog)? ...",
       mouseover:
         "unless there's someone I'm forgetting, and his superpower is to make us forget every time we look at him, but that'd be extremely silly and convoluted",
       image:
@@ -353,7 +353,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 27,
       title: "This Looks Like A Job For The Intern",
       transcript:
-        "STRIPE: Jim-jim, for the sake of argument, how far deos spot (superdog)'s super-hearing reach? JIM_JIM: Depends on the writer...",
+        "STRIPE: Jim-jim, for the sake of argument, how far deos spot (superdog)'s super-hearing reach? JIM_JIM: Depends on the writer ...",
       mouseover: "that sounded like YOUR car",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-20-this-looks-like-a-job-for-the-intern.png",
@@ -367,7 +367,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 28,
       title: "Then Who Was Car",
       transcript:
-        "STRIPE: Now that Jim-Jim is gone, we can discuss this collection of ugly bowties...",
+        "STRIPE: Now that Jim-Jim is gone, we can discuss this collection of ugly bowties ...",
       mouseover:
         "The next fifty comics is just them lampshading the previous comic",
       image:
@@ -381,7 +381,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 29,
       title: "Well Turn Me Into A Newt",
       transcript:
-        "JIM-JIM: I don;t get why you're ven so obsessed with this! STRIPE: Just admid that you're spot(superdog)!",
+        "JIM-JIM: I don;t get why you're ven so obsessed with this! STRIPE: Just admid that you're spot(superdog)! ...",
       mouseover: "Well Turn Me Into A Newt",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-25-well-turn-me-into-a-newt.png",
@@ -393,7 +393,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 30,
       title: "Exactly What Spot Would Have Done",
-      transcript: "JIM-JIM: Okay hahah, seriously now somebody help",
+      transcript: "JIM-JIM: Okay hahah, seriously now somebody help ...",
       mouseover:
         'you\'ll look up and shout "Save us!"... and I\'ll look down, and whisper "kay."',
       image:
@@ -408,7 +408,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 31,
       title: "Shocking Reveal",
       transcript:
-        "SPOT: Sorry for taking so long, Jim-Jim! Turns out the movie didn't even have an after-credits sequence! JIM-Jim: Hahaha, that's okay...",
+        "SPOT: Sorry for taking so long, Jim-Jim! Turns out the movie didn't even have an after-credits sequence! JIM-Jim: Hahaha, that's okay ...",
       mouseover: "to probably never be continued",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-30-shocking-reveal.png",
