@@ -25,7 +25,7 @@ import { Route } from "vue-router";
       return await $axios.$get(`/${params.index}/all`);
     } catch (e) {
       error({
-        message: e.response.statusText
+        message: e.response?.statusText ?? "server error"
       });
     }
   },
@@ -57,7 +57,7 @@ import { Route } from "vue-router";
         });
     } catch (e) {
       error({
-        message: e.response.statusText
+        message: e.response?.statusText ?? "Server Error"
       });
     }
     return true;
