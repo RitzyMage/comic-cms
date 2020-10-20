@@ -144,7 +144,7 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover:
         "'So why did they make a clone of Stripe too?' 'Universal matter vibrations.' 'So, just because?' 'Yeah, pretty much.'",
       image:
-        "https://www.housepetscomic.com/comic/2012/08/31/the-retcon-retcon/",
+        "https://www.housepetscomic.com/wp-content/uploads/2016/07/2012-08-31-the-retcon-retcon.png",
       image_lowres: "/img/comics/2020-03-13-the-secret.webp",
       posted: "2012-08-31",
       height: 888,
