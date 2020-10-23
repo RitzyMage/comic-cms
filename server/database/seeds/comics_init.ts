@@ -2,6 +2,8 @@ import * as Knex from "knex";
 
 export async function seed(knex: Knex): Promise<void> {
   // Deletes ALL existing entries
+  await knex("COMICS").update({ next: null });
+  await knex("COMICS").update({ previous: null });
   await knex("COMICS").del();
 
   // Inserts seed entries
@@ -78,7 +80,8 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "No YOU'RE dumb",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2012-05-07-round-table-discussion-at-a-square-table.png",
-      image_lowres: "/img/comics/2012-05-07-round-table-discussion-at-a-square-table.webp",
+      image_lowres:
+        "/img/comics/2012-05-07-round-table-discussion-at-a-square-table.webp",
       posted: "2012-04-07",
       height: 458,
       width: 619,
@@ -92,7 +95,8 @@ export async function seed(knex: Knex): Promise<void> {
         "I just couldn't get enough of how little chemistry they had onscreen!",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2012-05-09-righting-the-wrong-rights-wrongly.png",
-      image_lowres: "/img/comics/2012-05-09-righting-the-wrong-rights-wrongly.webp",
+      image_lowres:
+        "/img/comics/2012-05-09-righting-the-wrong-rights-wrongly.webp",
       posted: "2012-04-09",
       height: 458,
       width: 619,
@@ -170,7 +174,8 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "Everything I need to know I learned from Star Trek",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2013-02-06-the-pending-litigation-of-spot.png",
-      image_lowres: "/img/comics/2013-02-06-the-pending-litigation-of-spot.webp",
+      image_lowres:
+        "/img/comics/2013-02-06-the-pending-litigation-of-spot.webp",
       posted: "2013-02-06",
       height: 888,
       width: 1200,
@@ -222,7 +227,8 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "sorry I forgot to draw them entirely poorly",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-02-07-spot-and-the-unfortunate-intermission.png",
-      image_lowres: "/img/comics/2014-02-07-spot-and-the-unfortunate-intermission.webp",
+      image_lowres:
+        "/img/comics/2014-02-07-spot-and-the-unfortunate-intermission.webp",
       posted: "2014-02-07",
       height: 888,
       width: 1200,
@@ -243,10 +249,8 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 19,
       title: "Off The Record",
-      transcript:
-        "STRIPE: SUPERDOG! Stripe Sylv, Triweekly Globe ...",
-      mouseover:
-        'I see Regular Hawk has an axe to grind',
+      transcript: "STRIPE: SUPERDOG! Stripe Sylv, Triweekly Globe ...",
+      mouseover: "I see Regular Hawk has an axe to grind",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-06-04-off-the-record.png",
       image_lowres: "/img/comics/2014-06-04-off-the-record.webp",
@@ -276,7 +280,8 @@ export async function seed(knex: Knex): Promise<void> {
         "No, they're explosions, not daises!! And our flag's color is just lightish red!",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-07-21-spot-and-the-exposition-of-evil.png",
-      image_lowres: "/img/comics/2014-07-21-spot-and-the-exposition-of-evil.webp",
+      image_lowres:
+        "/img/comics/2014-07-21-spot-and-the-exposition-of-evil.webp",
       posted: "2014-06-21",
       height: 458,
       width: 619,
