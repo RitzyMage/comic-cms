@@ -6,7 +6,7 @@ NEXT STEPS
 	[DONE] fix swipe on mobile
 	[DONE] proofread new seeds
 	[DONE] minified images for new seeds
-	loading image should not move navigation bar
+	[DONE] loading image should not move navigation bar
 	reafactor scss to not be in two places
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
@@ -38,6 +38,7 @@ COMIC PAGE
 	custom URL's (or based on name)
 
 	image zoomable on mobile
+	image scrollable on mobile
 
 	when loading new page, get new title (and other info) and display
 	when loading new page and can't navigate, gray out navigation (?)

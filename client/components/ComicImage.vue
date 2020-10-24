@@ -41,15 +41,9 @@ export class ComicImage extends Vue {
 
   private get containerStyle() {
     if (!this.imageLoaded && this.info.smallSrc) {
-      return (
-        "background-image: url('" +
-        this.info.smallSrc +
-        "'); height: " +
-        this.info.height +
-        "px"
-      );
+      return "background-image: url('" + this.info.smallSrc + "');";
     }
-    return "height: " + this.info.height + "px";
+    return "";
   }
 }
 
