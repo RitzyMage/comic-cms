@@ -1,3 +1,9 @@
 .comic-height {
-  max-height: calc(100vh - 223px);
+  height: calc(100vh - 223px);
+}
+
+.swiper-slide {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }

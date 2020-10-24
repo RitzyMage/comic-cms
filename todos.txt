@@ -4,9 +4,10 @@ NEXT STEPS
 	[DONE] make deployment automated
 	[DONE] fix shows first image when loading slow
 	[DONE] fix swipe on mobile
-	proofread new seeds
-	minified images for new seeds
+	[DONE] proofread new seeds
+	[DONE] minified images for new seeds
 	loading image should not move navigation bar
+	reafactor scss to not be in two places
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	[DONE] optimize calls to server; see if can do all in one call
