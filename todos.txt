@@ -1,18 +1,7 @@
 NEXT STEPS
-	[DONE] deploy to server
-	[DONE] remove loading bar
-	[DONE] make deployment automated
-	[DONE] fix shows first image when loading slow
-	[DONE] fix swipe on mobile
-	[DONE] proofread new seeds
-	[DONE] minified images for new seeds
-	[DONE] loading image should not move navigation bar
-	reafactor scss to not be in two places
+	refactor scss to not be in two places
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
-	[DONE] optimize calls to server; see if can do all in one call
-
-	[DONE] images use lowres first
 	optimized images
 
 	static build
@@ -26,10 +15,6 @@ OPTIMIZATIONS (MAKE BLAZING FAST)
 
 COMIC PAGE
 	tags
-
-	[DONE] show post date
-
-	[DONE] don't get taller than screen
 
 	don't scroll to top on navigate
 
@@ -46,16 +31,12 @@ COMIC PAGE
 		(or show loading spinner?)
 
 ARCHIVES PAGE
-	[DONE] image background transparency fix
-	[DONE] new styles
 	use min image
-	[DONE] use comic name
 	lazy loading
 
 
 OTHER PAGES
 	search by content
-	archives page
 	about page
 	blog section
 	rss feed
@@ -70,8 +51,5 @@ ADMIN PORTION
 	re-build only sigle page on edit comic
 
 OTHER TASKS
-	error handling (e.g. when no server or database)
-	[DONE] fix gitignore to ignore build files
-	[DONE] figure out /comic/null error
 	custom color themes
 	custom button images
