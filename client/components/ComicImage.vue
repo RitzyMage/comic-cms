@@ -1,8 +1,11 @@
 <template>
-  <div class="comicImageArea comic-height" :style="containerStyle">
+  <div
+    class="comicImageArea comic-height swiper-zoom-container"
+    :style="containerStyle"
+  >
     <img
       v-if="info.src"
-      class="no-overflow comicImage"
+      class="no-overflow comicImage swiper-zoom-target"
       ref="image"
       :src="info.src"
       :alt="info.alt"

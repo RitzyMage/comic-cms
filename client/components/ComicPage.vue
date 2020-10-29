@@ -199,6 +199,7 @@ export default class ComicPage extends Vue {
 
     this.mySwiper.allowSlidePrev = !!this.comicInfo.previous;
     this.mySwiper.allowSlideNext = !!this.comicInfo.next;
+    this.mySwiper.zoom.enable();
   }
 }
 </script>
