@@ -1,5 +1,4 @@
 NEXT STEPS
-	refactor scss to not be in two places
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images

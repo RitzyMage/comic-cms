@@ -205,6 +205,12 @@ export default class ComicPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.swiper-slide {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .fade-in-leave-active .title,
 .fade-out-enter-active .title {
   opacity: 0;
