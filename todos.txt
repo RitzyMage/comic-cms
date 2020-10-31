@@ -31,7 +31,8 @@ COMIC PAGE
 
 ARCHIVES PAGE
 	use min image
-	lazy loading
+	[DONE] lazy loading
+	check / optimize lazy loading
 
 
 OTHER PAGES
