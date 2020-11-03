@@ -24,7 +24,7 @@ const LINK_HEIGHT = 140;
   }
 } as any)
 export default class ComicArchives extends Vue {
-  private $axios!: any;
+  $axios!: any;
 
   private get params() {
     return this.$route.params;

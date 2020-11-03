@@ -21,7 +21,6 @@ COMIC PAGE
 
 	custom URL's (or based on name)
 
-	image zoomable on mobile
 	image scrollable on mobile
 
 	when loading new page, get new title (and other info) and display
@@ -31,7 +30,6 @@ COMIC PAGE
 
 ARCHIVES PAGE
 	use min image
-	[DONE] lazy loading
 	check / optimize lazy loading
 
 
