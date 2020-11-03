@@ -38,7 +38,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/pwa"],
+  modules: ["@nuxtjs/pwa", "@nuxtjs/auth"],
   /*
    ** Build configuration
    */
@@ -51,6 +51,8 @@ export default {
       config.devtool = "source-map";
     }
   },
+
+  auth: {},
 
   axios: {
     baseURL: process.env.API_URL

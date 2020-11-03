@@ -13,6 +13,7 @@
   "dependencies": {
     "@fdstack/vue-feather-icon": "^1.1.4",
     "@nuxt/types": "^2.14.4",
+    "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/pwa": "^3.0.2",
     "@types/swiper": "^5.3.1",
