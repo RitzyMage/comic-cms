@@ -52,7 +52,17 @@ export default {
     }
   },
 
-  auth: {},
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: "/auth/login", method: "post", propertyName: "token" },
+          logout: { url: "/auth/logout", method: "post" },
+          user: false
+        }
+      }
+    }
+  },
 
   axios: {
     baseURL: process.env.API_URL

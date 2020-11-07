@@ -42,8 +42,10 @@ OTHER PAGES
 
 
 ADMIN PORTION
+	admin page with links for adding comics, editing comics
 	front end for adding comics
 	endpoint for adding comics
+	page for editing comicsgit 
 	differentiation between admin database user and client database user
 	re-build static build on add comic
 	re-build only sigle page on edit comic

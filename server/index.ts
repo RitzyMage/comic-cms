@@ -2,13 +2,20 @@ import express from "express";
 require("express-async-errors");
 import ClientController from "./controllers/ClientController";
 import cors from "cors";
+import bodyParser from "body-parser";
 require("dotenv").config();
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 const PORT = process.env.PORT;
 
 const clientController = new ClientController();
+
+app.post("/api/auth/login", async (req, res) => {
+  console.log(req.body.username, req.body.password);
+  res.send({});
+});
 
 app.get("/api/count", async (req, res) =>
   res.send(await clientController.getComicCount())
