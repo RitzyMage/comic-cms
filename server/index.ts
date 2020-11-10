@@ -3,6 +3,7 @@ require("express-async-errors");
 import ClientController from "./controllers/ClientController";
 import cors from "cors";
 import bodyParser from "body-parser";
+import AuthController from "./controllers/AuthController";
 require("dotenv").config();
 
 const app = express();
@@ -11,10 +12,12 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT;
 
 const clientController = new ClientController();
+const authController = new AuthController();
 
 app.post("/api/auth/login", async (req, res) => {
-  console.log(req.body.username, req.body.password);
-  res.send({});
+  res.send(
+    await authController.verifyUser(req.body.username, req.body.password)
+  );
 });
 
 app.get("/api/count", async (req, res) =>

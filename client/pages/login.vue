@@ -19,8 +19,10 @@ export class Login extends Vue {
 
   private login() {
     this.$auth.loginWith("local", {
-      username: this.username,
-      password: this.password
+      data: {
+        username: this.username,
+        password: this.password
+      }
     });
   }
 }
