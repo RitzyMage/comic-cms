@@ -1,4 +1,10 @@
 NEXT STEPS
+	admin page with links for adding comics, editing comics
+	differentiation between admin database user and client database user
+	endpoint for adding comics
+	front end for adding comics
+	endpoint for editing comics
+	front end for editing comics
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
@@ -14,8 +20,6 @@ OPTIMIZATIONS (MAKE BLAZING FAST)
 
 COMIC PAGE
 	tags
-
-	don't scroll to top on navigate
 
 	hide header when reading?
 
@@ -37,16 +41,11 @@ OTHER PAGES
 	search by content
 	about page
 	blog section
-	rss feed
+	rss feed (use API server?)
 	main page layout and styling
 
 
 ADMIN PORTION
-	admin page with links for adding comics, editing comics
-	front end for adding comics
-	endpoint for adding comics
-	page for editing comicsgit 
-	differentiation between admin database user and client database user
 	re-build static build on add comic
 	re-build only sigle page on edit comic
 
