@@ -15,9 +15,14 @@ const clientController = new ClientController();
 const authController = new AuthController();
 
 app.post("/api/auth/login", async (req, res) => {
-  res.send(
-    await authController.verifyUser(req.body.username, req.body.password)
+  let token = await authController.verifyUser(
+    req.body.username,
+    req.body.password
   );
+  if (!token) {
+    res.status(400).send("Invalid username or password");
+  }
+  res.send(token);
 });
 
 app.get("/api/count", async (req, res) =>

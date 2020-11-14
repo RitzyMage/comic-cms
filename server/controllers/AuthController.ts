@@ -12,7 +12,9 @@ export default class AuthController {
       .where({ username })
       .first();
     let match = !!user && bcrypt.compareSync(password, user.hash);
-    console.log(match);
+    if (!match) {
+      return false;
+    }
     return { token: "TOKEN" };
   }
 
