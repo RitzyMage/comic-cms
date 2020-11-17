@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import knex from "knex";
 const connection = knex(require("../knexfile"));
+import jwt from "jsonwebtoken";
 
 const SALT_ROUNDS = 10;
 
@@ -15,7 +16,7 @@ export default class AuthController {
     if (!match) {
       return false;
     }
-    return { token: "TOKEN" };
+    return { token: jwt.sign({ username }, process.env.JWT_SECRET ?? "") };
   }
 
   async addUser(username: string, password: string) {
