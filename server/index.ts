@@ -22,7 +22,9 @@ app.post("/api/auth/login", async (req, res) => {
   if (!token) {
     res.status(400).send("Invalid username or password");
   }
-  res.send(token);
+  else {
+    res.send(token);
+  }
 });
 
 app.get("/api/count", async (req, res) =>

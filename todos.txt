@@ -1,5 +1,7 @@
 NEXT STEPS
 	admin page with links for adding comics, editing comics
+	actual error message on login fail
+	toasts on log in / out success and failure
 	differentiation between admin database user and client database user
 	endpoint for adding comics
 	front end for adding comics
@@ -52,3 +54,4 @@ ADMIN PORTION
 OTHER TASKS
 	custom color themes
 	custom button images
+	loading screens

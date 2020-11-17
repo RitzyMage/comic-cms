@@ -13,7 +13,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
   name: "Login"
 })
 export class Login extends Vue {
-  private username = "username";
+  private username = "";
   private password = "";
   public $auth!: any;
 

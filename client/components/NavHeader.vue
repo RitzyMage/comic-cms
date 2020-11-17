@@ -7,10 +7,14 @@
       <nuxt-link
         v-for="link in links"
         :to="link.href"
-        :key="link.href"
+        :key="link.name"
         class="link"
         >{{ link.name }}</nuxt-link
       >
+      <span v-if="$auth.loggedIn" class="auth-button" @click="logout"
+        >Log out</span
+      >
+      <nuxt-link v-else class="auth-button" to="/admin">Log in</nuxt-link>
     </div>
   </div>
 </template>
@@ -21,12 +25,17 @@ import { State } from "vuex-class";
 
 @Component
 export default class NavHeader extends Vue {
+  private $auth: any;
   private links = [
     { name: "link1", href: "#" },
     { name: "link2", href: "#" }
   ];
 
   private name = "Comic CMS";
+
+  private logout() {
+    this.$auth.logout();
+  }
 }
 </script>
 
@@ -40,6 +49,10 @@ export default class NavHeader extends Vue {
   align-items: center;
   justify-content: space-evenly;
   width: calc(100% - 200px);
+}
+
+.auth-button {
+  flex-grow: 1;
 }
 
 .link {
