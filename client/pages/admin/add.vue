@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>ADMIN</h1>
+    <h1>Add Comic</h1>
   </div>
 </template>
 
@@ -8,10 +8,10 @@
 import { Vue, Component } from "vue-property-decorator";
 
 @Component({
-  name: "Admin",
+  name: "Add Comic",
   middleware: ["auth"]
 } as any)
-export class Admin extends Vue {}
+export class AddComic extends Vue {}
 
-export default Admin;
+export default AddComic;
 </script>
