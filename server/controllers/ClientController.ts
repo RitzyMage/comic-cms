@@ -1,5 +1,5 @@
 import knex from "knex";
-const connection = knex(require("../knexfile"));
+const connection = knex(require("../knexfile-client"));
 
 export default class ClientController {
   async getComicCount() {
