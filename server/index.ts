@@ -4,6 +4,7 @@ import ClientController from "./controllers/ClientController";
 import cors from "cors";
 import bodyParser from "body-parser";
 import AuthController from "./controllers/AuthController";
+import auth from "./middleware/auth";
 require("dotenv").config();
 
 const app = express();
@@ -21,8 +22,7 @@ app.post("/api/auth/login", async (req, res) => {
   );
   if (!token) {
     res.status(400).send("Invalid username or password");
-  }
-  else {
+  } else {
     res.send(token);
   }
 });
@@ -56,6 +56,10 @@ app.get("/api/:id/all", async (req, res) => {
     extraImages: await clientController.getEndImages(),
     tags: await clientController.getTags(id),
   });
+});
+
+app.post("/api/comic", auth, async (req, res) => {
+  console.log("adding comic...");
 });
 
 app.listen(PORT, () => {
