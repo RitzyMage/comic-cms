@@ -13,7 +13,7 @@ import { Vue, Component } from "vue-property-decorator";
   middleware: ["auth"]
 } as any)
 export class AddComic extends Vue {
-  private $axios!: any;
+  public $axios!: any;
   private add() {
     this.$axios.post("/comic");
   }
