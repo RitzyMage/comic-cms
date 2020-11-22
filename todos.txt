@@ -50,8 +50,11 @@ OTHER PAGES
 ADMIN PORTION
 	re-build static build on add comic
 	re-build only sigle page on edit comic
+	link to admin page
 
 OTHER TASKS
 	custom color themes
 	custom button images
 	loading screens
+	custom header links (e.g. store, blog)
+
