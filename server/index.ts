@@ -5,6 +5,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import AuthController from "./controllers/AuthController";
 import auth from "./middleware/auth";
+import AdminController from "./controllers/AdminController";
 require("dotenv").config();
 
 const app = express();
@@ -14,6 +15,7 @@ const PORT = process.env.PORT;
 
 const clientController = new ClientController();
 const authController = new AuthController();
+const adminController = new AdminController();
 
 app.post("/api/auth/login", async (req, res) => {
   let token = await authController.verifyUser(
@@ -59,7 +61,31 @@ app.get("/api/:id/all", async (req, res) => {
 });
 
 app.post("/api/comic", auth, async (req, res) => {
-  console.log("adding comic...");
+  let { title, transcript, mouseover, image } = req.body;
+
+  if (!title) {
+    res.status(400).send("title required");
+  }
+  if (!transcript) {
+    res.status(400).send("transcript required");
+  }
+  if (!image) {
+    res.status(400).send("image required");
+  }
+
+  let image_lowres = "http://example.com/logo.png";
+  let height = 800;
+  let width = 900;
+  await adminController.addComic({
+    title,
+    transcript,
+    mouseover,
+    image,
+    image_lowres,
+    height,
+    width,
+  });
+  res.send({ success: true });
 });
 
 app.listen(PORT, () => {

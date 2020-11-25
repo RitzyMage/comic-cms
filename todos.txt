@@ -3,10 +3,10 @@ NEXT STEPS
 	actual error message on login fail
 	toasts on log in / out success and failure
 	differentiation between admin database user and client database user
-	endpoint for adding comics
 	front end for adding comics
 	endpoint for editing comics
 	front end for editing comics
+	actual image upload
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
@@ -57,4 +57,8 @@ OTHER TASKS
 	custom button images
 	loading screens
 	custom header links (e.g. store, blog)
+	reafactor back end to be less coupled
+	use transactions on database ops
+
+	better vs code formatting
 
