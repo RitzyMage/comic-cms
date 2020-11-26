@@ -6,7 +6,16 @@
       <input v-model="title" type="text" />
 
       <span>Image</span>
-      <input type="file" accept="image/x-png,image/gif,image/jpeg" />
+      <picture-input
+        width="600"
+        height="600"
+        margin="16"
+        accept="image/jpeg,image/png"
+        size="10"
+        button-class="btn"
+        @change="imageChange"
+      >
+      </picture-input>
 
       <span>Transcript</span>
       <textarea v-model="transcript" />
@@ -21,16 +30,28 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import PictureInput from "vue-picture-input";
 
 @Component({
   name: "Add-Comic",
-  middleware: ["auth"]
+  middleware: ["auth"],
+  components: {
+    PictureInput
+  }
 } as any)
 export class AddComic extends Vue {
   public $axios!: any;
+  private image: any;
   private add() {
     this.$axios.post("/comic");
   }
+
+  private imageChange(image: any) {
+    if (image) {
+      this.image = image;
+    }
+  }
+
   private transcript = "";
   private title = "";
   private mouseover = "";
