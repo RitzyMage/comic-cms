@@ -23,7 +23,7 @@
       <span>Mouseover Text</span>
       <input v-model="mouseover" type="text" />
 
-      <button @click="add">ADD</button>
+      <button @click="submit">Submit</button>
     </div>
   </div>
 </template>
@@ -42,8 +42,15 @@ import PictureInput from "vue-picture-input";
 export class AddComic extends Vue {
   public $axios!: any;
   private image: any;
-  private add() {
-    this.$axios.post("/comic");
+  private submit() {
+    let data = {
+      title: this.title,
+      transcript: this.transcript,
+      mouseover: this.mouseover,
+      image: this.image
+    };
+    console.log(data);
+    //this.$axios.post("/comic");
   }
 
   private imageChange(image: any) {
