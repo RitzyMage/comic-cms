@@ -10,7 +10,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: 1000000 }));
 const PORT = process.env.PORT;
 
 const clientController = new ClientController();
@@ -80,7 +80,7 @@ app.post("/api/comic", auth, async (req, res) => {
     title,
     transcript,
     mouseover,
-    image,
+    image: image_lowres,
     image_lowres,
     height,
     width,

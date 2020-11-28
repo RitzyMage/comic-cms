@@ -43,14 +43,17 @@ export class AddComic extends Vue {
   public $axios!: any;
   private image: any;
   private submit() {
-    let data = {
-      title: this.title,
-      transcript: this.transcript,
-      mouseover: this.mouseover,
-      image: this.image
-    };
-    console.log(data);
-    //this.$axios.post("/comic");
+    try {
+      let data = {
+        title: this.title,
+        transcript: this.transcript,
+        mouseover: this.mouseover,
+        image: this.image
+      };
+      this.$axios.post("/comic", data);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   private imageChange(image: any) {

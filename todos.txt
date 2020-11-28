@@ -7,6 +7,7 @@ NEXT STEPS
 	endpoint for editing comics
 	front end for editing comics
 	actual image upload
+	create comic page should redirect
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
@@ -61,4 +62,6 @@ OTHER TASKS
 	use transactions on database ops
 
 	better vs code formatting
+
+	favicon
 

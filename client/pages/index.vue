@@ -1,28 +1,29 @@
 <template>
   <div class="container">
     <div>
-      <nuxt-link to='/comic/1'>First Comic</nuxt-link>
-      <nuxt-link :to='lastComic'>Last Comic</nuxt-link>
+      <nuxt-link to="/comic/1">First Comic</nuxt-link>
+      <nuxt-link :to="lastComic">Last Comic</nuxt-link>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {Vue, Component, Prop } from 'vue-property-decorator';
-import { State, Mutation } from 'vuex-class';
+import { Vue, Component, Prop } from "vue-property-decorator";
+import { State, Mutation } from "vuex-class";
 
-@Component 
+@Component({
+  async asyncData({ $axios }: { $axios: any }) {
+    let { count } = await $axios.$get("/count");
+    return { maxComic: count };
+  }
+} as any)
 export default class MainPage extends Vue {
-  @State('maxComic') maxComic !: number;
+  private maxComic!: number;
 
   private get lastComic() {
-    return '/comic/' + this.maxComic;
+    return "/comic/" + this.maxComic;
   }
-
- 
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
