@@ -9,8 +9,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 1,
       title: "The Dark Age Of Spot",
-      transcript:
-        "The Adventures of SPOT (superdog) A great evil was apporaching...",
+      transcript: "The Adventures of SPOT (superdog) A great evil was apporaching...",
       mouseover: "giving them all nervous breakdowns",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2011-02-28-the-dark-age-of-spot.png",
@@ -22,8 +21,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 2,
       title: "Our Nation’s Enemy",
-      transcript:
-        "STRIPE: Well what about about brathing fire on it?*(One of...) SPOT: No, ...",
+      transcript: "STRIPE: Well what about about brathing fire on it?*(One of...) SPOT: No, ...",
       mouseover: "W . . . wait . . . is THAT how orphans (do not) dress?",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2011-03-02-our-nations-enemy.png",
@@ -61,8 +59,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 5,
       title: "Ending This Nightmare",
-      transcript:
-        "STRIPE: Psst.. just tell them to say NO. SPOT: Oh right... the old standby! ...",
+      transcript: "STRIPE: Psst.. just tell them to say NO. SPOT: Oh right... the old standby! ...",
       mouseover: "I was justified! You saw his angry eyebrows!",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2011-03-09-ending-this-nightmare.png",
@@ -78,8 +75,7 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "No YOU'RE dumb",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2012-05-07-round-table-discussion-at-a-square-table.png",
-      image_lowres:
-        "/img/comics/2012-05-07-round-table-discussion-at-a-square-table.webp",
+      image_lowres: "/img/comics/2012-05-07-round-table-discussion-at-a-square-table.webp",
       posted: "2012-04-07",
       height: 458,
       width: 619,
@@ -87,14 +83,11 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 7,
       title: "Righting The Wrong Rights Wrongly",
-      transcript:
-        "Meanwhile---- Muahahaha! It is I the Critic, and by giving...",
-      mouseover:
-        "I just couldn't get enough of how little chemistry they had onscreen!",
+      transcript: "Meanwhile---- Muahahaha! It is I the Critic, and by giving...",
+      mouseover: "I just couldn't get enough of how little chemistry they had onscreen!",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2012-05-09-righting-the-wrong-rights-wrongly.png",
-      image_lowres:
-        "/img/comics/2012-05-09-righting-the-wrong-rights-wrongly.webp",
+      image_lowres: "/img/comics/2012-05-09-righting-the-wrong-rights-wrongly.webp",
       posted: "2012-04-09",
       height: 458,
       width: 619,
@@ -114,8 +107,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 9,
       title: "Spot The Difference",
-      transcript:
-        "GRAPE: Hey Peanut, whatever happened to that story with the cyborg? ...",
+      transcript: "GRAPE: Hey Peanut, whatever happened to that story with the cyborg? ...",
       mouseover:
         "It's a good thing I ingrained that habit when I got that short term memory disorder . . . no wait, that was Memento. What was I thinking of?",
       image:
@@ -129,8 +121,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 10,
       title: "Architect Of Sleep",
       transcript: "SPOT approaches a building...",
-      mouseover:
-        "I take that look of utter disgust to mean I misspelled something?",
+      mouseover: "I take that look of utter disgust to mean I misspelled something?",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2012-08-29-architect-of-sleep.png",
       image_lowres: "/img/comics/2012-08-29-architect-of-sleep.webp",
@@ -141,8 +132,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 11,
       title: "The Retcon Retcon",
-      transcript:
-        "PEANUT: Come On! It can be the start of an awesome gritty reboot! ...",
+      transcript: "PEANUT: Come On! It can be the start of an awesome gritty reboot! ...",
       mouseover:
         "'So why did they make a clone of Stripe too?' 'Universal matter vibrations.' 'So, just because?' 'Yeah, pretty much.'",
       image:
@@ -172,8 +162,7 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "Everything I need to know I learned from Star Trek",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2013-02-06-the-pending-litigation-of-spot.png",
-      image_lowres:
-        "/img/comics/2013-02-06-the-pending-litigation-of-spot.webp",
+      image_lowres: "/img/comics/2013-02-06-the-pending-litigation-of-spot.webp",
       posted: "2013-02-06",
       height: 888,
       width: 1200,
@@ -193,8 +182,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 15,
       title: "The Boring Adventures Of Spot",
-      transcript:
-        "The Adventures of Spot (superdog): SPOT and the COST of BUSINESS ...",
+      transcript: "The Adventures of Spot (superdog): SPOT and the COST of BUSINESS ...",
       mouseover:
         "It's simple math: everything is exactly equivalent to everything else and there are no extraneous details worth worrying about",
       image:
@@ -208,8 +196,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 16,
       title: "Spot Vs Santa",
       transcript: "This issue... will Christmas EVER be the same?...",
-      mouseover:
-        "Spot doesn’t always win because he’s strong, but because he cares",
+      mouseover: "Spot doesn’t always win because he’s strong, but because he cares",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2013-12-27-spot-vs-santa.png",
       image_lowres: "/img/comics/2013-12-27-spot-vs-santa.webp",
@@ -220,13 +207,11 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 17,
       title: "Spot And The Unfortunate Intermission",
-      transcript:
-        "When get-well cards aren't enough! SPOT (Supredog) is sick! ...",
+      transcript: "When get-well cards aren't enough! SPOT (Supredog) is sick! ...",
       mouseover: "sorry I forgot to draw them entirely poorly",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-02-07-spot-and-the-unfortunate-intermission.png",
-      image_lowres:
-        "/img/comics/2014-02-07-spot-and-the-unfortunate-intermission.webp",
+      image_lowres: "/img/comics/2014-02-07-spot-and-the-unfortunate-intermission.webp",
       posted: "2014-02-07",
       height: 888,
       width: 1200,
@@ -234,8 +219,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 18,
       title: "Not That Kind Of Grounded",
-      transcript:
-        "Truth, Justice and the What-ican Way?! SPOT: (Superdog)Grounded! ...",
+      transcript: "Truth, Justice and the What-ican Way?! SPOT: (Superdog)Grounded! ...",
       mouseover: "keep forgetting he has the fire breath",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-06-02-not-that-kind-of-grounded.png",
@@ -259,10 +243,8 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 20,
       title: "Wrong side of the TRAX",
-      transcript:
-        "GANG MEMBER: Yo yo what do we have here, some kind of stupid punk...",
-      mouseover:
-        '"But how did you know which houses were the gang members?" "I did?"',
+      transcript: "GANG MEMBER: Yo yo what do we have here, some kind of stupid punk...",
+      mouseover: '"But how did you know which houses were the gang members?" "I did?"',
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-06-06-wrong-side-of-the-trax.png",
       image_lowres: "/img/comics/2014-06-06-wrong-side-of-the-trax.webp",
@@ -274,12 +256,10 @@ export async function seed(knex: Knex): Promise<void> {
       id: 21,
       title: "Spot And The Exposition Of Evil",
       transcript: "SPOT: Continues to be GROUNDED! ...",
-      mouseover:
-        "No, they're explosions, not daises!! And our flag's color is just lightish red!",
+      mouseover: "No, they're explosions, not daises!! And our flag's color is just lightish red!",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-07-21-spot-and-the-exposition-of-evil.png",
-      image_lowres:
-        "/img/comics/2014-07-21-spot-and-the-exposition-of-evil.webp",
+      image_lowres: "/img/comics/2014-07-21-spot-and-the-exposition-of-evil.webp",
       posted: "2014-06-21",
       height: 458,
       width: 619,
@@ -288,8 +268,7 @@ export async function seed(knex: Knex): Promise<void> {
       id: 22,
       title: "Saving Lives, Taking Names",
       transcript: "SO THEN??? SPOT: This is Fine ...",
-      mouseover:
-        "Who are you going to trust--me, or an infallible supercomputer?",
+      mouseover: "Who are you going to trust--me, or an infallible supercomputer?",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-07-23-saving-lives-taking-names.png",
       image_lowres: "/img/comics/2014-07-23-saving-lives-taking-names.webp",
@@ -316,8 +295,7 @@ export async function seed(knex: Knex): Promise<void> {
         "SPOT (SUPERDOG) in... the IDENTITY OF SPOT (SUPERDOG); one day at the triweekly globe!!!...",
       mouseover:
         "oh no it's another spot arc it's been years but it still happens too often somehow",
-      image:
-        "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-13-the-secret.png",
+      image: "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-13-the-secret.png",
       image_lowres: "/img/comics/2020-03-13-the-secret.webp",
       posted: "2020-03-13",
       height: 659,
@@ -328,12 +306,10 @@ export async function seed(knex: Knex): Promise<void> {
       title: "Jim Jimminy Jim Jimminy Jim Jim Jerry",
       transcript:
         "Stripe: The fact is, he has a secret identity, and I've tracked it to this very building! ...",
-      mouseover:
-        "also it's cold now, I had to drop off everyone else's orders on the way up",
+      mouseover: "also it's cold now, I had to drop off everyone else's orders on the way up",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-16-jim-jimminy-jim-jimminy-jim-jim-jerry.png",
-      image_lowres:
-        "/img/comics/2020-03-16-jim-jimminy-jim-jimminy-jim-jim-jerry.webp",
+      image_lowres: "/img/comics/2020-03-16-jim-jimminy-jim-jimminy-jim-jim-jerry.webp",
       posted: "2020-03-16",
       height: 659,
       width: 878,
@@ -341,8 +317,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 26,
       title: "Super Camouflage",
-      transcript:
-        "Houndstooth: Do you REALLY think Jim-Jim is Spot (superdog)? ...",
+      transcript: "Houndstooth: Do you REALLY think Jim-Jim is Spot (superdog)? ...",
       mouseover:
         "unless there's someone I'm forgetting, and his superpower is to make us forget every time we look at him, but that'd be extremely silly and convoluted",
       image:
@@ -360,8 +335,7 @@ export async function seed(knex: Knex): Promise<void> {
       mouseover: "that sounded like YOUR car",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-20-this-looks-like-a-job-for-the-intern.png",
-      image_lowres:
-        "/img/comics/2020-03-20-this-looks-like-a-job-for-the-intern.webp",
+      image_lowres: "/img/comics/2020-03-20-this-looks-like-a-job-for-the-intern.webp",
       posted: "2020-03-20",
       height: 659,
       width: 878,
@@ -371,8 +345,7 @@ export async function seed(knex: Knex): Promise<void> {
       title: "Then Who Was Car",
       transcript:
         "STRIPE: Now that Jim-Jim is gone, we can discuss this collection of ugly bowties ...",
-      mouseover:
-        "The next fifty comics is just them lampshading the previous comic",
+      mouseover: "The next fifty comics is just them lampshading the previous comic",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-23-then-who-was-car.png",
       image_lowres: "/img/comics/2020-03-23-then-who-was-car.webp",
@@ -397,12 +370,10 @@ export async function seed(knex: Knex): Promise<void> {
       id: 30,
       title: "Exactly What Spot Would Have Done",
       transcript: "JIM-JIM: Okay hahah, seriously now somebody help ...",
-      mouseover:
-        'you\'ll look up and shout "Save us!"... and I\'ll look down, and whisper "kay."',
+      mouseover: 'you\'ll look up and shout "Save us!"... and I\'ll look down, and whisper "kay."',
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2020/03/2020-03-27-exactly-what-spot-would-have-done.png",
-      image_lowres:
-        "/img/comics/2020-03-27-exactly-what-spot-would-have-done.webp",
+      image_lowres: "/img/comics/2020-03-27-exactly-what-spot-would-have-done.webp",
       posted: "2020-03-27",
       height: 659,
       width: 878,

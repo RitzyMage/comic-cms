@@ -1,9 +1,5 @@
 import { RequestHandler } from "express";
-import jwt, {
-  JsonWebTokenError,
-  NotBeforeError,
-  TokenExpiredError,
-} from "jsonwebtoken";
+import jwt, { JsonWebTokenError, NotBeforeError, TokenExpiredError } from "jsonwebtoken";
 
 let auth: RequestHandler = (req: any, res: any, next: () => void) => {
   let tokenEncoded = req.headers.authorization?.split(" ")[1];

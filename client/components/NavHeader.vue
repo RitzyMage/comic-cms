@@ -4,16 +4,10 @@
       <nuxt-link to="/">{{ name }}</nuxt-link>
     </h1>
     <div class="links">
-      <nuxt-link
-        v-for="link in links"
-        :to="link.href"
-        :key="link.name"
-        class="link"
-        >{{ link.name }}</nuxt-link
-      >
-      <span v-if="$auth.loggedIn" class="auth-button" @click="logout"
-        >Log out</span
-      >
+      <nuxt-link v-for="link in links" :to="link.href" :key="link.name" class="link">
+        {{ link.name }}
+      </nuxt-link>
+      <span v-if="$auth.loggedIn" class="auth-button" @click="logout">Log out</span>
       <nuxt-link v-else class="auth-button" to="/admin">Log in</nuxt-link>
     </div>
   </div>
@@ -28,7 +22,7 @@ export default class NavHeader extends Vue {
   private $auth: any;
   private links = [
     { name: "link1", href: "#" },
-    { name: "link2", href: "#" }
+    { name: "link2", href: "#" },
   ];
 
   private name = "Comic CMS";

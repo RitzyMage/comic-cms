@@ -14,10 +14,10 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
-      }
+        content: process.env.npm_package_description || "",
+      },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
   /*
    ** Customize the progress-bar color
@@ -49,7 +49,7 @@ export default {
      */
     extend(config, ctx) {
       config.devtool = "source-map";
-    }
+    },
   },
 
   auth: {
@@ -58,14 +58,14 @@ export default {
         endpoints: {
           login: { url: "/auth/login", method: "post", propertyName: "token" },
           logout: false,
-          user: false
-        }
-      }
-    }
+          user: false,
+        },
+      },
+    },
   },
 
   axios: {
-    baseURL: process.env.API_URL
+    baseURL: process.env.API_URL,
   },
 
   generate: {
@@ -74,6 +74,6 @@ export default {
         let count = res.data.count;
         return [...Array(count - 1).keys()].map(item => "/comic/" + (item + 1));
       });
-    }
-  }
+    },
+  },
 };

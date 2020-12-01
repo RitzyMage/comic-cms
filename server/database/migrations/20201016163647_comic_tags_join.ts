@@ -1,7 +1,7 @@
 import * as Knex from "knex";
 
 export async function up(knex: Knex): Promise<void> {
-  return await knex.schema.createTable("COMIC_TAGS", (table) => {
+  return await knex.schema.createTable("COMIC_TAGS", table => {
     table.integer("COMIC").unsigned();
     table.integer("TAG").unsigned();
     table.foreign("COMIC").references("ID").inTable("COMICS");

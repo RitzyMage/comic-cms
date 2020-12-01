@@ -19,7 +19,7 @@ export default class ComicLink extends Vue {
 
   private get style() {
     return {
-      "background-image": "url('" + this.backgroundImage + "')"
+      "background-image": "url('" + this.backgroundImage + "')",
     };
   }
 }
@@ -67,12 +67,7 @@ export default class ComicLink extends Vue {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(
-    to left,
-    $primaryLight,
-    $primary,
-    $primaryDark
-  );
+  background-image: linear-gradient(to left, $primaryLight, $primary, $primaryDark);
   z-index: 0;
 }
 

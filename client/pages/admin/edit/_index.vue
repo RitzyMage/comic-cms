@@ -9,7 +9,7 @@ import { Vue, Component } from "vue-property-decorator";
 
 @Component({
   name: "Edit-Comic",
-  middleware: ["auth"]
+  middleware: ["auth"],
 } as any)
 export class EditComic extends Vue {
   get index() {

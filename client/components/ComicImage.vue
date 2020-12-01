@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="comicImageArea comic-height swiper-zoom-container"
-    :style="containerStyle"
-  >
+  <div class="comicImageArea comic-height swiper-zoom-container" :style="containerStyle">
     <img
       v-if="info.src"
       class="no-overflow comicImage swiper-zoom-target"
@@ -28,7 +25,7 @@ export interface ImageInfo {
 }
 
 @Component({
-  name: "ComicImage"
+  name: "ComicImage",
 })
 export class ComicImage extends Vue {
   @Prop() private info!: ImageInfo;

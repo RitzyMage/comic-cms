@@ -8,8 +8,8 @@ import ListLink from "./ListLink.vue";
 @Component({
   name: "PageLink",
   components: {
-    ListLink
-  }
+    ListLink,
+  },
 })
 export default class PageLink extends Vue {
   @Prop(Object)

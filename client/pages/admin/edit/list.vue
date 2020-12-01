@@ -10,7 +10,7 @@ import { Vue, Component } from "vue-property-decorator";
 
 @Component({
   name: "Edit-List",
-  middleware: ["auth"]
+  middleware: ["auth"],
 } as any)
 export class EditList extends Vue {}
 

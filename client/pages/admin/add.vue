@@ -14,8 +14,7 @@
         size="10"
         button-class="btn"
         @change="imageChange"
-      >
-      </picture-input>
+      ></picture-input>
 
       <span>Transcript</span>
       <textarea v-model="transcript" />
@@ -36,8 +35,8 @@ import PictureInput from "vue-picture-input";
   name: "Add-Comic",
   middleware: ["auth"],
   components: {
-    PictureInput
-  }
+    PictureInput,
+  },
 } as any)
 export class AddComic extends Vue {
   public $axios!: any;
@@ -48,7 +47,7 @@ export class AddComic extends Vue {
         title: this.title,
         transcript: this.transcript,
         mouseover: this.mouseover,
-        image: this.image
+        image: this.image,
       };
       this.$axios.post("/comic", data);
     } catch (e) {

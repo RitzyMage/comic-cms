@@ -20,9 +20,7 @@ export default class AdminController {
       posted,
       previous: lastComic,
     });
-    let [{ id: newID }] = await connection("comics")
-      .where({ previous: lastComic })
-      .select("id");
+    let [{ id: newID }] = await connection("comics").where({ previous: lastComic }).select("id");
     await connection("comics").update({ next: newID }).where({ id: lastComic });
   }
 }

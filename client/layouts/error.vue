@@ -13,7 +13,7 @@ export default {
   computed: {
     errorMessage() {
       return this.error ? this.error.message : "an error occured";
-    }
-  }
+    },
+  },
 };
 </script>

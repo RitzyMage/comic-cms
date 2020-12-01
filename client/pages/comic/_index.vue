@@ -18,14 +18,14 @@ import { Route } from "vue-router";
 
 @Component({
   components: {
-    "comic-page": ComicPage
+    "comic-page": ComicPage,
   },
   async asyncData({ $axios, params, error }: any) {
     try {
       return await $axios.$get(`/${params.index}/all`);
     } catch (e) {
       error({
-        message: e.response?.statusText ?? "server error"
+        message: e.response?.statusText ?? "server error",
       });
     }
   },
@@ -44,24 +44,22 @@ import { Route } from "vue-router";
 
     return {
       name,
-      mode: "in-out"
+      mode: "in-out",
     };
   },
   async validate({ params, $axios, error }: any) {
     let index = parseInt(params.index);
     try {
-      return await $axios
-        .get("/count")
-        .then(({ data }: { data: { count: number } }) => {
-          return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
-        });
+      return await $axios.get("/count").then(({ data }: { data: { count: number } }) => {
+        return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
+      });
     } catch (e) {
       error({
-        message: e.response?.statusText ?? "Server Error"
+        message: e.response?.statusText ?? "Server Error",
       });
     }
     return true;
-  }
+  },
 } as any)
 export default class Page extends Vue {
   testVar!: string;

@@ -11,7 +11,7 @@ import { Vue, Component } from "vue-property-decorator";
 
 @Component({
   name: "Admin",
-  middleware: ["auth"]
+  middleware: ["auth"],
 } as any)
 export class Admin extends Vue {}
 

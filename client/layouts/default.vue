@@ -16,8 +16,8 @@ import { State, Mutation } from "vuex-class";
 
 @Component({
   components: {
-    NavHeader
-  }
+    NavHeader,
+  },
 })
 export default class Default extends Vue {}
 </script>

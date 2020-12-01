@@ -15,7 +15,7 @@ import { State, Mutation } from "vuex-class";
   async asyncData({ $axios }: { $axios: any }) {
     let { count } = await $axios.$get("/count");
     return { maxComic: count };
-  }
+  },
 } as any)
 export default class MainPage extends Vue {
   private maxComic!: number;

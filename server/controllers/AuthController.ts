@@ -7,11 +7,7 @@ const SALT_ROUNDS = 10;
 
 export default class AuthController {
   async verifyUser(username: string, password: string) {
-    let user = await connection
-      .select("hash")
-      .from("users")
-      .where({ username })
-      .first();
+    let user = await connection.select("hash").from("users").where({ username }).first();
     let match = !!user && bcrypt.compareSync(password, user.hash);
     if (!match) {
       return false;

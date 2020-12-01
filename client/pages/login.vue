@@ -10,7 +10,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
 @Component({
-  name: "Login"
+  name: "Login",
 })
 export class Login extends Vue {
   private username = "";
@@ -21,8 +21,8 @@ export class Login extends Vue {
     this.$auth.loginWith("local", {
       data: {
         username: this.username,
-        password: this.password
-      }
+        password: this.password,
+      },
     });
   }
 }

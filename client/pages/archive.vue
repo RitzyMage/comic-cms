@@ -16,12 +16,12 @@ const LINK_HEIGHT = 140;
 @Component({
   name: "ComicArchives",
   components: {
-    PageLink
+    PageLink,
   },
   async asyncData({ $axios }: any) {
     let pages = await $axios.$get(`/images?first=1&last=${CHUNK_SIZE * 2}`);
     return { pages };
-  }
+  },
 } as any)
 export default class ComicArchives extends Vue {
   public $axios!: any;

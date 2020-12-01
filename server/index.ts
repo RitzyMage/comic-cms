@@ -18,10 +18,7 @@ const authController = new AuthController();
 const adminController = new AdminController();
 
 app.post("/api/auth/login", async (req, res) => {
-  let token = await authController.verifyUser(
-    req.body.username,
-    req.body.password
-  );
+  let token = await authController.verifyUser(req.body.username, req.body.password);
   if (!token) {
     res.status(400).send("Invalid username or password");
   } else {
@@ -29,9 +26,7 @@ app.post("/api/auth/login", async (req, res) => {
   }
 });
 
-app.get("/api/count", async (req, res) =>
-  res.send(await clientController.getComicCount())
-);
+app.get("/api/count", async (req, res) => res.send(await clientController.getComicCount()));
 app.get("/api/ends", async (req, res) => {
   res.send(await clientController.getEndImages());
 });
