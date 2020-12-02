@@ -4,7 +4,7 @@ NEXT STEPS
 
 	front end for editing comics
 
-	actual image upload
+	statically serve images (store in client somehow?)
 	create comic page should redirect on create
 	
 	link to admin page
