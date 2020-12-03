@@ -41,7 +41,7 @@ import PictureInput from "vue-picture-input";
 export class AddComic extends Vue {
   public $axios!: any;
   private image: any;
-  private submit() {
+  private async submit() {
     try {
       let data = {
         title: this.title,
@@ -49,7 +49,8 @@ export class AddComic extends Vue {
         mouseover: this.mouseover,
         image: this.image,
       };
-      this.$axios.post("/comic", data);
+      await this.$axios.post("/comic", data);
+      this.$router.push("/admin");
     } catch (e) {
       console.error(e);
     }

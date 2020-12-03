@@ -88,3 +88,5 @@ dist
 
 # Vim swap files
 *.swp
+
+server/static

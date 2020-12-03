@@ -6,6 +6,10 @@ import bodyParser from "body-parser";
 import AuthController from "./controllers/AuthController";
 import auth from "./middleware/auth";
 import AdminController from "./controllers/AdminController";
+import { promises as fs } from "fs";
+import getFileExtension from "./utils/fileExtension";
+import imagemin from "imagemin";
+import imageminWebp from "imagemin-webp";
 require("dotenv").config();
 
 const app = express();
@@ -59,19 +63,30 @@ app.post("/api/comic", auth, async (req, res) => {
   let { title, transcript, mouseover, image } = req.body;
 
   if (!title) {
-    res.status(400).send("title required");
+    return res.status(400).send("title required");
   }
   if (!transcript) {
-    res.status(400).send("transcript required");
+    return res.status(400).send("transcript required");
   }
   if (!image) {
-    res.status(400).send("image required");
+    return res.status(400).send("image required");
   }
 
   let image_lowres = "http://example.com/logo.png";
   let height = 800;
   let width = 900;
-  await adminController.addComic({
+  console.log("got image", image.substr(0, 100));
+
+  let index = Number((await clientController.getComicCount())?.count) + 1;
+  let extension = getFileExtension(image);
+  let filename = `${__dirname}/static/img/comic-${index}.${extension}`;
+  await fs.writeFile(filename, image.split(";base64,").pop(), "base64");
+  const files = await imagemin([filename], {
+    destination: "static/img/",
+    plugins: [imageminWebp({ quality: 20, resize: { height: 300, width: 0 } })],
+  });
+  console.log(files);
+  /*await adminController.addComic({
     title,
     transcript,
     mouseover,
@@ -79,7 +94,7 @@ app.post("/api/comic", auth, async (req, res) => {
     image_lowres,
     height,
     width,
-  });
+  });*/
   res.send({ success: true });
 });
 

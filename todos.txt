@@ -1,13 +1,13 @@
 NEXT STEPS
-	admin page with links for adding comics, editing comics
 	actual error message on login fail
 	toasts on log in / out success and failure
-	differentiation between admin database user and client database user
-	front end for adding comics
-	endpoint for editing comics
+
 	front end for editing comics
-	actual image upload
-	create comic page should redirect
+
+	statically serve images (store in client somehow?)
+	create comic page should redirect on create
+	
+	link to admin page
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
@@ -51,7 +51,6 @@ OTHER PAGES
 ADMIN PORTION
 	re-build static build on add comic
 	re-build only sigle page on edit comic
-	link to admin page
 
 OTHER TASKS
 	custom color themes
@@ -60,8 +59,6 @@ OTHER TASKS
 	custom header links (e.g. store, blog)
 	reafactor back end to be less coupled
 	use transactions on database ops
-
-	better vs code formatting
 
 	favicon
 
