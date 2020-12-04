@@ -72,11 +72,6 @@ app.post("/api/comic", auth, async (req, res) => {
     return res.status(400).send("image required");
   }
 
-  let image_lowres = "http://example.com/logo.png";
-  let height = 800;
-  let width = 900;
-  console.log("got image", image.substr(0, 100));
-
   let index = Number((await clientController.getComicCount())?.count) + 1;
   let extension = getFileExtension(image);
   let filename = `${__dirname}/static/img/comic-${index}.${extension}`;
@@ -95,6 +90,30 @@ app.post("/api/comic", auth, async (req, res) => {
     height,
     width,
   });*/
+  res.send({ success: true });
+});
+
+app.patch("/api/comic/:id", auth, async (req, res) => {
+  let { title, transcript, mouseover, image } = req.body;
+  let id = parseInt(req.params.id);
+
+  let extension = getFileExtension(image);
+  let filename = `${__dirname}/static/img/comic-${id}.${extension}`;
+  await fs.writeFile(filename, image.split(";base64,").pop(), "base64");
+  const files = await imagemin([filename], {
+    destination: "static/img/",
+    plugins: [imageminWebp({ quality: 20, resize: { height: 300, width: 0 } })],
+  });
+  console.log(files);
+  await adminController.editComic(id, {
+    title,
+    transcript,
+    mouseover,
+    image,
+    image_lowres: files[0].destinationPath,
+    height: 0,
+    width: 0,
+  });
   res.send({ success: true });
 });
 

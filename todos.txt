@@ -2,10 +2,11 @@ NEXT STEPS
 	actual error message on login fail
 	toasts on log in / out success and failure
 
-	front end for editing comics
+	front end for editing comics (connect to back end)
 
 	statically serve images (store in client somehow?)
-	create comic page should redirect on create
+
+	add and edit endpoints actually use correct images (and sizes)
 	
 	link to admin page
 
