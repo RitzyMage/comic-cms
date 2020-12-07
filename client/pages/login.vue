@@ -26,7 +26,7 @@ export class Login extends Vue {
         },
       });
     } catch (e) {
-      this.$NotifyToast("login error");
+      this.$ErrorToast("login error");
     }
   }
 }

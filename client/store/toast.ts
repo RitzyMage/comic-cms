@@ -1,13 +1,10 @@
+import { Store } from "vuex";
 import { Module, VuexModule, Mutation } from "vuex-module-decorators";
 
-interface Toast {
+interface ToastInfo {
   message: string;
   error: boolean;
   id: number;
-}
-
-interface State {
-  toasts: Toast[];
 }
 
 @Module({
@@ -15,11 +12,11 @@ interface State {
   stateFactory: true,
   namespaced: true,
 })
-class Toast extends VuexModule {
-  toasts: Toast[] = [];
+export default class Toast extends VuexModule {
+  toasts: ToastInfo[] = [];
 
   @Mutation
-  addToast(toast: Toast) {
+  addToast(toast: ToastInfo) {
     this.toasts.push(toast);
   }
 

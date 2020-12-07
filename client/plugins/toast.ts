@@ -1,4 +1,5 @@
 import { Plugin } from "@nuxt/types";
+import { toastStore } from "~/store";
 
 interface Injected {
   $NotifyToast(message: string): void;
@@ -18,19 +19,17 @@ declare module "vuex/types/index" {
   interface Store<S> extends Injected {}
 }
 
+function addToast(error: boolean, message: string) {
+  toastStore.addToast({
+    error,
+    message,
+    id: 1,
+  });
+}
+
 const ToastPlugin: Plugin = (context, inject) => {
-  inject("NotifyToast", (message: string) => console.log(message));
-  inject("ErrorToast", (message: string) => console.error(message));
+  inject("NotifyToast", (message: string) => console.log(context, message));
+  inject("ErrorToast", (message: string) => addToast(true, message));
 };
-
-/*$nuxt.$store.dispatch("toast/addToast", {
-      error: false,
-      message,
-    });*/
-
-/*$nuxt.$store.dispatch("toast/addToast", {
-      error: false,
-      message,
-    });*/
 
 export default ToastPlugin;

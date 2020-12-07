@@ -1,5 +1,14 @@
-interface State {}
+import { Store } from "vuex";
+import { getModule } from "vuex-module-decorators";
+import Toast from "~/store/toast";
 
-export const state: () => State = () => ({});
+let toastStore: Toast;
 
-export const mutations = {};
+function initialiseStores(store: Store<any>): void {
+  toastStore = getModule(Toast, store);
+}
+
+const initializer = (store: Store<any>) => initialiseStores(store);
+
+export const plugins = [initializer];
+export { initialiseStores, toastStore };
