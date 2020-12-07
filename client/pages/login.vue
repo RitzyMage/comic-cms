@@ -8,22 +8,26 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop } from "../util/Vue";
+
 @Component({
   name: "Login",
 })
 export class Login extends Vue {
   private username = "";
   private password = "";
-  public $auth!: any;
 
-  private login() {
-    this.$auth.loginWith("local", {
-      data: {
-        username: this.username,
-        password: this.password,
-      },
-    });
+  private async login() {
+    try {
+      await this.$auth.loginWith("local", {
+        data: {
+          username: this.username,
+          password: this.password,
+        },
+      });
+    } catch (e) {
+      this.$NotifyToast("login error");
+    }
   }
 }
 
