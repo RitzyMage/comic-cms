@@ -1,11 +1,7 @@
 <template>
   <div id="app">
+    <ToastDisplay />
     <NavHeader />
-    <div class="toasts">
-      <p v-for="toast in toasts" :key="toast.id">
-        {{ toast.message }}
-      </p>
-    </div>
     <div class="pageAnchor">
       <div class="pageContainer">
         <nuxt />
@@ -16,19 +12,16 @@
 
 <script>
 import NavHeader from "~/components/NavHeader.vue";
+import ToastDisplay from "~/components/ToastDisplay.vue";
 import { Vue, Component } from "~/util/Vue";
-import { toastStore } from "~/store";
 
 @Component({
   components: {
     NavHeader,
+    ToastDisplay,
   },
 })
-export default class Default extends Vue {
-  get toasts() {
-    return toastStore.toasts;
-  }
-}
+export default class Default extends Vue {}
 </script>
 
 <style lang="scss">

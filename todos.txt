@@ -68,3 +68,5 @@ OTHER TASKS
 
 	open source license
 
+	toasts allow to exit
+
