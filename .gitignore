@@ -90,3 +90,4 @@ dist
 *.swp
 
 server/static
+sw.js
