@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import { Vue, Component } from "~/util/Vue";
 import PictureInput from "vue-picture-input";
 
 @Component({

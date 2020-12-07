@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop } from "~/util/Vue";
 import { State, Mutation } from "vuex-class";
 
 @Component({

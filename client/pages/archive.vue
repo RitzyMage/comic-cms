@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from "~/util/Vue";
 import PageLink from "../components/PageLink.vue";
 
 const CHUNK_SIZE = 6;
@@ -24,8 +24,6 @@ const LINK_HEIGHT = 140;
   },
 } as any)
 export default class ComicArchives extends Vue {
-  public $axios!: any;
-
   private get params() {
     return this.$route.params;
   }
@@ -48,7 +46,7 @@ export default class ComicArchives extends Vue {
 
   private waitForScrollResolved() {
     return new Promise(resolve => {
-      let intervalTimer = window.setInterval(() => {
+      let intervalTimer = window.setInterval((resolve: () => void) => {
         if (!this.repsondingToScroll) {
           this.repsondingToScroll = true;
           window.clearInterval(intervalTimer);

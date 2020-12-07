@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop } from "~/util/Vue";
 import { directive } from "vue-awesome-swiper";
 
 export interface ImageInfo {

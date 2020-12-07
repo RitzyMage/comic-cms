@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import { Vue, Component } from "../../util/Vue";
 import PictureInput from "vue-picture-input";
 
 @Component({
@@ -39,7 +39,6 @@ import PictureInput from "vue-picture-input";
   },
 } as any)
 export class AddComic extends Vue {
-  public $axios!: any;
   private image: any;
   private async submit() {
     try {

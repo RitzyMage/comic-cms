@@ -62,3 +62,7 @@ OTHER TASKS
 
 	favicon
 
+	automated tests
+
+	open source license
+

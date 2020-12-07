@@ -11,7 +11,7 @@
 
 <script>
 import NavHeader from "~/components/NavHeader.vue";
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop } from "~/util/Vue";
 import { State, Mutation } from "vuex-class";
 
 @Component({

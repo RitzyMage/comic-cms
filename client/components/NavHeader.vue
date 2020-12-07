@@ -14,12 +14,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop } from "~/util/Vue";
 import { State } from "vuex-class";
 
 @Component
 export default class NavHeader extends Vue {
-  private $auth: any;
   private links = [
     { name: "link1", href: "#" },
     { name: "link2", href: "#" },
