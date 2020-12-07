@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <NavHeader />
+    <div class="toasts">
+      <p v-for="toast in toasts" :key="toast.id">
+        {{ toast.message }}
+      </p>
+    </div>
     <div class="pageAnchor">
       <div class="pageContainer">
         <nuxt />
@@ -11,15 +16,19 @@
 
 <script>
 import NavHeader from "~/components/NavHeader.vue";
-import { Vue, Component, Prop } from "~/util/Vue";
-import { State, Mutation } from "vuex-class";
+import { Vue, Component } from "~/util/Vue";
+import { toastStore } from "~/store";
 
 @Component({
   components: {
     NavHeader,
   },
 })
-export default class Default extends Vue {}
+export default class Default extends Vue {
+  get toasts() {
+    return toastStore.toasts;
+  }
+}
 </script>
 
 <style lang="scss">
