@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "RUNNING CLIENT AND SERVER"
+
+if [[ -x /etc/init.d/mysql ]]; then sudo /etc/init.d/mysql; fi
+
+(cd client && npm run dev) &
+cd server && npm run start
+
