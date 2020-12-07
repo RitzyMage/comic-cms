@@ -23,4 +23,8 @@ export default class AdminController {
     let [{ id: newID }] = await connection("comics").where({ previous: lastComic }).select("id");
     await connection("comics").update({ next: newID }).where({ id: lastComic });
   }
+
+  public async editComic(id: number, params: AddComicParams) {
+    await connection("comics").update(params).where({ id });
+  }
 }

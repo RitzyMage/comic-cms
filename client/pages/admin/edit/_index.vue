@@ -39,6 +39,7 @@ import PictureInput from "vue-picture-input";
   },
 } as any)
 export class EditComic extends Vue {
+  public $axios!: any;
   get index() {
     return this.$route.params.index;
   }
@@ -52,8 +53,8 @@ export class EditComic extends Vue {
         mouseover: this.mouseover,
         image: this.image,
       };
-      console.log("edit data");
-      //this.$axios.post("/comic", data);
+      this.$axios.patch(`/comic/${this.index}`, data);
+      this.$router.push("/admin");
     } catch (e) {
       console.error(e);
     }
@@ -72,3 +73,12 @@ export class EditComic extends Vue {
 
 export default EditComic;
 </script>
+
+<style scoped>
+.editForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+</style>

@@ -8,6 +8,9 @@ NEXT STEPS
 	create comic page should redirect on create
 
 	see if can use class component without sending a million args to @Component
+	statically serve images (store in client somehow?)
+
+	add and edit endpoints actually use correct images (and sizes)
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
