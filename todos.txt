@@ -2,12 +2,10 @@ NEXT STEPS
 	actual error message on login fail
 	toasts on log in / out success and failure
 
-	front end for editing comics
+	link to admin page
 
 	statically serve images (store in client somehow?)
 	create comic page should redirect on create
-	
-	link to admin page
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
@@ -51,6 +49,8 @@ OTHER PAGES
 ADMIN PORTION
 	re-build static build on add comic
 	re-build only sigle page on edit comic
+
+	account creation / editing
 
 OTHER TASKS
 	custom color themes
