@@ -26,8 +26,9 @@ export default class NavHeader extends Vue {
 
   private name = "Comic CMS";
 
-  private logout() {
-    this.$auth.logout();
+  private async logout() {
+    await this.$auth.logout();
+    this.$NotifyToast("logged out");
   }
 }
 </script>
