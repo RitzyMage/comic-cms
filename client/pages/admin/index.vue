@@ -10,9 +10,8 @@
 import { Vue, Component } from "~/util/Vue";
 
 @Component({
-  name: "Admin",
   middleware: ["auth"],
-} as any)
+})
 export class Admin extends Vue {}
 
 export default Admin;

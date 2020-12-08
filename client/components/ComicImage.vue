@@ -24,9 +24,7 @@ export interface ImageInfo {
   smallSrc?: string;
 }
 
-@Component({
-  name: "ComicImage",
-})
+@Component
 export class ComicImage extends Vue {
   @Prop() private info!: ImageInfo;
   private imageLoaded = false;

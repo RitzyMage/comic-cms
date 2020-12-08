@@ -32,12 +32,11 @@ import { Vue, Component } from "../../util/Vue";
 import PictureInput from "vue-picture-input";
 
 @Component({
-  name: "Add-Comic",
   middleware: ["auth"],
   components: {
     PictureInput,
   },
-} as any)
+})
 export class AddComic extends Vue {
   private image: any;
   private async submit() {

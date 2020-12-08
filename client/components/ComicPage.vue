@@ -47,7 +47,6 @@ const FILLER_SLIDES = 2;
 const FILLER_TIME = 20;
 
 @Component({
-  name: "Comic",
   directives: {
     swiper: directive,
   },

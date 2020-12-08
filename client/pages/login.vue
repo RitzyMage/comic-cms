@@ -10,9 +10,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "../util/Vue";
 
-@Component({
-  name: "Login",
-})
+@Component
 export class Login extends Vue {
   private username = "";
   private password = "";

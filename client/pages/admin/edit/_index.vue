@@ -37,7 +37,7 @@ import PictureInput from "vue-picture-input";
   components: {
     PictureInput,
   },
-} as any)
+})
 export class EditComic extends Vue {
   public $axios!: any;
   get index() {

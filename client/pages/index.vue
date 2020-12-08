@@ -10,13 +10,14 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "~/util/Vue";
 import { State, Mutation } from "vuex-class";
+import { NuxtAxiosInstance } from "@nuxtjs/axios";
 
 @Component({
-  async asyncData({ $axios }: { $axios: any }) {
+  async asyncData({ $axios }) {
     let { count } = await $axios.$get("/count");
     return { maxComic: count };
   },
-} as any)
+})
 export default class MainPage extends Vue {
   private maxComic!: number;
 

@@ -51,9 +51,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "~/util/Vue";
 
-@Component({
-  name: "ComicNavigation",
-})
+@Component
 export default class Navigation extends Vue {
   @Prop() private getSwiper!: () => any;
   @Prop() private maxComic!: number;

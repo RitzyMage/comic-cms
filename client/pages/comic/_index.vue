@@ -20,6 +20,7 @@ import { Route } from "vue-router";
   components: {
     "comic-page": ComicPage,
   },
+
   async asyncData({ $axios, params, error }: any) {
     try {
       return await $axios.$get(`/${params.index}/all`);
@@ -29,7 +30,8 @@ import { Route } from "vue-router";
       });
     }
   },
-  transition: (to: Route, from: Route) => {
+
+  transition: (to?: Route, from?: Route) => {
     if (!to || !from) {
       return "";
     }
@@ -47,6 +49,7 @@ import { Route } from "vue-router";
       mode: "in-out",
     };
   },
+
   async validate({ params, $axios, error }: any) {
     let index = parseInt(params.index);
     try {
@@ -60,7 +63,7 @@ import { Route } from "vue-router";
     }
     return true;
   },
-} as any)
+})
 export default class Page extends Vue {
   testVar!: string;
 }

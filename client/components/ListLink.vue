@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "~/util/Vue";
-@Component({})
+@Component
 export default class ComicLink extends Vue {
   @Prop(String)
   private name!: string;

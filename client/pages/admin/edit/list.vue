@@ -11,7 +11,7 @@ import { Vue, Component } from "~/util/Vue";
 @Component({
   name: "Edit-List",
   middleware: ["auth"],
-} as any)
+})
 export class EditList extends Vue {}
 
 export default EditList;
