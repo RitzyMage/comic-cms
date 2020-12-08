@@ -1,11 +1,5 @@
-import { Store } from "vuex";
 import { Module, VuexModule, Mutation } from "vuex-module-decorators";
-
-interface ToastInfo {
-  message: string;
-  error: boolean;
-  id: number;
-}
+import ToastInfo from "~/util/ToastInfo";
 
 @Module({
   name: "toast",
