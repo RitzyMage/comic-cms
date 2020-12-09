@@ -74,3 +74,6 @@ OTHER TASKS
 
 	toasts allow to exit
 
+	make running production build easy
+
+	RSS feed
