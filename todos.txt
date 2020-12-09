@@ -2,8 +2,6 @@ NEXT STEPS
 	refactor back end to be less coupled
 	use transactions on database ops
 
-	why is page trying to get '/undefined'? (e.g. archives)
-
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	static build
 	optimize JS/CSS/other size
