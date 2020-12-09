@@ -1,6 +1,6 @@
 <template>
   <div class="comicList">
-    <router-link :to="searchLink">search</router-link>
+    <router-link to="/search">search</router-link>
     <PageLink v-for="page in pages" :page="page" :key="page.title" />
   </div>
 </template>
@@ -19,23 +19,13 @@ const LINK_HEIGHT = 140;
   },
 
   async asyncData({ $axios }) {
-    let pages = await $axios.$get(`/images?first=1&last=${CHUNK_SIZE * 2}`);
-    return { pages };
+    let { images: pages, count: totalNumber } = await $axios.$get(
+      `/images?first=1&last=${CHUNK_SIZE * 2}`
+    );
+    return { pages, totalNumber };
   },
 })
 export default class ComicArchives extends Vue {
-  private get params() {
-    return this.$route.params;
-  }
-
-  private get name(): string {
-    return this.params.name;
-  }
-
-  private get searchLink() {
-    return "/comic/" + this.name + "/search";
-  }
-
   private get numLoaded() {
     return this.pages.length;
   }
@@ -46,29 +36,33 @@ export default class ComicArchives extends Vue {
 
   private waitForScrollResolved() {
     return new Promise(resolve => {
-      let intervalTimer = window.setInterval((resolve: () => void) => {
+      let intervalTimer = window.setInterval(() => {
         if (!this.repsondingToScroll) {
           this.repsondingToScroll = true;
           window.clearInterval(intervalTimer);
-          resolve();
+          resolve(true);
         }
       }, this.SCROLL_INTERVAL);
     });
   }
 
   private async onScroll(event: Event) {
+    if (this.numLoaded === this.totalNumber) {
+      return;
+    }
     await this.waitForScrollResolved();
 
     let scrollPos = window.scrollY + window.innerHeight;
-    let numVisible = Math.ceil(scrollPos / LINK_HEIGHT);
+    let shouldHaveLoaded = Math.ceil(scrollPos / LINK_HEIGHT) + CHUNK_SIZE;
 
-    if (numVisible <= this.numLoaded) {
+    if (this.numLoaded < shouldHaveLoaded) {
       let startIndex = this.numLoaded + 1;
 
-      let newPages = await this.$axios.$get(
+      let { images: newPages, count } = await this.$axios.$get(
         `/images?first=${startIndex}&last=${startIndex + CHUNK_SIZE}`
       );
       this.pages = this.pages.concat(newPages).sort((a, b) => a.id - b.id);
+      this.totalNumber = count;
     }
 
     this.repsondingToScroll = false;
@@ -79,6 +73,7 @@ export default class ComicArchives extends Vue {
   }
 
   private pages!: Array<{ id: number; image: string; image_lowres: string }>;
+  private totalNumber!: number;
 }
 </script>
 

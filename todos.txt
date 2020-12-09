@@ -6,8 +6,6 @@ NEXT STEPS
 
 	add and edit endpoints actually use correct images (and sizes)
 
-	fix archives lazy loading
-
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
@@ -77,3 +75,5 @@ OTHER TASKS
 	make running production build easy
 
 	add video samples in README
+
+	footer
