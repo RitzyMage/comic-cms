@@ -3,13 +3,11 @@ NEXT STEPS
 	link to archives page
 
 	statically serve images (store in client somehow?)
-	create comic page should redirect on create
-	
-	statically serve images (store in client somehow?)
 
 	add and edit endpoints actually use correct images (and sizes)
 
 	fix archives lazy loading
+
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
@@ -22,6 +20,7 @@ OPTIMIZATIONS (MAKE BLAZING FAST)
 	host images on cdn (?)
 
 	cache necessary information (?)
+
 
 COMIC PAGE
 	tags
@@ -38,6 +37,7 @@ COMIC PAGE
 		(or show loading spinner?)
 
 	phone rotation (show indicator if comic is wide?)
+
 
 ARCHIVES PAGE
 	use min image
@@ -76,4 +76,4 @@ OTHER TASKS
 
 	make running production build easy
 
-	RSS feed
+	add video samples in README
