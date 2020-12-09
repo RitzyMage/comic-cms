@@ -6,12 +6,7 @@ import bodyParser from "body-parser";
 import AuthController from "./controllers/AuthController";
 import auth from "./middleware/auth";
 import AdminController from "./controllers/AdminController";
-import { promises as fs } from "fs";
-import getFileExtension from "./utils/fileExtension";
-import imagemin from "imagemin";
-import imageminWebp from "imagemin-webp";
-import path from "path";
-import sizeOf from "image-size";
+import ImageUpload from "./controllers/ImageUpload";
 require("dotenv").config();
 
 const app = express();
@@ -22,6 +17,7 @@ const PORT = process.env.PORT;
 const clientController = new ClientController();
 const authController = new AuthController();
 const adminController = new AdminController();
+const imageUploader = new ImageUpload();
 
 app.post("/api/auth/login", async (req, res) => {
   let token = await authController.verifyUser(req.body.username, req.body.password);
@@ -81,27 +77,13 @@ app.post("/api/comic", auth, async (req, res) => {
   }
 
   let index = Number((await clientController.getComicCount())?.count) + 1;
-
-  let extension = getFileExtension(image);
-  let baseImagePath = "/img/comics";
-  let filename = `${__dirname}/../client/static${baseImagePath}/comic-${index}.${extension}`;
-  await fs.writeFile(filename, image.split(";base64,").pop(), "base64");
-  const [{ destinationPath }] = await imagemin([filename], {
-    destination: "../client/static/img/comics/",
-    plugins: [imageminWebp({ quality: 20, resize: { height: 300, width: 0 } })],
-  });
-  let lowResPath = baseImagePath + "/" + path.basename(destinationPath);
-  let imagePath = baseImagePath + "/" + path.basename(filename);
-  let { height = 0, width = 0 } = sizeOf(filename);
+  let imageData = await imageUploader.uploadImage(image, index);
 
   await adminController.addComic({
     title,
     transcript,
     mouseover,
-    image: imagePath,
-    image_lowres: lowResPath,
-    height,
-    width,
+    ...imageData,
   });
   res.send({ success: true });
 });
@@ -110,22 +92,13 @@ app.patch("/api/comic/:id", auth, async (req, res) => {
   let { title, transcript, mouseover, image } = req.body;
   let id = parseInt(req.params.id);
 
-  let extension = getFileExtension(image);
-  let filename = `${__dirname}/static/img/comic-${id}.${extension}`;
-  await fs.writeFile(filename, image.split(";base64,").pop(), "base64");
-  const files = await imagemin([filename], {
-    destination: "static/img/",
-    plugins: [imageminWebp({ quality: 20, resize: { height: 300, width: 0 } })],
-  });
-  console.log(files);
+  let imageData = await imageUploader.uploadImage(image, id);
+
   await adminController.editComic(id, {
     title,
     transcript,
     mouseover,
-    image,
-    image_lowres: files[0].destinationPath,
-    height: 0,
-    width: 0,
+    ...imageData,
   });
   res.send({ success: true });
 });
