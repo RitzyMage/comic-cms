@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <div>
+    <div class="main-links">
       <nuxt-link to="/comic/1">First Comic</nuxt-link>
+      <nuxt-link to="/archive">List</nuxt-link>
       <nuxt-link :to="lastComic">Last Comic</nuxt-link>
     </div>
   </div>
@@ -27,4 +28,11 @@ export default class MainPage extends Vue {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.main-links {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 500px;
+  margin: 0 auto;
+}
+</style>

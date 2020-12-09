@@ -1,7 +1,4 @@
 NEXT STEPS
-	link to admin page
-	link to archives page
-
 	statically serve images (store in client somehow?)
 
 	add and edit endpoints actually use correct images (and sizes)
@@ -43,7 +40,7 @@ ARCHIVES PAGE
 
 
 OTHER PAGES
-	search by content
+	search page
 	about page
 	blog section
 	rss feed (use API server?)
@@ -59,8 +56,11 @@ ADMIN PORTION
 OTHER TASKS
 	custom color themes
 	custom button images
-	loading screens
+	custom fonts
 	custom header links (e.g. store, blog)
+
+	loading screens
+
 	reafactor back end to be less coupled
 	use transactions on database ops
 
@@ -77,3 +77,7 @@ OTHER TASKS
 	add video samples in README
 
 	footer
+
+	add id's to scraping elements (image, title, links)
+
+	highlight current link in header
