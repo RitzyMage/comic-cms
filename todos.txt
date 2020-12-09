@@ -11,8 +11,6 @@ NEXT STEPS
 
 	fix archives lazy loading
 
-	fix vetur can't find vue picture input
-
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimized images
 
@@ -38,6 +36,8 @@ COMIC PAGE
 	when loading new page and can't navigate, gray out navigation (?)
 		(maybe only if it takes too long? it might flicker otherwise)
 		(or show loading spinner?)
+
+	phone rotation (show indicator if comic is wide?)
 
 ARCHIVES PAGE
 	use min image
