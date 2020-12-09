@@ -17,9 +17,29 @@ export default class ComicLink extends Vue {
   @Prop(String)
   private backgroundImage!: string;
 
+  @Prop(String)
+  private smallBackgroundImage!: string;
+
+  private imageLoaded = false;
+
+  mounted() {
+    let img: HTMLImageElement | null = this.getDetachedImage();
+    img.onload = () => {
+      this.imageLoaded = true;
+      img = null;
+    };
+  }
+
+  private getDetachedImage() {
+    let result = document.createElement("img");
+    result.src = this.backgroundImage;
+    return result;
+  }
+
   private get style() {
+    let image = this.imageLoaded ? this.backgroundImage : this.smallBackgroundImage;
     return {
-      "background-image": "url('" + this.backgroundImage + "')",
+      "background-image": "url('" + image + "')",
     };
   }
 }

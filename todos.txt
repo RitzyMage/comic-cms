@@ -1,8 +1,8 @@
 NEXT STEPS
-	use min image on archives page
-
 	refactor back end to be less coupled
 	use transactions on database ops
+
+	why is page trying to get '/undefined'? (e.g. archives)
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	static build

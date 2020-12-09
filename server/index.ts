@@ -37,7 +37,7 @@ app.get("/api/images", async (req, res) => {
   if (req.query.first && req.query.last) {
     let first = parseInt(req.query.first as string);
     let last = parseInt(req.query.last as string);
-    res.send({
+    return res.send({
       images: await clientController.getBlockImages(first, last),
       ...(await clientController.getComicCount()),
     });
