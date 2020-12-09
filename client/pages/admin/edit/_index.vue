@@ -29,6 +29,7 @@
 
 <script lang="ts">
 import { Vue, Component } from "~/util/Vue";
+//@ts-ignore
 import PictureInput from "vue-picture-input";
 
 @Component({
