@@ -93,3 +93,4 @@ server/static
 **/sw.js
 server/build
 *.db
+client/static/img/comics/*

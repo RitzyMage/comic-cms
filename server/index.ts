@@ -10,6 +10,8 @@ import { promises as fs } from "fs";
 import getFileExtension from "./utils/fileExtension";
 import imagemin from "imagemin";
 import imageminWebp from "imagemin-webp";
+import path from "path";
+import sizeOf from "image-size";
 require("dotenv").config();
 
 const app = express();
@@ -79,23 +81,28 @@ app.post("/api/comic", auth, async (req, res) => {
   }
 
   let index = Number((await clientController.getComicCount())?.count) + 1;
+
   let extension = getFileExtension(image);
-  let filename = `${__dirname}/static/img/comic-${index}.${extension}`;
+  let baseImagePath = "/img/comics";
+  let filename = `${__dirname}/../client/static${baseImagePath}/comic-${index}.${extension}`;
   await fs.writeFile(filename, image.split(";base64,").pop(), "base64");
-  const files = await imagemin([filename], {
-    destination: "static/img/",
+  const [{ destinationPath }] = await imagemin([filename], {
+    destination: "../client/static/img/comics/",
     plugins: [imageminWebp({ quality: 20, resize: { height: 300, width: 0 } })],
   });
-  console.log(files);
-  /*await adminController.addComic({
+  let lowResPath = baseImagePath + "/" + path.basename(destinationPath);
+  let imagePath = baseImagePath + "/" + path.basename(filename);
+  let { height = 0, width = 0 } = sizeOf(filename);
+
+  await adminController.addComic({
     title,
     transcript,
     mouseover,
-    image: image_lowres,
-    image_lowres,
+    image: imagePath,
+    image_lowres: lowResPath,
     height,
     width,
-  });*/
+  });
   res.send({ success: true });
 });
 
