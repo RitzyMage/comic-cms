@@ -1,12 +1,10 @@
 NEXT STEPS
-	statically serve images (store in client somehow?)
+	use min image on archives page
 
-	add and edit endpoints actually use correct images (and sizes)
-
+	refactor back end to be less coupled
+	use transactions on database ops
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
-	optimized images
-
 	static build
 	optimize JS/CSS/other size
 
@@ -33,9 +31,10 @@ COMIC PAGE
 
 	phone rotation (show indicator if comic is wide?)
 
+	if last index is not equal to comic count (e.g. if comic 35 is missing), make sure still works
+
 
 ARCHIVES PAGE
-	use min image
 	check / optimize lazy loading
 
 
@@ -49,35 +48,33 @@ OTHER PAGES
 
 ADMIN PORTION
 	re-build static build on add comic
-	re-build only sigle page on edit comic
+	re-build only needed pages on edit comic (is this possible?)
 
 	account creation / editing
 
-OTHER TASKS
+	make adding and editing comics more robust (e.g. if fails)
+
+THEMES / CUSTOMIZATIOMN
 	custom color themes
 	custom button images
 	custom fonts
 	custom header links (e.g. store, blog)
-
-	loading screens
-
-	reafactor back end to be less coupled
-	use transactions on database ops
-
 	favicon
 
+MAKE OPEN SOURCE
 	automated tests
-
 	open source license
 
-	toasts allow to exit
+UI layout
+	toasts exit button
+	footer
+	highlight current link in header
 
+OTHER TASKS
 	make running production build easy
 
 	add video samples in README
 
-	footer
-
 	add id's to scraping elements (image, title, links)
 
-	highlight current link in header
+
