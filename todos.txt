@@ -54,7 +54,7 @@ ADMIN PORTION
 
 	make adding and editing comics more robust (e.g. if fails)
 
-THEMES / CUSTOMIZATIOMN
+THEMES / CUSTOMIZATION
 	custom color themes
 	custom button images
 	custom fonts
@@ -64,6 +64,9 @@ THEMES / CUSTOMIZATIOMN
 MAKE OPEN SOURCE
 	automated tests
 	open source license
+	update README to include more info about database, running, etc
+	add contributing guidelines
+	add code of conduct
 
 UI layout
 	toasts exit button
