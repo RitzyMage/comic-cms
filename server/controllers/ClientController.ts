@@ -1,64 +1,50 @@
-import knex from "knex";
-const connection = knex(require("../knexfile-client"));
+import { DAOFunction, TransactionType } from "../dao/DAOFunction";
+import ComicDAO from "../dao/ComicDAO";
+import TagDAO from "../dao/TagTAO";
+
+interface Range {
+  first: number;
+  last: number;
+}
 
 export default class ClientController {
-  async getComicCount() {
-    return await connection("comics").count("id", { as: "count" }).first();
-  }
+  public getComicCount = DAOFunction(
+    async (comicDAO: ComicDAO) => {
+      return await comicDAO.getComicCount();
+    },
+    TransactionType.CLIENT,
+    ComicDAO
+  );
 
-  async getEndImages() {
-    let [first, last] = await connection
-      .select("image", "image_lowres", "height", "width")
-      .from("comics")
-      .whereNull("next")
-      .orWhereNull("previous");
-    return { first, last };
-  }
+  public getEndImages = DAOFunction(
+    async (comicDAO: ComicDAO) => {
+      return await comicDAO.getEndImages();
+    },
+    TransactionType.CLIENT,
+    ComicDAO
+  );
 
-  async getBlockImages(start: number, end: number) {
-    return await connection
-      .select("id", "image", "image_lowres", "title")
-      .from("comics")
-      .where("id", ">=", start)
-      .andWhere("id", "<=", end);
-  }
+  public getBlockImages = DAOFunction(
+    async (comicDAO: ComicDAO, range: Range) => {
+      return await comicDAO.getBlockImages(range.first, range.last);
+    },
+    TransactionType.CLIENT,
+    ComicDAO
+  );
 
-  async getTags(id: number) {
-    return await connection
-      .select("tags.name as name", "tags.id as id")
-      .from("tags")
-      .leftJoin("comic_tags", "tags.id", "comic_tags.tag")
-      .where({ "comic_tags.comic": id });
-  }
+  public getTags = DAOFunction(
+    async (tagDAO: TagDAO, comicId: number) => {
+      return await tagDAO.getComicTags(comicId);
+    },
+    TransactionType.CLIENT,
+    TagDAO
+  );
 
-  async getComic(id: number) {
-    return await connection
-      .select(
-        "comics.id",
-        "next.id as next",
-        "prev.id as previous",
-        "comics.title",
-        "comics.transcript",
-        "comics.mouseover",
-        "comics.image",
-        "comics.height",
-        "next.height as nextHeight",
-        "prev.height as prevHeight",
-        "next.width as nextWidth",
-        "comics.width",
-        "prev.width as prevWidth",
-        "next.image as nextImage",
-        "prev.image as prevImage",
-        "prev.image_lowres as prevLowres",
-        "comics.image_lowres",
-        "next.image_lowres as nextLowres",
-        "comics.posted"
-      )
-      .from("comics")
-      .where({ "comics.id": id })
-      .leftJoin("comics as prev", "comics.previous", "prev.id")
-      .leftJoin("comics as next", "comics.next", "next.id")
-      .select()
-      .first();
-  }
+  public getComic = DAOFunction(
+    async (comicDAO: ComicDAO, id: number) => {
+      return await comicDAO.getComic(id);
+    },
+    TransactionType.CLIENT,
+    ComicDAO
+  );
 }

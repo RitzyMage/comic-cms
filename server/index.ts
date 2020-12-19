@@ -20,7 +20,8 @@ const adminController = new AdminController();
 const imageUploader = new ImageUpload();
 
 app.post("/api/auth/login", async (req, res) => {
-  let token = await authController.verifyUser(req.body.username, req.body.password);
+  let { username, password } = req.body;
+  let token = await authController.verifyUser({ username, password });
   if (!token) {
     res.status(400).send("Invalid username or password");
   } else {
@@ -38,7 +39,7 @@ app.get("/api/images", async (req, res) => {
     let first = parseInt(req.query.first as string);
     let last = parseInt(req.query.last as string);
     return res.send({
-      images: await clientController.getBlockImages(first, last),
+      images: await clientController.getBlockImages({ first, last }),
       ...(await clientController.getComicCount()),
     });
   }
@@ -94,11 +95,14 @@ app.patch("/api/comic/:id", auth, async (req, res) => {
 
   let imageData = await imageUploader.uploadImage(image, id);
 
-  await adminController.editComic(id, {
-    title,
-    transcript,
-    mouseover,
-    ...imageData,
+  await adminController.editComic({
+    id,
+    params: {
+      title,
+      transcript,
+      mouseover,
+      ...imageData,
+    },
   });
   res.send({ success: true });
 });

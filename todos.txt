@@ -1,6 +1,5 @@
 NEXT STEPS
-	refactor back end to be less coupled
-	use transactions on database ops
+	optimize comic getting to not do a double join
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	static build
@@ -30,6 +29,8 @@ COMIC PAGE
 	phone rotation (show indicator if comic is wide?)
 
 	if last index is not equal to comic count (e.g. if comic 35 is missing), make sure still works
+
+	automatic bookmarking
 
 
 ARCHIVES PAGE
