@@ -20,7 +20,7 @@
     <ComicNavigation
       ref="nav"
       :get-swiper="getSwiper"
-      :max-comic="maxComic"
+      :max-comic="comicInfo.count"
       :previous="previousURL"
       :page="comic.id"
       :next="nextURL"
@@ -41,30 +41,11 @@ import { directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import ComicNavigation from "~/components/ComicNavigation.vue";
 import { ComicImage, ImageInfo } from "~/components/ComicImage.vue";
+import { ComicInfo, Comic } from "~/util/ComicInfo";
 
 const SWIPER_ANIMATION_LENGTH = 200;
 const FILLER_SLIDES = 2;
 const FILLER_TIME = 20;
-
-interface Comic {
-  id: number;
-  title: string;
-  transcript: string;
-  mouseover: string;
-  image: string;
-  image_lowres: string;
-  height: number;
-  width: number;
-  posted: string;
-  next: number;
-  previous: number;
-}
-
-interface ComicInfo {
-  comic: Comic;
-  previous?: Comic;
-  next?: Comic;
-}
 
 @Component({
   directives: {
@@ -77,9 +58,6 @@ interface ComicInfo {
 })
 export default class ComicPage extends Vue {
   @Prop() private comicInfo!: ComicInfo;
-  @Prop() private maxComic!: number;
-  @Prop() private firstImage!: any;
-  @Prop() private lastImage!: any;
   private mySwiper!: any;
 
   private get title() {
@@ -117,7 +95,7 @@ export default class ComicPage extends Vue {
 
   private comicToImage(databaseObject?: Comic): ImageInfo {
     if (!databaseObject) {
-      return this.comicToImage(this.firstImage);
+      return this.comicToImage(this.comicInfo.first);
     }
     return {
       src: databaseObject.image,
@@ -132,11 +110,11 @@ export default class ComicPage extends Vue {
   private get images(): ImageInfo[] {
     return [
       this.mainImage,
-      ...[this.comicToImage(this.firstImage), ...Array(FILLER_SLIDES).fill(this.mainImage)],
+      ...[this.comicToImage(this.comicInfo.first), ...Array(FILLER_SLIDES).fill(this.mainImage)],
       this.comicToImage(this.previous),
       this.mainImage,
       this.comicToImage(this.next),
-      ...[...Array(FILLER_SLIDES).fill(this.mainImage), this.comicToImage(this.lastImage)],
+      ...[...Array(FILLER_SLIDES).fill(this.mainImage), this.comicToImage(this.comicInfo.last)],
     ];
   }
 

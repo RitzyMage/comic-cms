@@ -12,13 +12,13 @@ function DAOFunction<D extends DAO, ReturnType, ArgsType = void>(
   type: TransactionType,
   constructor: { new (t: Transaction): D }
 ): (args: ArgsType) => Promise<ReturnType> {
-  return transactionFunction(async (transaction: Transaction, args: ArgsType) => {
+  return TransactionFunction(async (transaction: Transaction, args: ArgsType) => {
     let dao = new constructor(transaction);
     return wrapped(dao, args);
   }, type);
 }
 
-function transactionFunction<ArgsType, ReturnType>(
+function TransactionFunction<ArgsType, ReturnType>(
   wrapped: (transaction: Transaction, args: ArgsType) => Promise<ReturnType>,
   type: TransactionType
 ): (args: ArgsType) => Promise<ReturnType> {
@@ -37,4 +37,4 @@ function transactionFunction<ArgsType, ReturnType>(
   };
 }
 
-export { DAOFunction, TransactionType };
+export { DAOFunction, TransactionType, TransactionFunction };

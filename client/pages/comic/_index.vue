@@ -1,12 +1,6 @@
 <template>
   <div class="comic">
-    <comic-page
-      :page="this.$route.params.index"
-      :comic-info="comicInfo"
-      :max-comic="comicCount"
-      :first-image="extraImages.first"
-      :last-image="extraImages.last"
-    />
+    <comic-page :page="this.$route.params.index" :comic-info="comicInfo" />
   </div>
 </template>
 
@@ -23,7 +17,7 @@ import { Route } from "vue-router";
 
   async asyncData({ $axios, params, error }: any) {
     try {
-      return await $axios.$get(`/${params.index}/all`);
+      return { comicInfo: await $axios.$get(`/${params.index}`) };
     } catch (e) {
       error({
         message: e.response?.statusText ?? "server error",

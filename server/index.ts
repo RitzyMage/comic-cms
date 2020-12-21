@@ -30,9 +30,6 @@ app.post("/api/auth/login", async (req, res) => {
 });
 
 app.get("/api/count", async (req, res) => res.send(await clientController.getComicCount()));
-app.get("/api/ends", async (req, res) => {
-  res.send(await clientController.getEndImages());
-});
 
 app.get("/api/images", async (req, res) => {
   if (req.query.first && req.query.last) {
@@ -51,17 +48,7 @@ app.get("/api/images", async (req, res) => {
 
 app.get("/api/:id", async (req, res) => {
   let id = parseInt(req.params.id);
-  res.send(await clientController.getComic(id));
-});
-
-app.get("/api/:id/all", async (req, res) => {
-  let id = parseInt(req.params.id);
-  res.send({
-    comicInfo: await clientController.getComic(id),
-    comicCount: (await clientController.getComicCount())?.count,
-    extraImages: await clientController.getEndImages(),
-    tags: await clientController.getTags(id),
-  });
+  res.send(await clientController.getComicInfo(id));
 });
 
 app.post("/api/comic", auth, async (req, res) => {
