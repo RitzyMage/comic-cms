@@ -21,9 +21,9 @@
       ref="nav"
       :get-swiper="getSwiper"
       :max-comic="maxComic"
-      :previous="comicInfo.previous"
-      :page="comicInfo.id"
-      :next="comicInfo.next"
+      :previous="previousURL"
+      :page="comic.id"
+      :next="nextURL"
       :navigate-first="navigateFirst"
       :navigate-previous="navigatePrevious"
       :navigate-next="navigateNext"
@@ -46,6 +46,26 @@ const SWIPER_ANIMATION_LENGTH = 200;
 const FILLER_SLIDES = 2;
 const FILLER_TIME = 20;
 
+interface Comic {
+  id: number;
+  title: string;
+  transcript: string;
+  mouseover: string;
+  image: string;
+  image_lowres: string;
+  height: number;
+  width: number;
+  posted: string;
+  next: number;
+  previous: number;
+}
+
+interface ComicInfo {
+  comic: Comic;
+  previous?: Comic;
+  next?: Comic;
+}
+
 @Component({
   directives: {
     swiper: directive,
@@ -56,18 +76,18 @@ const FILLER_TIME = 20;
   },
 })
 export default class ComicPage extends Vue {
-  @Prop() private comicInfo!: any;
+  @Prop() private comicInfo!: ComicInfo;
   @Prop() private maxComic!: number;
   @Prop() private firstImage!: any;
   @Prop() private lastImage!: any;
   private mySwiper!: any;
 
   private get title() {
-    return this.comicInfo.title;
+    return this.comic.title;
   }
 
   private get postedDate() {
-    return new Date(this.comicInfo.posted).toLocaleDateString("en-US", {
+    return new Date(this.comic.posted).toLocaleDateString("en-US", {
       weekday: "long",
       year: "numeric",
       month: "long",
@@ -95,33 +115,28 @@ export default class ComicPage extends Vue {
     this.mySwiper.slideTo(this.lastImageIndex, SWIPER_ANIMATION_LENGTH);
   }
 
-  private databaseToImage(databaseObject: any) {
+  private comicToImage(databaseObject?: Comic): ImageInfo {
+    if (!databaseObject) {
+      return this.comicToImage(this.firstImage);
+    }
     return {
       src: databaseObject.image,
       height: databaseObject.height,
       width: databaseObject.width,
       smallSrc: databaseObject.image_lowres,
+      alt: databaseObject.transcript,
+      title: databaseObject.mouseover,
     };
   }
 
   private get images(): ImageInfo[] {
     return [
-      this.infoAsImage,
-      ...[this.databaseToImage(this.firstImage), ...Array(FILLER_SLIDES).fill(this.infoAsImage)],
-      {
-        src: this.comicInfo.previmage,
-        height: this.comicInfo.prevheight,
-        width: this.comicInfo.prevwidth,
-        smallSrc: this.comicInfo.prevlowres,
-      },
-      this.infoAsImage,
-      {
-        src: this.comicInfo.nextimage,
-        height: this.comicInfo.nextheight,
-        width: this.comicInfo.nextwidth,
-        smallSrc: this.comicInfo.nextlowres,
-      },
-      ...[...Array(FILLER_SLIDES).fill(this.infoAsImage), this.databaseToImage(this.lastImage)],
+      this.mainImage,
+      ...[this.comicToImage(this.firstImage), ...Array(FILLER_SLIDES).fill(this.mainImage)],
+      this.comicToImage(this.previous),
+      this.mainImage,
+      this.comicToImage(this.next),
+      ...[...Array(FILLER_SLIDES).fill(this.mainImage), this.comicToImage(this.lastImage)],
     ];
   }
 
@@ -137,27 +152,28 @@ export default class ComicPage extends Vue {
     return this.$refs.nav as ComicNavigation;
   }
 
-  private get infoAsImage(): ImageInfo {
-    return {
-      src: this.comicInfo.image,
-      height: this.comicInfo.height,
-      width: this.comicInfo.width,
-      alt: this.comicInfo.transcript,
-      title: this.comicInfo.mouseover,
-      smallSrc: this.comicInfo.image_lowres,
-    };
+  private get comic() {
+    return this.comicInfo.comic;
   }
 
-  private getApiURL(index: number) {
-    return "/" + index;
+  private get previous() {
+    return this.comicInfo.previous;
   }
 
-  private get previousAPI() {
-    return this.getApiURL(this.comicInfo.previous);
+  private get next() {
+    return this.comicInfo.next;
   }
 
-  private get nextAPI() {
-    return this.getApiURL(this.comicInfo.next);
+  private get previousURL() {
+    return this.previous?.id;
+  }
+
+  private get nextURL() {
+    return this.next?.id;
+  }
+
+  private get mainImage(): ImageInfo {
+    return this.comicToImage(this.comic);
   }
 
   private removeAllSlidesExcept(index: number) {

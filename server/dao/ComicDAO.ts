@@ -31,31 +31,20 @@ export default class ComicDAO extends DAO {
   async getComic(id: number) {
     return await this.transaction
       .select(
-        "comics.id",
-        "next.id as next",
-        "prev.id as previous",
-        "comics.title",
-        "comics.transcript",
-        "comics.mouseover",
-        "comics.image",
-        "comics.height",
-        "next.height as nextHeight",
-        "prev.height as prevHeight",
-        "next.width as nextWidth",
-        "comics.width",
-        "prev.width as prevWidth",
-        "next.image as nextImage",
-        "prev.image as prevImage",
-        "prev.image_lowres as prevLowres",
-        "comics.image_lowres",
-        "next.image_lowres as nextLowres",
-        "comics.posted"
+        "id",
+        "title",
+        "transcript",
+        "mouseover",
+        "image",
+        "height",
+        "width",
+        "image_lowres",
+        "posted",
+        "next",
+        "previous"
       )
       .from("comics")
-      .where({ "comics.id": id })
-      .leftJoin("comics as prev", "comics.previous", "prev.id")
-      .leftJoin("comics as next", "comics.next", "next.id")
-      .select()
+      .where({ id })
       .first();
   }
 

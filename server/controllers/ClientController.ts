@@ -42,7 +42,19 @@ export default class ClientController {
 
   public getComic = DAOFunction(
     async (comicDAO: ComicDAO, id: number) => {
-      return await comicDAO.getComic(id);
+      let comic = await comicDAO.getComic(id);
+      let next, previous;
+      if (comic.next) {
+        next = await comicDAO.getComic(comic.next);
+      }
+      if (comic.previous) {
+        previous = await comicDAO.getComic(comic.previous);
+      }
+      return {
+        comic,
+        previous,
+        next,
+      };
     },
     TransactionType.CLIENT,
     ComicDAO
