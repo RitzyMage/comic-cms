@@ -73,6 +73,8 @@ UI layout
 	highlight current link in header
 
 OTHER TASKS
+	do we really need knex stringcase or will knex suffice?
+	
 	make running production build easy
 
 	add video samples in README
