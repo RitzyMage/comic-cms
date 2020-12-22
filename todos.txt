@@ -1,5 +1,9 @@
 NEXT STEPS
-	optimize comic getting to not do a double join
+	add id's to scraping elements (image, title, links)
+
+	redesign inputs to look more professional
+
+	search page
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	static build
@@ -38,10 +42,9 @@ ARCHIVES PAGE
 
 
 OTHER PAGES
-	search page
 	about page
 	blog section
-	rss feed (use API server?)
+	rss feed (use API server to statically generate?)
 	main page layout and styling
 
 
@@ -78,7 +81,3 @@ OTHER TASKS
 	make running production build easy
 
 	add video samples in README
-
-	add id's to scraping elements (image, title, links)
-
-
