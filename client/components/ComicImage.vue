@@ -2,6 +2,7 @@
   <div class="comicImageArea comic-height swiper-zoom-container" :style="containerStyle">
     <img
       v-if="info.src"
+      id="comic-image"
       class="no-overflow comicImage swiper-zoom-target"
       ref="image"
       :src="info.src"

@@ -1,6 +1,4 @@
 NEXT STEPS
-	add id's to scraping elements (image, title, links)
-
 	redesign inputs to look more professional
 
 	search page

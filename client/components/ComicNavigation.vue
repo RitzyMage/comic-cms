@@ -2,6 +2,7 @@
   <div class="links">
     <nuxt-link
       :to="firstURL"
+      id="first-link"
       :event="''"
       @click.native.prevent="navigateFirst"
       v-if="previousExists"
@@ -13,6 +14,7 @@
 
     <nuxt-link
       :to="previousURL"
+      id="previous-link"
       :event="''"
       @click.native.prevent="navigatePrevious"
       v-if="previousExists"
@@ -22,10 +24,11 @@
     </nuxt-link>
     <div v-else class="empty previous"></div>
 
-    <nuxt-link :to="home" class="link home">home</nuxt-link>
+    <nuxt-link :to="home" id="home-link" class="link home">home</nuxt-link>
 
     <nuxt-link
       :to="nextURL"
+      id="next-link"
       :event="''"
       @click.native.prevent="navigateNext"
       v-if="nextExists"
@@ -37,6 +40,7 @@
 
     <nuxt-link
       :to="lastURL"
+      id="last-link"
       :event="''"
       @click.native.prevent="navigateLast"
       v-if="nextExists"
