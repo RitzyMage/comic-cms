@@ -73,7 +73,8 @@ export default AddComic;
 .addForm {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto;
+  align-items: baseline;
 }
 </style>

@@ -1,5 +1,8 @@
 NEXT STEPS
+	refactor inputs to own components
 	redesign inputs to look more professional
+
+	fix 'Unexpected token <' on direct navigation to admin add
 
 	search page
 
