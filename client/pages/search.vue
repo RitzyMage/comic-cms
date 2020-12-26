@@ -1,8 +1,41 @@
-<template></template>
+<template>
+  <div>
+    <input v-model="searchInput" type="text" />
+    <p v-if="loading">
+      LOADING
+    </p>
+  </div>
+</template>
 
 <script lang="ts">
 import { Vue, Component } from "../util/Vue";
 
+const SEARCH_WAIT = 300;
+
 @Component
-export default class Search extends Vue {}
+export default class Search extends Vue {
+  private searchTerm = "";
+  private timeoutID: number | null = null;
+  private loading = false;
+
+  private get searchInput() {
+    return this.searchTerm;
+  }
+
+  private set searchInput(newInput: string) {
+    this.searchTerm = newInput;
+    this.loading = true;
+    if (this.timeoutID) {
+      window.clearTimeout(this.timeoutID);
+    }
+    this.timeoutID = window.setTimeout(() => {
+      this.search();
+    }, SEARCH_WAIT);
+  }
+
+  private search() {
+    console.log("search for", this.searchTerm);
+    this.loading = false;
+  }
+}
 </script>
