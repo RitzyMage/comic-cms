@@ -1,5 +1,4 @@
 NEXT STEPS
-	refactor inputs to own components
 	redesign inputs to look more professional
 	make layouts of add, edit, and login pages look better
 
