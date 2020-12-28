@@ -1,16 +1,19 @@
 <template>
   <div>
     <h1>LOGIN</h1>
-    <input type="text" v-model="username" />
-    <input type="password" v-model="password" />
+    <TextInput v-model="username" />
+    <TextInput password v-model="password" />
     <button @click="login">LOGIN</button>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from "../util/Vue";
+import TextInput from "@/components/inputs/TextInput.vue";
 
-@Component
+@Component({
+  components: { TextInput },
+})
 export class Login extends Vue {
   private username = "";
   private password = "";

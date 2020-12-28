@@ -4,19 +4,6 @@
   height: calc(100vh - 223px);
 }
 
-input[type="text"] {
-  background-color: $lightBackground;
-  border: 0px;
-  border-radius: 8px 8px 0 0;
-  outline: none;
-  color: white;
-  padding: 8px;
-}
-
-input[type="text"]:focus {
-  border-bottom: 1px solid $primary;
-}
-
 textarea {
   background-color: $lightBackground;
   border: 0px;
