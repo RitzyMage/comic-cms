@@ -17,7 +17,7 @@
       ></picture-input>
 
       <span>Transcript</span>
-      <textarea v-model="transcript" />
+      <TextInput large v-model="transcript" />
 
       <span>Mouseover Text</span>
       <TextInput v-model="mouseover" />

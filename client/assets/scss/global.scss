@@ -3,16 +3,3 @@
 .comic-height {
   height: calc(100vh - 223px);
 }
-
-textarea {
-  background-color: $lightBackground;
-  border: 0px;
-  border-radius: 4px;
-  outline: none;
-  color: white;
-  padding: 8px;
-}
-
-textarea:focus {
-  border: 1px solid $primary;
-}

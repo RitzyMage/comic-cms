@@ -1,5 +1,6 @@
 <template>
-  <input class="input" :type="type" :value="value" @input="update" />
+  <textarea v-if="large" class="largeInput" :value="value" @input="update" />
+  <input v-else class="input" :type="type" :value="value" @input="update" />
 </template>
 
 <script lang="ts">
@@ -9,6 +10,7 @@ import { Vue, Component, Prop } from "~/util/Vue";
 export default class TextInput extends Vue {
   @Prop() private value!: string;
   @Prop(Boolean) private password!: boolean;
+  @Prop(Boolean) private large!: boolean;
 
   update({ target: { value } }: { target: { value: HTMLInputElement } }) {
     this.$emit("input", value);
@@ -37,5 +39,18 @@ export default class TextInput extends Vue {
 
 .input:focus {
   border-bottom: 1px solid $primary;
+}
+
+.largeInput {
+  background-color: $lightBackground;
+  border: 0px;
+  border-radius: 4px;
+  outline: none;
+  color: white;
+  padding: 8px;
+}
+
+.largeInput:focus {
+  border: 1px solid $primary;
 }
 </style>
