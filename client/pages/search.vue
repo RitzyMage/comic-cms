@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-model="searchInput" type="text" />
+    <TextInput v-model="searchInput" />
     <p v-if="loading">
       LOADING
     </p>
@@ -9,10 +9,13 @@
 
 <script lang="ts">
 import { Vue, Component } from "../util/Vue";
+import TextInput from "@/components/inputs/TextInput.vue";
 
 const SEARCH_WAIT = 300;
 
-@Component
+@Component({
+  components: { TextInput },
+})
 export default class Search extends Vue {
   private searchTerm = "";
   private timeoutID: number | null = null;

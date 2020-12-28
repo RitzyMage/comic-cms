@@ -3,7 +3,7 @@
     <h1>Add Comic</h1>
     <div class="addForm">
       <span>Title</span>
-      <input v-model="title" type="text" />
+      <TextInput v-model="title" />
 
       <span>Image</span>
       <picture-input
@@ -20,7 +20,7 @@
       <textarea v-model="transcript" />
 
       <span>Mouseover Text</span>
-      <input v-model="mouseover" type="text" />
+      <TextInput v-model="mouseover" />
 
       <button @click="submit">Submit</button>
     </div>
@@ -31,11 +31,13 @@
 import { Vue, Component } from "../../util/Vue";
 //@ts-ignore
 import PictureInput from "vue-picture-input";
+import TextInput from "@/components/inputs/TextInput.vue";
 
 @Component({
   middleware: ["auth"],
   components: {
     PictureInput,
+    TextInput,
   },
 })
 export class AddComic extends Vue {

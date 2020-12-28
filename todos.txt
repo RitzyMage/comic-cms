@@ -1,10 +1,13 @@
 NEXT STEPS
 	refactor inputs to own components
 	redesign inputs to look more professional
+	make layouts of add, edit, and login pages look better
 
 	fix 'Unexpected token <' on direct navigation to admin add
 
 	search page
+
+	get rid of duplication on add/edit pages
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	static build
