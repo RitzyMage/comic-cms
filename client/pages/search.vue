@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <TextInput v-model="searchInput" name="search" />
+  <div class="search-page">
+    <TextInput v-model="searchInput" name="search" rounded />
     <p v-if="loading">
       LOADING
     </p>
@@ -42,3 +42,10 @@ export default class Search extends Vue {
   }
 }
 </script>
+
+<style scoped>
+.search-page {
+  max-width: 600px;
+  margin: 0 auto;
+}
+</style>

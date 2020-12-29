@@ -2,7 +2,7 @@
   <div class="text-input">
     <label class="text-input-label">{{ name }}</label>
     <textarea v-if="large" class="largeInput" :value="value" @input="update" />
-    <input v-else class="input" :type="type" :value="value" @input="update" />
+    <input v-else :class="inputClass" :type="type" :value="value" @input="update" />
   </div>
 </template>
 
@@ -15,6 +15,7 @@ export default class TextInput extends Vue {
   @Prop() private name!: string;
   @Prop(Boolean) private password!: boolean;
   @Prop(Boolean) private large!: boolean;
+  @Prop(Boolean) private rounded!: boolean;
 
   update({ target: { value } }: { target: { value: HTMLInputElement } }) {
     this.$emit("input", value);
@@ -25,6 +26,14 @@ export default class TextInput extends Vue {
       return "password";
     }
     return "text";
+  }
+
+  get inputClass() {
+    let result = "input";
+    if (this.rounded) {
+      result += " rounded";
+    }
+    return result;
   }
 }
 </script>
@@ -50,6 +59,10 @@ export default class TextInput extends Vue {
   color: white;
   padding: 8px 0 8px 8px;
   width: 100%;
+}
+
+.rounded {
+  border-radius: 32px;
 }
 
 .input:focus {
