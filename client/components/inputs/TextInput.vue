@@ -3,6 +3,7 @@
     <label class="text-input-label">{{ name }}</label>
     <textarea v-if="large" class="largeInput" :value="value" @input="update" />
     <input v-else :class="inputClass" :type="type" :value="value" @input="update" />
+    <component v-if="icon" :is="icon" class="text-input-icon"></component>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ export default class TextInput extends Vue {
   @Prop(Boolean) private password!: boolean;
   @Prop(Boolean) private large!: boolean;
   @Prop(Boolean) private rounded!: boolean;
+  @Prop() private icon?: Vue;
 
   update({ target: { value } }: { target: { value: HTMLInputElement } }) {
     this.$emit("input", value);
@@ -44,11 +46,19 @@ export default class TextInput extends Vue {
 .text-input {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .text-input-label {
   text-transform: capitalize;
   text-align: left;
+}
+
+.text-input-icon {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  opacity: 0.6;
 }
 
 .input {
@@ -69,6 +79,11 @@ export default class TextInput extends Vue {
   border-bottom: 1px solid $primary;
 }
 
+.input:focus ~ .text-input-icon {
+  opacity: 0.9;
+  bottom: 5px;
+}
+
 .largeInput {
   background-color: $lightBackground;
   border: 0px;
@@ -79,7 +94,8 @@ export default class TextInput extends Vue {
   width: calc(100% - 8px);
 }
 
-.largeInput:focus {
+.largeInput:focus,
+.rounded:focus {
   border: 1px solid $primary;
 }
 </style>

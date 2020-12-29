@@ -86,3 +86,5 @@ OTHER TASKS
 	make running production build easy
 
 	add video samples in README
+
+	get rid of ts-ignores by declaring own types

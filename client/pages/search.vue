@@ -1,6 +1,6 @@
 <template>
   <div class="search-page">
-    <TextInput v-model="searchInput" name="search" rounded />
+    <TextInput v-model="searchInput" name="search" rounded :icon="SearchIcon" />
     <p v-if="loading">
       LOADING
     </p>
@@ -10,16 +10,18 @@
 <script lang="ts">
 import { Vue, Component } from "../util/Vue";
 import TextInput from "@/components/inputs/TextInput.vue";
+import { SearchIcon } from "vue-feather-icons";
 
 const SEARCH_WAIT = 300;
 
 @Component({
-  components: { TextInput },
+  components: { TextInput, SearchIcon },
 })
 export default class Search extends Vue {
   private searchTerm = "";
   private timeoutID: number | null = null;
   private loading = false;
+  private SearchIcon = SearchIcon;
 
   private get searchInput() {
     return this.searchTerm;
