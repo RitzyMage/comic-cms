@@ -59,6 +59,8 @@ ADMIN PORTION
 
 	make adding and editing comics more robust (e.g. if fails)
 
+	edit comic page autofills and is less buggy
+
 THEMES / CUSTOMIZATION
 	custom color themes
 	custom button images

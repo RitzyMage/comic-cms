@@ -2,8 +2,7 @@
   <div>
     <h1>Add Comic</h1>
     <div class="addForm">
-      <span>Title</span>
-      <TextInput v-model="title" />
+      <TextInput v-model="title" name="title" />
 
       <span>Image</span>
       <picture-input
@@ -16,11 +15,9 @@
         @change="imageChange"
       ></picture-input>
 
-      <span>Transcript</span>
-      <TextInput large v-model="transcript" />
+      <TextInput large v-model="transcript" name="transcript" />
 
-      <span>Mouseover Text</span>
-      <TextInput v-model="mouseover" />
+      <TextInput v-model="mouseover" name="mouseover text" />
 
       <button @click="submit">Submit</button>
     </div>
@@ -73,10 +70,7 @@ export default AddComic;
 
 <style scoped>
 .addForm {
-  display: flex;
-  flex-direction: column;
   max-width: 550px;
   margin: 0 auto;
-  align-items: baseline;
 }
 </style>

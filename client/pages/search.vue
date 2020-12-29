@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TextInput v-model="searchInput" />
+    <TextInput v-model="searchInput" name="search" />
     <p v-if="loading">
       LOADING
     </p>
