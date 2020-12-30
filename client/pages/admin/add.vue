@@ -5,15 +5,7 @@
       <TextInput v-model="title" name="title" />
 
       <span>Image</span>
-      <picture-input
-        width="600"
-        height="600"
-        margin="16"
-        accept="image/jpeg,image/png"
-        size="10"
-        button-class="btn"
-        @change="imageChange"
-      ></picture-input>
+      <input type="file" accept="image/*" @change="imageChange" id="file-input" />
 
       <TextInput large v-model="transcript" name="transcript" />
 
@@ -26,14 +18,11 @@
 
 <script lang="ts">
 import { Vue, Component } from "../../util/Vue";
-//@ts-ignore
-import PictureInput from "vue-picture-input";
 import TextInput from "@/components/inputs/TextInput.vue";
 
 @Component({
   middleware: ["auth"],
   components: {
-    PictureInput,
     TextInput,
   },
 })
@@ -54,9 +43,24 @@ export class AddComic extends Vue {
     }
   }
 
-  private imageChange(image: any) {
+  private async fileToDataURL(file: File) {
+    let fileReader = new FileReader();
+    let promise = new Promise(resolve => {
+      fileReader.addEventListener("load", () => {
+        resolve(fileReader.result);
+      });
+    });
+    fileReader.readAsDataURL(file);
+    return await promise;
+  }
+
+  private async imageChange({
+    target: {
+      files: [image],
+    },
+  }: any) {
     if (image) {
-      this.image = image;
+      this.image = await this.fileToDataURL(image);
     }
   }
 

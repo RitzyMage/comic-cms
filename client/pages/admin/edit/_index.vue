@@ -5,15 +5,6 @@
       <TextInput v-model="title" name="title" />
 
       <span>Image</span>
-      <picture-input
-        width="600"
-        height="600"
-        margin="16"
-        accept="image/jpeg,image/png"
-        size="10"
-        button-class="btn"
-        @change="imageChange"
-      ></picture-input>
 
       <TextInput large v-model="transcript" name="transcript" />
 
@@ -26,15 +17,12 @@
 
 <script lang="ts">
 import { Vue, Component } from "~/util/Vue";
-//@ts-ignore
-import PictureInput from "vue-picture-input";
 import TextInput from "@/components/inputs/TextInput.vue";
 
 @Component({
   name: "Edit-Comic",
   middleware: ["auth"],
   components: {
-    PictureInput,
     TextInput,
   },
 })

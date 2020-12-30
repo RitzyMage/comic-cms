@@ -56,13 +56,13 @@ export default class ComicDAO extends DAO {
   async create(params: AddComicParams, posted: string) {
     let previous = await this.getLastId();
 
-    let [{ id }] = await this.transaction("comics")
-      .insert({
-        ...params,
-        posted,
-        previous,
-      })
-      .returning("id");
+    await this.transaction("comics").insert({
+      ...params,
+      posted,
+      previous,
+    });
+
+    let [{ id }] = await this.transaction("comics").select("id").where({ previous });
 
     await this.transaction("comics").update({ next: id }).where({ id: previous });
   }
