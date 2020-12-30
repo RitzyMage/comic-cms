@@ -11,7 +11,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json({ limit: 1000000 }));
+app.use(bodyParser.json({ limit: 10000000 }));
 const PORT = process.env.PORT;
 
 const clientController = new ClientController();

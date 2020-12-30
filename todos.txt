@@ -2,9 +2,9 @@ NEXT STEPS
 	redesign inputs to look more professional
 	make layouts of add, edit, and login pages look better
 
-	fix 'Unexpected token <' on direct navigation to admin add
-
 	search page
+
+	make image input its own component
 
 	get rid of duplication on add/edit pages
 
