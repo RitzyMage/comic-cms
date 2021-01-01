@@ -4,6 +4,9 @@
     <p v-if="loading">
       LOADING
     </p>
+    <div v-else>
+      <PageLink v-for="comic in comics" :key="comic.id" :page="comic" />
+    </div>
   </div>
 </template>
 
@@ -11,17 +14,20 @@
 import { Vue, Component } from "../util/Vue";
 import TextInput from "@/components/inputs/TextInput.vue";
 import { SearchIcon } from "vue-feather-icons";
+import { Comic } from "~/util/ComicInfo";
+import PageLink from "~/components/PageLink.vue";
 
 const SEARCH_WAIT = 300;
 
 @Component({
-  components: { TextInput, SearchIcon },
+  components: { TextInput, SearchIcon, PageLink },
 })
 export default class Search extends Vue {
   private searchTerm = "";
   private timeoutID: number | null = null;
   private loading = false;
   private SearchIcon = SearchIcon;
+  private comics: Comic[] = [];
 
   private get searchInput() {
     return this.searchTerm;
@@ -38,8 +44,10 @@ export default class Search extends Vue {
     }, SEARCH_WAIT);
   }
 
-  private search() {
-    console.log("search for", this.searchTerm);
+  private async search() {
+    this.comics = await this.$axios.$get(
+      `/search?params=${this.searchTerm.replace(/[\&?\/]/, " ")}`
+    );
     this.loading = false;
   }
 }

@@ -27,7 +27,10 @@ export default class ClientController {
 
   public search = DAOFunction(
     async (comicDAO: ComicDAO, search: string) => {
-      let searchTerms = search.split(" ");
+      let searchTerms = search
+        .replace(/[^\w\s]+/gi, " ")
+        .split(/[\s,]+/)
+        .filter(x => x);
       return await comicDAO.findComicsMatching(searchTerms);
     },
     TransactionType.CLIENT,
