@@ -25,6 +25,15 @@ export default class ClientController {
     ComicDAO
   );
 
+  public search = DAOFunction(
+    async (comicDAO: ComicDAO, search: string) => {
+      let searchTerms = search.split(" ");
+      return await comicDAO.findComicsMatching(searchTerms);
+    },
+    TransactionType.CLIENT,
+    ComicDAO
+  );
+
   public getComicInfo = TransactionFunction(async (transaction: Transaction, id: number) => {
     let comicDAO = new ComicDAO(transaction);
     let tagDAO = new TagDAO(transaction);

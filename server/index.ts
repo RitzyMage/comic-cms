@@ -31,6 +31,10 @@ app.post("/api/auth/login", async (req, res) => {
 
 app.get("/api/count", async (req, res) => res.send(await clientController.getComicCount()));
 
+app.get("/api/search", async (req, res) =>
+  res.send(await clientController.search(req.query.params as string))
+);
+
 app.get("/api/images", async (req, res) => {
   if (req.query.first && req.query.last) {
     let first = parseInt(req.query.first as string);

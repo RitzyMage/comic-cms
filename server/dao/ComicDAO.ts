@@ -20,6 +20,10 @@ export default class ComicDAO extends DAO {
     return { first, last };
   }
 
+  async findComicsMatching(toFind: string[]) {
+    return await this.transaction.select("id", "image", "image_lowres", "title").from("comics");
+  }
+
   async getBlockImages(start: number, end: number) {
     return await this.transaction
       .select("id", "image", "image_lowres", "title")
