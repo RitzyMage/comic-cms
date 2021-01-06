@@ -4,9 +4,7 @@ NEXT STEPS
 
 	search page
 
-	make image input its own component
-
-	get rid of duplication on add/edit pages
+	make static folder in git but none of its contents
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	static build

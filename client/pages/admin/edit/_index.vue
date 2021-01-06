@@ -1,23 +1,14 @@
 <template>
   <div>
     <h1>Edit {{ index }}</h1>
-    <div class="editForm">
-      <TextInput v-model="title" name="title" />
-
-      <span>Image</span>
-
-      <TextInput large v-model="transcript" name="transcript" />
-
-      <TextInput v-model="mouseover" name="mouseover text" />
-
-      <button @click="submit">Submit</button>
-    </div>
+    <ComicForm v-model="data" @submit="submit" />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "~/util/Vue";
 import TextInput from "@/components/inputs/TextInput.vue";
+import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
 
 @Component({
   name: "Edit-Comic",
@@ -28,6 +19,13 @@ import TextInput from "@/components/inputs/TextInput.vue";
 })
 export class EditComic extends Vue {
   public $axios!: any;
+  private data: ComicFormData = {
+    title: "",
+    mouseover: "",
+    transcript: "",
+    image: null,
+  };
+
   get index() {
     return this.$route.params.index;
   }
@@ -35,13 +33,7 @@ export class EditComic extends Vue {
   private image: any;
   private submit() {
     try {
-      let data = {
-        title: this.title,
-        transcript: this.transcript,
-        mouseover: this.mouseover,
-        image: this.image,
-      };
-      this.$axios.patch(`/comic/${this.index}`, data);
+      this.$axios.patch(`/comic/${this.index}`, this.data);
       this.$router.push("/admin");
     } catch (e) {
       console.error(e);
@@ -53,10 +45,6 @@ export class EditComic extends Vue {
       this.image = image;
     }
   }
-
-  private transcript = "";
-  private title = "";
-  private mouseover = "";
 }
 
 export default EditComic;
