@@ -21,9 +21,14 @@ export default class ComicDAO extends DAO {
   }
 
   async findComicsMatching(toFind: string[]) {
-    console.log("finding matching", toFind);
+    let terms = toFind.join(" ");
     return await this.transaction
       .select("id", "image", "image_lowres", "title")
+      .where(
+        this.transaction.raw(
+          `match(TITLE,TRANSCRIPT,MOUSEOVER) against ("${terms}" in natural language mode)`
+        )
+      )
       .from("comics")
       .limit(5);
   }

@@ -4,8 +4,11 @@
     <p v-if="loading">
       LOADING
     </p>
-    <div v-else>
+    <div v-else-if="comics.length">
       <PageLink v-for="comic in comics" :key="comic.id" :page="comic" />
+    </div>
+    <div v-else>
+      No results found.
     </div>
   </div>
 </template>
