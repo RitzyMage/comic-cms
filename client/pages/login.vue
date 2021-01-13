@@ -1,18 +1,19 @@
 <template>
-  <div>
+  <div class="loginPage">
     <h1>LOGIN</h1>
     <TextInput v-model="username" name="username" />
     <TextInput password v-model="password" name="password" />
-    <button @click="login">LOGIN</button>
+    <Button @click="login">LOGIN</Button>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from "../util/Vue";
 import TextInput from "@/components/inputs/TextInput.vue";
+import Button from "@/components/inputs/Button.vue";
 
 @Component({
-  components: { TextInput },
+  components: { TextInput, Button },
 })
 export class Login extends Vue {
   private username = "";
@@ -35,3 +36,10 @@ export class Login extends Vue {
 
 export default Login;
 </script>
+
+<style scoped>
+.loginPage {
+  max-width: 800px;
+  margin: 0 auto;
+}
+</style>
