@@ -6,6 +6,8 @@ NEXT STEP
 	tags on create and on comics page
 
 	custom URL's (or based on name)
+	if last index is not equal to comic count (e.g. if comic 35 is missing), make sure still works
+		NOTE: above should fix but test anyway
 
 COMIC PAGE
 	image scrollable on mobile
@@ -16,8 +18,6 @@ COMIC PAGE
 		(or show loading spinner?)
 
 	phone rotation (show indicator if comic is wide?)
-
-	if last index is not equal to comic count (e.g. if comic 35 is missing), make sure still works
 
 	automatic bookmarking
 
@@ -73,6 +73,8 @@ OPTIMIZATIONS (MAKE BLAZING FAST)
 	cache necessary information (?)
 
 OTHER TASKS
+	usability tests for admin portion
+	
 	make running production build / installing on server easy
 
 	add video samples in README
