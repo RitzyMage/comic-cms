@@ -93,4 +93,5 @@ server/static
 **/sw.js
 server/build
 *.db
-client/static/img/comics/*
+client/static/img/comics/*.png
+client/static/img/comics/*.webp

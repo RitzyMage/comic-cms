@@ -1,29 +1,13 @@
-NEXT STEPS
-	redesign inputs to look more professional
-	make layouts of add, edit, and login pages look better
-
-	make static folder in git but none of its contents
-
+NEXT STEP
 	make seeds contain full transcripts to better test search
-
-OPTIMIZATIONS (MAKE BLAZING FAST)
-	static build
-	optimize JS/CSS/other size
-
-	test client on 3G
-
-	host images on cdn (?)
-
-	cache necessary information (?)
-
-
-COMIC PAGE
-	tags
-
-	hide header when reading?
+	
+	do we really need knex stringcase or will knex suffice?
+	
+	tags on create and on comics page
 
 	custom URL's (or based on name)
 
+COMIC PAGE
 	image scrollable on mobile
 
 	when loading new page, get new title (and other info) and display
@@ -78,11 +62,18 @@ UI layout
 	footer
 	highlight current link in header
 
+OPTIMIZATIONS (MAKE BLAZING FAST)
+	static build
+	optimize JS/CSS/other size
+
+	test client on 3G
+
+	host images on cdn (?)
+
+	cache necessary information (?)
+
 OTHER TASKS
-	do we really need knex stringcase or will knex suffice?
-	
-	make running production build easy
+	make running production build / installing on server easy
 
 	add video samples in README
 
-	get rid of ts-ignores by declaring own types
