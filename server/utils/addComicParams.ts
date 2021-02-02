@@ -1,4 +1,4 @@
-interface AddComicParams {
+interface AddComicDatabase {
   title: string;
   transcript: string;
   mouseover: string;
@@ -7,5 +7,8 @@ interface AddComicParams {
   height: number;
   width: number;
 }
+interface AddComicParams extends AddComicDatabase {
+  tags: string[];
+}
 
-export default AddComicParams;
+export { AddComicParams, AddComicDatabase };

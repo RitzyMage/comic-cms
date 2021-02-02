@@ -1,5 +1,5 @@
 import { Transaction } from "knex";
-import AddComicParams from "../utils/addComicParams";
+import { AddComicDatabase } from "../utils/addComicParams";
 import DAO from "./DAO";
 
 export default class ComicDAO extends DAO {
@@ -66,7 +66,7 @@ export default class ComicDAO extends DAO {
     return id as number;
   }
 
-  async create(params: AddComicParams, posted: string) {
+  async create(params: AddComicDatabase, posted: string) {
     let previous = await this.getLastId();
 
     await this.transaction("comics").insert({
@@ -78,9 +78,11 @@ export default class ComicDAO extends DAO {
     let [{ id }] = await this.transaction("comics").select("id").where({ previous });
 
     await this.transaction("comics").update({ next: id }).where({ id: previous });
+
+    return id;
   }
 
-  async update(params: AddComicParams, id: number) {
+  async update(params: AddComicDatabase, id: number) {
     await this.transaction("comics").update(params).where({ id });
   }
 }

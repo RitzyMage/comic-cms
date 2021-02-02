@@ -1,6 +1,6 @@
 import { DAOFunction, TransactionType, TransactionFunction } from "../dao/DAOFunction";
 import ComicDAO from "../dao/ComicDAO";
-import TagDAO from "../dao/TagTAO";
+import TagDAO from "../dao/TagDAO";
 import { Transaction } from "knex";
 
 interface Range {

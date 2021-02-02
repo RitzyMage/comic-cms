@@ -56,7 +56,7 @@ app.get("/api/:id", async (req, res) => {
 });
 
 app.post("/api/comic", auth, async (req, res) => {
-  let { title, transcript, mouseover, image } = req.body;
+  let { title, transcript, mouseover, image, tags } = req.body;
 
   if (!title) {
     return res.status(400).send("title required");
@@ -76,12 +76,13 @@ app.post("/api/comic", auth, async (req, res) => {
     transcript,
     mouseover,
     ...imageData,
+    tags,
   });
   res.send({ success: true });
 });
 
 app.patch("/api/comic/:id", auth, async (req, res) => {
-  let { title, transcript, mouseover, image } = req.body;
+  let { title, transcript, mouseover, image, tags } = req.body;
   let id = parseInt(req.params.id);
 
   let imageData = await imageUploader.uploadImage(image, id);
@@ -93,6 +94,7 @@ app.patch("/api/comic/:id", auth, async (req, res) => {
       transcript,
       mouseover,
       ...imageData,
+      tags,
     },
   });
   res.send({ success: true });

@@ -1,15 +1,25 @@
-import { DAOFunction, TransactionType } from "../dao/DAOFunction";
+import { DAOFunction, TransactionType, TransactionFunction } from "../dao/DAOFunction";
 import ComicDAO from "../dao/ComicDAO";
-import AddComicParams from "../utils/addComicParams";
+import TagDAO from "../dao/TagDAO";
+import { AddComicParams, AddComicDatabase } from "../utils/addComicParams";
+import { Transaction } from "knex";
 
 export default class AdminController {
-  public addComic = DAOFunction(
-    async (comicDAO: ComicDAO, params: AddComicParams) => {
+  public addComic = TransactionFunction(
+    async (transaction: Transaction, params: AddComicParams) => {
       let posted = new Date().toISOString().split("T")[0];
-      await comicDAO.create(params, posted);
+      let comicDAO = new ComicDAO(transaction);
+      let tagDAO = new TagDAO(transaction);
+
+      let databaseParams: AddComicDatabase = {
+        ...params,
+      };
+      delete (databaseParams as any).tags;
+
+      let newComicID = await comicDAO.create(databaseParams, posted);
+      await tagDAO.addTags(params.tags, newComicID);
     },
-    TransactionType.ADMIN,
-    ComicDAO
+    TransactionType.ADMIN
   );
 
   public editComic = DAOFunction(
