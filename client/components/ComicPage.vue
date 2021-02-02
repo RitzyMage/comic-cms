@@ -32,6 +32,7 @@
     <p>
       {{ postedDate }}
     </p>
+    <Chip v-for="tag in comic.tags" :text="tag.name" :key="tag.id" />
   </div>
 </template>
 
@@ -42,6 +43,7 @@ import "swiper/css/swiper.css";
 import ComicNavigation from "~/components/ComicNavigation.vue";
 import { ComicImage, ImageInfo } from "~/components/ComicImage.vue";
 import { ComicInfo, Comic } from "~/util/ComicInfo";
+import Chip from "~/components/Chip.vue";
 
 const SWIPER_ANIMATION_LENGTH = 200;
 const FILLER_SLIDES = 2;
@@ -54,6 +56,7 @@ const FILLER_TIME = 20;
   components: {
     ComicNavigation,
     ComicImage,
+    Chip,
   },
 })
 export default class ComicPage extends Vue {

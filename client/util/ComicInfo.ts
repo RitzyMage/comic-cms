@@ -10,6 +10,7 @@ export interface Comic {
   posted: string;
   next: number;
   previous: number;
+  tags: { name: string; id: number }[];
 }
 
 export interface ComicInfo {

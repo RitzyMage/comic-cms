@@ -10,7 +10,7 @@
     @tag="addTag"
   >
     <template v-slot:tag="slotProps">
-      <Chip :text="slotProps.option" @delete="() => slotProps.remove(slotProps.option)" />
+      <Chip :text="slotProps.option" @delete="() => slotProps.remove(slotProps.option)" deletable />
     </template>
   </multiselect>
 </template>
@@ -18,7 +18,7 @@
 <script lang="ts">
 import Multiselect from "vue-multiselect";
 import { Vue, Component, Prop } from "@/util/Vue";
-import Chip from "@/components/inputs/Chip.vue";
+import Chip from "@/components/Chip.vue";
 
 @Component({
   components: {
