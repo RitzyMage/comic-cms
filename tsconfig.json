@@ -3,7 +3,7 @@
     "target": "es2018",
     "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["esnext", "esnext.asynciterable", "dom"],
+    "lib": ["esnext", "esnext.asynciterable", "dom", "es2020.string"],
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,

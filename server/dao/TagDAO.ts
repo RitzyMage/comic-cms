@@ -31,7 +31,7 @@ export default class TagDAO extends DAO {
 
     let tagsToAdd = names
       .filter(name => alreadyExistingTags.findIndex(tag => tag.name === name) === -1)
-      .map(name => name.toLowerCase());
+      .map(name => name.toLowerCase().replace(/[^a-z0-9 ]/g, ""));
     await this.transaction.insert(tagsToAdd.map(name => ({ name }))).into("tags");
     let newTags: Tag[] = await this.transaction
       .select("name", "id")

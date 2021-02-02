@@ -5,6 +5,7 @@
     "rootDir": "./",
     "outDir": "./build",
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "lib": ["es2020.string"]
   }
 }
