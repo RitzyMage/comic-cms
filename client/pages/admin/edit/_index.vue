@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Edit {{ index }}</h1>
-    <ComicForm v-model="data" @submit="submit" />
+    <ComicForm v-model="data" :all-tags="tags" @submit="submit" />
   </div>
 </template>
 
@@ -16,9 +16,14 @@ import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
   components: {
     TextInput,
   },
+
+  async asyncData({ $axios }) {
+    return { tags: await $axios.$get("/tags") };
+  },
 })
 export class EditComic extends Vue {
   public $axios!: any;
+  private tags!: any;
   private data: ComicFormData = {
     title: "",
     mouseover: "",

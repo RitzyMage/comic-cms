@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import AuthController from "./controllers/AuthController";
 import auth from "./middleware/auth";
 import AdminController from "./controllers/AdminController";
+import TagController from "./controllers/TagController";
 import ImageUpload from "./controllers/ImageUpload";
 require("dotenv").config();
 
@@ -18,6 +19,11 @@ const clientController = new ClientController();
 const authController = new AuthController();
 const adminController = new AdminController();
 const imageUploader = new ImageUpload();
+const tagController = new TagController();
+
+app.get("/api/tags", async (req, res) => {
+  res.send(await tagController.getTags());
+});
 
 app.post("/api/auth/login", async (req, res) => {
   let { username, password } = req.body;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Add Comic</h1>
-    <ComicForm v-model="data" @submit="submit" />
+    <ComicForm v-model="data" :all-tags="tags" @submit="submit" />
   </div>
 </template>
 
@@ -14,8 +14,12 @@ import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
   components: {
     ComicForm,
   },
+  async asyncData({ $axios }) {
+    return { tags: await $axios.$get("/tags") };
+  },
 })
 export class AddComic extends Vue {
+  private tags!: any;
   private data: ComicFormData = {
     title: "",
     transcript: "",

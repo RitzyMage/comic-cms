@@ -39,6 +39,7 @@ export interface ComicFormData {
 })
 export default class ComicForm extends Vue {
   @Prop() private value!: ComicFormData;
+  @Prop() private allTags!: any;
 
   private get selectedTags() {
     return this.value.tags;
@@ -47,8 +48,6 @@ export default class ComicForm extends Vue {
   private set selectedTags(tags) {
     this.$emit("input", { ...this.value, tags: tags });
   }
-
-  private allTags = ["tag1", "tag2", "tag3"];
 
   private get image() {
     return this.value.image;

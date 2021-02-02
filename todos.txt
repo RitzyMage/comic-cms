@@ -1,7 +1,9 @@
-NEXT STEP
+NEXT STEPS
 	make seeds contain full transcripts to better test search
 	
 	tags on create and on comics page
+
+	style autoselect for tags
 
 	custom URL's (or based on name)
 	if last index is not equal to comic count (e.g. if comic 35 is missing), make sure still works
@@ -76,4 +78,6 @@ OTHER TASKS
 	make running production build / installing on server easy
 
 	add video samples in README
+
+	clean up route locations on server
 
