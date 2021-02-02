@@ -88,7 +88,6 @@ export default class ComicForm extends Vue {
   private addTag(tag: string) {
     this.allTags.push(tag);
     this.selectedTags = [...this.selectedTags, tag];
-    console.log(this.selectedTags);
   }
 }
 </script>
