@@ -1,8 +1,6 @@
 NEXT STEP
 	make seeds contain full transcripts to better test search
 	
-	do we really need knex stringcase or will knex suffice?
-	
 	tags on create and on comics page
 
 	custom URL's (or based on name)
