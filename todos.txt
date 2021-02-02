@@ -1,7 +1,5 @@
 NEXT STEPS
 	make seeds contain full transcripts to better test search
-	
-	tags on create and on comics page
 
 	style autoselect for tags
 
