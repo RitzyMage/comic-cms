@@ -1,5 +1,5 @@
 <template>
-  <span class="chip">
+  <span class="chip" @click="onClick">
     {{ text }}
     <button class="chip-delete" v-if="deletable">
       <XIcon class="chip-delete-icon" size="16" @click="() => $emit('delete')" />
@@ -18,6 +18,13 @@ import { XIcon } from "vue-feather-icons";
 export default class Chip extends Vue {
   @Prop(String) private text!: string;
   @Prop({ type: Boolean, default: false }) private deletable!: boolean;
+  @Prop({ type: Boolean, default: false }) private clickable!: boolean;
+
+  private onClick() {
+    if (this.clickable) {
+      this.$router.push(`/tag/${this.text}`);
+    }
+  }
 }
 </script>
 

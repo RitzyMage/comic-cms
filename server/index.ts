@@ -42,17 +42,25 @@ app.get("/api/search", async (req, res) =>
 );
 
 app.get("/api/images", async (req, res) => {
+  let count = await clientController.getComicCount();
+  if (req.query.tag) {
+    let tag = req.query.tag as string;
+    return res.send({
+      images: await clientController.getTaggedImages(tag),
+      ...count,
+    });
+  }
   if (req.query.first && req.query.last) {
     let first = parseInt(req.query.first as string);
     let last = parseInt(req.query.last as string);
     return res.send({
       images: await clientController.getBlockImages({ first, last }),
-      ...(await clientController.getComicCount()),
+      ...count,
     });
   }
   res.send({
     images: [],
-    ...(await clientController.getComicCount()),
+    ...count,
   });
 });
 

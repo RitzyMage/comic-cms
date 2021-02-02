@@ -32,7 +32,7 @@
     <p>
       {{ postedDate }}
     </p>
-    <Chip v-for="tag in comic.tags" :text="tag.name" :key="tag.id" />
+    <Chip v-for="tag in comic.tags" :text="tag.name" :key="tag.id" clickable />
   </div>
 </template>
 

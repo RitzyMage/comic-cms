@@ -25,6 +25,14 @@ export default class ClientController {
     ComicDAO
   );
 
+  public getTaggedImages = DAOFunction(
+    async (comicDAO: ComicDAO, tag: string) => {
+      return await comicDAO.getTaggedImages(tag);
+    },
+    TransactionType.CLIENT,
+    ComicDAO
+  );
+
   public search = DAOFunction(
     async (comicDAO: ComicDAO, search: string) => {
       let searchTerms = search

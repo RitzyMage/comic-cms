@@ -41,6 +41,15 @@ export default class ComicDAO extends DAO {
       .andWhere("id", "<=", end);
   }
 
+  async getTaggedImages(tag: string) {
+    return await this.transaction
+      .select("comics.id", "image", "image_lowres", "title")
+      .from("comics")
+      .join("comic_tags", "comics.id", "=", "comic_tags.comic")
+      .join("tags", "tags.id", "=", "comic_tags.tag")
+      .where("tags.name", "=", tag);
+  }
+
   async getComic(id: number) {
     return await this.transaction
       .select(
