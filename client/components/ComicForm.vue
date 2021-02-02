@@ -27,6 +27,7 @@ export interface ComicFormData {
   title: string;
   mouseover: string;
   image: any;
+  tags: string[];
 }
 
 @Component({
@@ -39,7 +40,13 @@ export interface ComicFormData {
 export default class ComicForm extends Vue {
   @Prop() private value!: ComicFormData;
 
-  private selectedTags: string[] = [];
+  private get selectedTags() {
+    return this.value.tags;
+  }
+
+  private set selectedTags(tags) {
+    this.$emit("input", { ...this.value, tags: tags });
+  }
 
   private allTags = ["tag1", "tag2", "tag3"];
 
@@ -80,8 +87,9 @@ export default class ComicForm extends Vue {
   }
 
   private addTag(tag: string) {
-    this.selectedTags.push(tag);
     this.allTags.push(tag);
+    this.selectedTags = [...this.selectedTags, tag];
+    console.log(this.selectedTags);
   }
 }
 </script>

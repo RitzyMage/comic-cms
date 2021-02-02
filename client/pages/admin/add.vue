@@ -21,6 +21,7 @@ export class AddComic extends Vue {
     transcript: "",
     mouseover: "",
     image: null,
+    tags: [],
   };
 
   private async submit() {

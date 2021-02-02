@@ -24,6 +24,7 @@ export class EditComic extends Vue {
     mouseover: "",
     transcript: "",
     image: null,
+    tags: [],
   };
 
   get index() {
