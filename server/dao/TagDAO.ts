@@ -29,9 +29,9 @@ export default class TagDAO extends DAO {
       .from("tags")
       .whereIn("name", names);
 
-    let tagsToAdd = names.filter(
-      name => alreadyExistingTags.findIndex(tag => tag.name === name) === -1
-    );
+    let tagsToAdd = names
+      .filter(name => alreadyExistingTags.findIndex(tag => tag.name === name) === -1)
+      .map(name => name.toLowerCase());
     await this.transaction.insert(tagsToAdd.map(name => ({ name }))).into("tags");
     let newTags: Tag[] = await this.transaction
       .select("name", "id")

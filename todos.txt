@@ -31,6 +31,7 @@ OTHER PAGES
 	blog section
 	rss feed (use API server to statically generate?)
 	main page layout and styling
+	lastest comic page
 
 
 ADMIN PORTION
@@ -49,6 +50,7 @@ THEMES / CUSTOMIZATION
 	custom fonts
 	custom header links (e.g. store, blog)
 	favicon
+	front page: show latest comic?
 
 MAKE OPEN SOURCE
 	automated tests
