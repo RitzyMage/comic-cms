@@ -18,6 +18,11 @@ export default class TagDAO extends DAO {
     return this.transaction.select("name", "id").from("tags");
   }
 
+  async replaceTags(names: string[], comicId: number) {
+    await this.transaction("comic_tags").where({ comic: comicId }).del();
+    await this.addTags(names, comicId);
+  }
+
   async addTags(names: string[], comicId: number) {
     let alreadyExistingTags: Tag[] = await this.transaction
       .select("name", "id")

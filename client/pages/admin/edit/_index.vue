@@ -15,6 +15,7 @@ import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
   middleware: ["auth"],
   components: {
     TextInput,
+    ComicForm,
   },
 
   async asyncData({ $axios }) {

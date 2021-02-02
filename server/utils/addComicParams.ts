@@ -10,5 +10,15 @@ interface AddComicDatabase {
 interface AddComicParams extends AddComicDatabase {
   tags: string[];
 }
+interface EditComicParams {
+  title?: string;
+  transcript?: string;
+  mouseover?: string;
+  image?: string;
+  image_lowres?: string;
+  height?: number;
+  width?: number;
+  tags?: string[];
+}
 
-export { AddComicParams, AddComicDatabase };
+export { AddComicParams, AddComicDatabase, EditComicParams };

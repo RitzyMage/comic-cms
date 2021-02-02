@@ -91,7 +91,10 @@ app.patch("/api/comic/:id", auth, async (req, res) => {
   let { title, transcript, mouseover, image, tags } = req.body;
   let id = parseInt(req.params.id);
 
-  let imageData = await imageUploader.uploadImage(image, id);
+  let imageData;
+  if (image) {
+    imageData = await imageUploader.uploadImage(image, id);
+  }
 
   await adminController.editComic({
     id,
