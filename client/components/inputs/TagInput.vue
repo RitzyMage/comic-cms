@@ -8,15 +8,22 @@
     :taggable="true"
     :close-on-select="false"
     @tag="addTag"
-  ></multiselect>
+  >
+    <template v-slot:tag="slotProps">
+      <Chip :text="slotProps.option" @delete="() => slotProps.remove(slotProps.option)" />
+    </template>
+  </multiselect>
 </template>
 
 <script lang="ts">
 import Multiselect from "vue-multiselect";
 import { Vue, Component, Prop } from "@/util/Vue";
+import Chip from "@/components/inputs/Chip.vue";
+
 @Component({
   components: {
     Multiselect,
+    Chip,
   },
 })
 export default class TagInput extends Vue {
