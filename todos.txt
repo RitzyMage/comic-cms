@@ -1,14 +1,10 @@
 NEXT STEPS
-	make seeds contain full transcripts to better test search
-
 	style autoselect for tags
 
-	custom URL's (or based on name)
-	if last index is not equal to comic count (e.g. if comic 35 is missing), make sure still works
-		NOTE: above should fix but test anyway
+	add seeds for tags
 
 COMIC PAGE
-	image scrollable on mobile
+	image scrollable if too tall on mobile
 
 	when loading new page, get new title (and other info) and display
 	when loading new page and can't navigate, gray out navigation (?)
@@ -18,10 +14,6 @@ COMIC PAGE
 	phone rotation (show indicator if comic is wide?)
 
 	automatic bookmarking
-
-
-ARCHIVES PAGE
-	check / optimize lazy loading
 
 
 OTHER PAGES
