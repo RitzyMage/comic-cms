@@ -9,7 +9,10 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 1,
       title: "The Dark Age Of Spot",
-      transcript: "The Adventures of SPOT (superdog) A great evil was apporaching...",
+      transcript:
+        "The Adventures of SPOT *lightning strike* A great evil was apporaching the world, " +
+        "great enough to make Spot (superdog) brood dramatically. SPOT: NOOOOOOO! STRIPE: Spot why are " +
+        "you telling No when nothing's even happened? SPOT: Sorry, I was looking into the future with my super vision.",
       mouseover: "giving them all nervous breakdowns",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2011-02-28-the-dark-age-of-spot.png",

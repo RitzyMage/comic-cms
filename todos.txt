@@ -1,11 +1,18 @@
 NEXT STEPS
-	style autoselect for tags
-
-	add seeds for tags
-
-COMIC PAGE
 	image scrollable if too tall on mobile
 
+	edit comic page autofills and is less buggy
+
+	redo layout of main page, admin page and refine other pages
+
+	set up running production build: be able to run both, create script that does so 
+
+	theme: grab colors from database, not just css files
+
+	if in production, build front end on comic creation
+
+
+COMIC PAGE
 	when loading new page, get new title (and other info) and display
 	when loading new page and can't navigate, gray out navigation (?)
 		(maybe only if it takes too long? it might flicker otherwise)
@@ -22,6 +29,7 @@ OTHER PAGES
 	rss feed (use API server to statically generate?)
 	main page layout and styling
 	lastest comic page
+	link to search pagghe
 
 
 ADMIN PORTION
@@ -32,13 +40,11 @@ ADMIN PORTION
 
 	make adding and editing comics more robust (e.g. if fails)
 
-	edit comic page autofills and is less buggy
-
 THEMES / CUSTOMIZATION
 	custom color themes
 	custom button images
 	custom fonts
-	custom header links (e.g. store, blog)
+	custom header links (e.g. store, blog, search?, rss)
 	favicon
 	front page: show latest comic?
 
@@ -72,4 +78,11 @@ OTHER TASKS
 	add video samples in README
 
 	clean up route locations on server
+
+	tag page lazy loading (refactor archives page to be a component?)
+	
+	add seeds for tags
+	
+	style autoselect for tags
+
 
