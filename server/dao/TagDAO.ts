@@ -32,15 +32,19 @@ export default class TagDAO extends DAO {
     let tagsToAdd = names
       .filter(name => alreadyExistingTags.findIndex(tag => tag.name === name) === -1)
       .map(name => name.toLowerCase().replace(/[^a-z0-9 ]/g, ""));
-    await this.transaction.insert(tagsToAdd.map(name => ({ name }))).into("tags");
+    if (tagsToAdd.length > 0) {
+      await this.transaction.insert(tagsToAdd.map(name => ({ name }))).into("tags");
+    }
     let newTags: Tag[] = await this.transaction
       .select("name", "id")
       .from("tags")
       .whereIn("name", tagsToAdd);
 
     let comicTags = [...alreadyExistingTags, ...newTags];
-    return await this.transaction
-      .insert(comicTags.map(tag => ({ tag: tag.id, comic: comicId })))
-      .into("comic_tags");
+    if (comicTags.length > 0) {
+      return await this.transaction
+        .insert(comicTags.map(tag => ({ tag: tag.id, comic: comicId })))
+        .into("comic_tags");
+    }
   }
 }
