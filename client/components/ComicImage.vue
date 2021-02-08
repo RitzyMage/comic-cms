@@ -54,6 +54,7 @@ export default ComicImage;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  width: auto;
   max-width: 100vw;
   display: flex;
   align-items: center;
