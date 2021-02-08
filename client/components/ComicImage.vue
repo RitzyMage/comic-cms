@@ -58,13 +58,11 @@ export default ComicImage;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 .comicImage {
   max-width: 100vw;
-}
-
-.no-overflow {
-  max-height: 100%;
+  max-height: unset;
 }
 </style>
