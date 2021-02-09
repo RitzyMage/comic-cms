@@ -18,13 +18,23 @@ import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
     ComicForm,
   },
 
-  async asyncData({ $axios }) {
-    return { tags: await $axios.$get("/tags") };
+  async asyncData({ $axios, params }) {
+    let { comic } = await $axios.$get(`/${params.index}`);
+    return {
+      tags: await $axios.$get("/tags"),
+      data: {
+        title: comic.title,
+        tags: comic.tags,
+        mouseover: comic.mouseover,
+        transcript: comic.transcript,
+      },
+    };
   },
 })
 export class EditComic extends Vue {
   public $axios!: any;
   private tags!: any;
+  private comic!: any;
   private data: ComicFormData = {
     title: "",
     mouseover: "",
@@ -35,6 +45,10 @@ export class EditComic extends Vue {
 
   get index() {
     return this.$route.params.index;
+  }
+
+  private mounted() {
+    console.log(this.comic);
   }
 
   private image: any;

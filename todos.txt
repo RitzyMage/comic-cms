@@ -1,6 +1,4 @@
 NEXT STEPS
-	image scrollable if too tall on mobile
-
 	edit comic page autofills and is less buggy
 
 	redo layout of main page, admin page and refine other pages
@@ -39,6 +37,8 @@ ADMIN PORTION
 	account creation / editing
 
 	make adding and editing comics more robust (e.g. if fails)
+
+	edit page actually lists comics (or is linked directly from comic page)
 
 THEMES / CUSTOMIZATION
 	custom color themes
