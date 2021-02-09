@@ -24,7 +24,7 @@ import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
       tags: await $axios.$get("/tags"),
       data: {
         title: comic.title,
-        tags: comic.tags,
+        tags: comic.tags.map((tag: { name: string }) => tag.name),
         mouseover: comic.mouseover,
         transcript: comic.transcript,
       },
@@ -35,20 +35,10 @@ export class EditComic extends Vue {
   public $axios!: any;
   private tags!: any;
   private comic!: any;
-  private data: ComicFormData = {
-    title: "",
-    mouseover: "",
-    transcript: "",
-    image: null,
-    tags: [],
-  };
+  private data!: ComicFormData;
 
   get index() {
     return this.$route.params.index;
-  }
-
-  private mounted() {
-    console.log(this.comic);
   }
 
   private image: any;
