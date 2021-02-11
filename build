@@ -1,2 +1,9 @@
 #!/bin/bash
 echo "running production build"
+
+cd server
+npm run build
+npx forever start build/index.js
+
+cd ../client
+npm run generate
