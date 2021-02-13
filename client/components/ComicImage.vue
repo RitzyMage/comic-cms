@@ -59,7 +59,7 @@ export default ComicImage;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .comicImage {
