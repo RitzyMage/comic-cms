@@ -1,5 +1,5 @@
 NEXT STEPS
-	fix image scrolling: don't cut off top, only show scroll when necessary, style scroll, don't scroll if close to size
+	fix image scrolling: style scroll, center images if not scrolling, check wide comics on mobile
 	redo layout of main page, admin page and refine other pages
 
 	check webp loading on scroll
