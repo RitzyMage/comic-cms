@@ -57,9 +57,10 @@ export default ComicImage;
   width: auto;
   max-width: 100vw;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .comicImage {
