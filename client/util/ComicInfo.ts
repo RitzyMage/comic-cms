@@ -4,7 +4,7 @@ export interface Comic {
   transcript: string;
   mouseover: string;
   image: string;
-  image_lowres: string;
+  imageLowres: string;
   height: number;
   width: number;
   posted: string;

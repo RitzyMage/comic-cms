@@ -54,17 +54,13 @@ export class ComicImage extends Vue {
     window.addEventListener("resize", this.updateScroll);
   }
 
-  private get imageHeight() {
-    return (document.getElementById(`comic-image-${this.id}`) as Element).clientHeight;
-  }
-
-  private get conatinerHeight() {
+  private get containerHeight() {
     return (this.$refs.container as Element).clientHeight;
   }
 
   private updateScroll() {
     this.stopScroll = false;
-    let heightDifference = this.imageHeight - this.conatinerHeight;
+    let heightDifference = this.info.height - this.containerHeight;
     this.stopScroll = heightDifference <= MIN_SCROLL_HEIGHT && heightDifference >= 0;
     this.tooTall = this.stopScroll || heightDifference >= 0;
   }
@@ -72,7 +68,9 @@ export class ComicImage extends Vue {
   private get containerStyle() {
     let flex = "align-items: " + (this.tooTall ? "flex-start;" : " center;");
 
+    console.log(this.imageLoaded, this.info.smallSrc);
     if (!this.imageLoaded && this.info.smallSrc) {
+      console.log("returning background image", this.info.smallSrc);
       return "background-image: url('" + this.info.smallSrc + "');" + flex;
     }
     return flex;
@@ -91,6 +89,7 @@ export default ComicImage;
   max-width: 100vw;
   display: flex;
   justify-content: center;
+  align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
 }
