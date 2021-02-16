@@ -36,7 +36,7 @@ export interface ImageInfo {
 export class ComicImage extends Vue {
   @Prop() private info!: ImageInfo;
   private imageLoaded = false;
-  private tooTall = true;
+  private tooTall = false;
   private stopScroll = false;
 
   private static next_id = 0;
@@ -62,16 +62,22 @@ export class ComicImage extends Vue {
     this.stopScroll = false;
     let heightDifference = this.info.height - this.containerHeight;
     this.stopScroll = heightDifference <= MIN_SCROLL_HEIGHT && heightDifference >= 0;
-    this.tooTall = this.stopScroll || heightDifference >= 0;
+    this.tooTall = heightDifference >= 0;
   }
 
   private get containerStyle() {
-    let flex = "align-items: " + (this.tooTall ? "flex-start;" : " center;");
+    let scroll = this.tooTall && !this.stopScroll;
+    let flex = "align-items: " + (scroll ? "flex-start;" : " center;");
 
-    console.log(this.imageLoaded, this.info.smallSrc);
     if (!this.imageLoaded && this.info.smallSrc) {
-      console.log("returning background image", this.info.smallSrc);
-      return "background-image: url('" + this.info.smallSrc + "');" + flex;
+      let backgroundInfo = "";
+      if (scroll) {
+        backgroundInfo =
+          "background-position: top;background-size: cover;background-attachment: local;";
+      } else {
+        backgroundInfo = "background-position: center;background-size: contain;";
+      }
+      return "background-image: url('" + this.info.smallSrc + "');" + backgroundInfo + flex;
     }
     return flex;
   }
@@ -83,8 +89,6 @@ export default ComicImage;
 <style scoped lang="scss">
 .comicImageArea {
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
   width: auto;
   max-width: 100vw;
   display: flex;
