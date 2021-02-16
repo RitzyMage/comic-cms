@@ -6,10 +6,10 @@
   >
     <img
       v-if="info.src"
-      id="comic-image"
+      :id="`comic-image-${id}`"
       class="no-overflow comicImage swiper-zoom-target"
       ref="image"
-      :style="shouldScroll ? '' : 'height: 100%'"
+      :style="stopScroll ? 'height: 100%;' : ''"
       :src="info.src"
       :alt="info.alt"
       :title="info.title"
@@ -36,31 +36,46 @@ export interface ImageInfo {
 export class ComicImage extends Vue {
   @Prop() private info!: ImageInfo;
   private imageLoaded = false;
-  private shouldScroll = true;
+  private tooTall = true;
+  private stopScroll = false;
+
+  private static next_id = 0;
+  private id = 0;
 
   mounted() {
     if (this.info.src) {
       (this.$refs.image as HTMLElement).onload = () => {
         this.imageLoaded = true;
+        this.updateScroll();
       };
     }
     this.updateScroll();
+    this.id = ComicImage.next_id++;
     window.addEventListener("resize", this.updateScroll);
   }
 
+  private get imageHeight() {
+    return (document.getElementById(`comic-image-${this.id}`) as Element).clientHeight;
+  }
+
+  private get conatinerHeight() {
+    return (this.$refs.container as Element).clientHeight;
+  }
+
   private updateScroll() {
-    this.shouldScroll = true;
-    let image = (this.$refs.image as any) as { clientHeight: number; style: { height?: string } };
-    delete image.style.height;
-    let heightDifference = image.clientHeight - (this.$refs.container as Element).clientHeight;
-    this.shouldScroll = heightDifference >= MIN_SCROLL_HEIGHT || heightDifference <= 0;
+    this.stopScroll = false;
+    let heightDifference = this.imageHeight - this.conatinerHeight;
+    this.stopScroll = heightDifference <= MIN_SCROLL_HEIGHT && heightDifference >= 0;
+    this.tooTall = this.stopScroll || heightDifference >= 0;
   }
 
   private get containerStyle() {
+    let flex = "align-items: " + (this.tooTall ? "flex-start;" : " center;");
+
     if (!this.imageLoaded && this.info.smallSrc) {
-      return "background-image: url('" + this.info.smallSrc + "');";
+      return "background-image: url('" + this.info.smallSrc + "');" + flex;
     }
-    return "";
+    return flex;
   }
 }
 
@@ -75,7 +90,6 @@ export default ComicImage;
   width: auto;
   max-width: 100vw;
   display: flex;
-  align-items: flex-start;
   justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
