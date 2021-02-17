@@ -104,7 +104,7 @@ export default class ComicPage extends Vue {
       src: databaseObject.image,
       height: databaseObject.height,
       width: databaseObject.width,
-      smallSrc: databaseObject.imageLowres,
+      smallSrc: databaseObject.imageLowres || databaseObject.image_lowres,
       alt: databaseObject.transcript,
       title: databaseObject.mouseover,
     };

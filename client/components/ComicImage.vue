@@ -21,7 +21,7 @@
 import { Vue, Component, Prop } from "~/util/Vue";
 import { directive } from "vue-awesome-swiper";
 
-const MIN_SCROLL_HEIGHT = 100;
+const MIN_SCROLL_HEIGHT = 200;
 
 export interface ImageInfo {
   src: string;
@@ -39,8 +39,9 @@ export class ComicImage extends Vue {
   private tooTall = false;
   private stopScroll = false;
 
-  private static next_id = 0;
-  private id = 0;
+  private get id() {
+    return parseInt(this.$route.params.index);
+  }
 
   mounted() {
     if (this.info.src) {
@@ -50,7 +51,6 @@ export class ComicImage extends Vue {
       };
     }
     this.updateScroll();
-    this.id = ComicImage.next_id++;
     window.addEventListener("resize", this.updateScroll);
   }
 
@@ -58,11 +58,21 @@ export class ComicImage extends Vue {
     return (this.$refs.container as Element).clientHeight;
   }
 
+  private get imageHeight() {
+    return this.info.height;
+  }
+
   private updateScroll() {
+    let imageHeight = (this.$refs.image as HTMLImageElement)?.clientHeight;
+    if (!imageHeight) {
+      imageHeight = this.imageHeight;
+    }
+
     this.stopScroll = false;
-    let heightDifference = this.info.height - this.containerHeight;
+    let heightDifference = imageHeight - this.containerHeight;
     this.stopScroll = heightDifference <= MIN_SCROLL_HEIGHT && heightDifference >= 0;
     this.tooTall = heightDifference >= 0;
+    console.log("updating", this.tooTall, this.stopScroll, "from", heightDifference);
   }
 
   private get containerStyle() {
