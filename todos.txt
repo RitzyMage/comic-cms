@@ -1,7 +1,7 @@
 NEXT STEPS
 	redo layout of main page, admin page and refine other pages
 
-	check webp loading on scroll
+	fix formatting of tags
 
 	if id is not in order, don't crash app (or enforce ids in order)
 
