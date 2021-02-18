@@ -17,15 +17,13 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "~/util/Vue";
 import { State } from "vuex-class";
+import options from "~/options.json";
 
 @Component
 export default class NavHeader extends Vue {
-  private links = [
-    { name: "link1", href: "#" },
-    { name: "link2", href: "#" },
-  ];
+  private links = options.links;
 
-  private name = "Comic CMS";
+  private name: string = options.name;
 
   private async logout() {
     await this.$auth.logout();

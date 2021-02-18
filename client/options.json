@@ -1,3 +1,7 @@
 {
-  "name": "Your Comic's Name"
+  "name": "Your Comic's Name",
+  "links": [
+    { "name": "link1", "href": "#" },
+    { "name": "link2", "href": "#" }
+  ]
 }
