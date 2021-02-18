@@ -1,7 +1,7 @@
 {
   "name": "Your Comic's Name",
   "links": [
-    { "name": "link1", "href": "#" },
-    { "name": "link2", "href": "#" }
+    { "name": "search", "href": "/search" },
+    { "name": "archive", "href": "/archive" }
   ]
 }

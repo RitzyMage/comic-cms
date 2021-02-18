@@ -2,9 +2,9 @@
   <div class="container">
     <h1>{{ title }}</h1>
     <div class="main-links">
-      <nuxt-link to="/comic/1">First Comic</nuxt-link>
-      <nuxt-link to="/archive">List</nuxt-link>
-      <nuxt-link :to="lastComic">Last Comic</nuxt-link>
+      <nuxt-link to="/comic/1">Start From the Beginning!</nuxt-link>
+      <nuxt-link to="/archive">View all comics!</nuxt-link>
+      <nuxt-link :to="lastComic">Read the latest comic!</nuxt-link>
     </div>
   </div>
 </template>
