@@ -15,6 +15,8 @@ NEXT STEPS
 	
 	rss feed (use API server to statically generate?)
 
+	config.json not in repo
+
 
 COMIC PAGE
 	when loading new page, get new title (and other info) and display
