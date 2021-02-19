@@ -20,26 +20,34 @@ export default class ComicLink extends Vue {
   @Prop(String)
   private smallBackgroundImage!: string;
 
-  @Prop(String)
-  private arrow?: string;
+  @Prop()
+  private arrow?: string | boolean;
 
   private imageLoaded = false;
 
   mounted() {
     let img: HTMLImageElement | null = this.getDetachedImage();
-    img.onload = () => {
-      this.imageLoaded = true;
-      img = null;
-    };
+    if (img) {
+      img.onload = () => {
+        this.imageLoaded = true;
+        img = null;
+      };
+    }
   }
 
   private getDetachedImage() {
+    if (!this.backgroundImage) {
+      return null;
+    }
     let result = document.createElement("img");
     result.src = this.backgroundImage;
     return result;
   }
 
   private get style() {
+    if (!this.backgroundImage) {
+      return "";
+    }
     let image = this.imageLoaded ? this.backgroundImage : this.smallBackgroundImage;
     return {
       "background-image": "url('" + image + "')",
@@ -49,6 +57,8 @@ export default class ComicLink extends Vue {
   private get arrowDirection() {
     if (this.arrow === "left" || this.arrow === "right") {
       return this.arrow;
+    } else if (this.arrow) {
+      return "none";
     }
     return "";
   }
@@ -130,5 +140,10 @@ export default class ComicLink extends Vue {
   padding-left: 32px;
   padding-right: 16px;
   margin-right: 32px;
+}
+
+.innerLink--arrow-none {
+  clip-path: none;
+  padding: 8px 16px;
 }
 </style>

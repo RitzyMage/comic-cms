@@ -3,7 +3,7 @@
     <h1>{{ title }}</h1>
     <div class="main-links">
       <PageLink :page="{ ...first, title: 'Start From the Beginning!' }" arrow="left" />
-      <nuxt-link to="/archive">View all comics!</nuxt-link>
+      <ListLink path="/archive" name="All Comics" :arrow="true" />
       <PageLink :page="{ ...last, title: 'Read the lastest comic!' }" arrow="right" />
     </div>
   </div>
@@ -11,12 +11,14 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from "~/util/Vue";
-import PageLink from "../components/PageLink.vue";
+import PageLink from "~/components/PageLink.vue";
+import ListLink from "~/components/ListLink.vue";
 import options from "~/options.json";
 
 @Component({
   components: {
     PageLink,
+    ListLink,
   },
 
   async asyncData({ $axios }) {
@@ -37,5 +39,6 @@ export default class MainPage extends Vue {
   justify-content: space-evenly;
   flex-direction: column;
   margin: 0 auto;
+  max-width: 800px;
 }
 </style>
