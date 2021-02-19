@@ -4,6 +4,7 @@
     :path="path"
     :smallBackgroundImage="page.imageLowres"
     :backgroundImage="page.image"
+    :arrow="arrow"
   />
 </template>
 
@@ -20,6 +21,9 @@ export default class PageLink extends Vue {
   @Prop(Object)
   private page!: { title: string; image: string; id: number; imageLowres: string };
 
+  @Prop(String)
+  private arrow?: string;
+  
   private get path(): string {
     return "/comic/" + this.page.id;
   }

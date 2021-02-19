@@ -1,6 +1,6 @@
 <template>
-  <nuxt-link :to="path" class="listLink" :style="style">
-    <div class="innerLink">{{ name }}</div>
+  <nuxt-link :to="path" :class="`listLink${arrow ? ' listLink--arrow' : ''}`" :style="style">
+    <div :class="`innerLink innerLink--arrow-${arrowDirection}`">{{ name }}</div>
   </nuxt-link>
 </template>
 
@@ -19,6 +19,9 @@ export default class ComicLink extends Vue {
 
   @Prop(String)
   private smallBackgroundImage!: string;
+
+  @Prop(String)
+  private arrow?: string;
 
   private imageLoaded = false;
 
@@ -41,6 +44,13 @@ export default class ComicLink extends Vue {
     return {
       "background-image": "url('" + image + "')",
     };
+  }
+
+  private get arrowDirection() {
+    if (this.arrow === "left" || this.arrow === "right") {
+      return this.arrow;
+    }
+    return "";
   }
 }
 </script>
@@ -66,6 +76,11 @@ export default class ComicLink extends Vue {
   font-size: 1.05em;
   text-shadow: 1px 1px 2px black;
   transition: all 50ms ease-in;
+}
+
+.listLink--arrow {
+  justify-content: center;
+  align-items: center;
 }
 
 .listLink:before {
@@ -103,5 +118,17 @@ export default class ComicLink extends Vue {
   padding: 8px 32px 8px 16px;
   clip-path: polygon(0% 0%, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
   margin: 8px;
+}
+
+.innerLink--arrow-right {
+  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 50%, calc(100% - 32px) 100%, 0 100%);
+  margin-left: 32px;
+}
+
+.innerLink--arrow-left {
+  clip-path: polygon(100% 0, 32px 0, 0% 50%, 32px 100%, 100% 100%);
+  padding-left: 32px;
+  padding-right: 16px;
+  margin-right: 32px;
 }
 </style>

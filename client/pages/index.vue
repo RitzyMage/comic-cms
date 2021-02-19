@@ -2,9 +2,9 @@
   <div class="container">
     <h1>{{ title }}</h1>
     <div class="main-links">
-      <PageLink :page="{ ...first, title: 'Start From the Beginning!' }" />
+      <PageLink :page="{ ...first, title: 'Start From the Beginning!' }" arrow="left" />
       <nuxt-link to="/archive">View all comics!</nuxt-link>
-      <PageLink :page="{ ...last, title: 'Read the lastest comic!' }" />
+      <PageLink :page="{ ...last, title: 'Read the lastest comic!' }" arrow="right" />
     </div>
   </div>
 </template>

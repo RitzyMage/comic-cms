@@ -72,7 +72,6 @@ export class ComicImage extends Vue {
     let heightDifference = imageHeight - this.containerHeight;
     this.stopScroll = heightDifference <= MIN_SCROLL_HEIGHT && heightDifference >= 0;
     this.tooTall = heightDifference >= 0;
-    console.log("updating", this.tooTall, this.stopScroll, "from", heightDifference);
   }
 
   private get containerStyle() {
