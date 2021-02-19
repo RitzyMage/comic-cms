@@ -2,33 +2,32 @@
   <div class="container">
     <h1>{{ title }}</h1>
     <div class="main-links">
-      <nuxt-link to="/comic/1">Start From the Beginning!</nuxt-link>
+      <PageLink :page="{ ...first, title: 'Start From the Beginning!' }" />
       <nuxt-link to="/archive">View all comics!</nuxt-link>
-      <nuxt-link :to="lastComic">Read the latest comic!</nuxt-link>
+      <PageLink :page="{ ...last, title: 'Read the lastest comic!' }" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from "~/util/Vue";
-import { State, Mutation } from "vuex-class";
-import { NuxtAxiosInstance } from "@nuxtjs/axios";
+import PageLink from "../components/PageLink.vue";
 import options from "~/options.json";
 
 @Component({
+  components: {
+    PageLink,
+  },
+
   async asyncData({ $axios }) {
-    let { count } = await $axios.$get("/count");
-    return { maxComic: count };
+    let {
+      images: { first, last },
+    } = await $axios.$get("/images");
+    return { first, last };
   },
 })
 export default class MainPage extends Vue {
-  private maxComic!: number;
-
   private title: string = options.name;
-
-  private get lastComic() {
-    return "/comic/" + this.maxComic;
-  }
 }
 </script>
 
@@ -36,7 +35,7 @@ export default class MainPage extends Vue {
 .main-links {
   display: flex;
   justify-content: space-evenly;
-  max-width: 500px;
+  flex-direction: column;
   margin: 0 auto;
 }
 </style>

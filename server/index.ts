@@ -59,7 +59,7 @@ app.get("/api/images", async (req, res) => {
     });
   }
   res.send({
-    images: [],
+    images: await clientController.getEndImages(),
     ...count,
   });
 });

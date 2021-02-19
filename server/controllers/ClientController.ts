@@ -25,6 +25,14 @@ export default class ClientController {
     ComicDAO
   );
 
+  public getEndImages = DAOFunction(
+    async (comicDAO: ComicDAO) => {
+      return await comicDAO.getEndImages();
+    },
+    TransactionType.CLIENT,
+    ComicDAO
+  );
+
   public getTaggedImages = DAOFunction(
     async (comicDAO: ComicDAO, tag: string) => {
       return await comicDAO.getTaggedImages(tag);

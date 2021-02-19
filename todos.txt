@@ -33,8 +33,10 @@ OTHER PAGES
 	about page
 	blog section
 	main page layout and styling
-	lastest comic page
+	latest comic page
 	link to search page
+
+	chapters on archive page
 
 
 ADMIN PORTION

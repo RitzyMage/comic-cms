@@ -13,7 +13,7 @@ export default class ComicDAO extends DAO {
 
   async getEndImages() {
     let [first, last] = await this.transaction
-      .select("image", "image_lowres", "height", "width")
+      .select("id", "image", "image_lowres", "height", "width")
       .from("comics")
       .whereNull("next")
       .orWhereNull("previous");
