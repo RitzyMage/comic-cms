@@ -1,5 +1,5 @@
 NEXT STEPS
-	redo layout of main page, admin page and refine other pages
+	add tag seeds to database
 
 	fix formatting of tags
 

@@ -3,6 +3,7 @@ import * as Knex from "knex";
 export async function seed(knex: Knex): Promise<void> {
   await knex("COMICS").update({ next: null });
   await knex("COMICS").update({ previous: null });
+  await knex("COMIC_TAGS").del();
   await knex("COMICS").del();
 
   await knex("COMICS").insert([
