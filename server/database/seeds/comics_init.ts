@@ -211,7 +211,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 17,
       title: "Spot And The Unfortunate Intermission",
-      transcript: "When get-well cards aren't enough! SPOT (Supredog) is sick! ...",
+      transcript: "When get-well cards aren't enough! SPOT (Superdog) is sick! ...",
       mouseover: "sorry I forgot to draw them entirely poorly",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-02-07-spot-and-the-unfortunate-intermission.png",
@@ -223,7 +223,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 18,
       title: "Not That Kind Of Grounded",
-      transcript: "Truth, Justice and the What-ican Way?! SPOT: (Superdog)Grounded! ...",
+      transcript: "Truth, Justice and the What-ican Way?! SPOT: (Superdog) Grounded! ...",
       mouseover: "keep forgetting he has the fire breath",
       image:
         "https://www.housepetscomic.com/wp-content/uploads/2016/07/2014-06-02-not-that-kind-of-grounded.png",
