@@ -1,5 +1,5 @@
 <template>
-  <span class="chip" @click="onClick">
+  <span :class="`chip ${classes}`" @click="onClick">
     {{ text }}
     <button class="chip-delete" v-if="deletable">
       <XIcon class="chip-delete-icon" size="16" @click="() => $emit('delete')" />
@@ -25,6 +25,13 @@ export default class Chip extends Vue {
       this.$router.push(`/tag/${this.text}`);
     }
   }
+
+  private get classes() {
+    if (this.clickable) {
+      return "chip--clickable";
+    }
+    return "chip--unclickable";
+  }
 }
 </script>
 
@@ -41,6 +48,7 @@ export default class Chip extends Vue {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
+  white-space: nowrap;
 }
 
 .chip-delete {
@@ -50,5 +58,9 @@ export default class Chip extends Vue {
   display: flex;
   padding: 0;
   margin-left: 8px;
+}
+
+.chip--clickable {
+  cursor: pointer;
 }
 </style>

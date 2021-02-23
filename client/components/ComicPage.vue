@@ -32,7 +32,9 @@
     <p>
       {{ postedDate }}
     </p>
-    <Chip v-for="tag in comic.tags" :text="tag.name" :key="tag.id" clickable />
+    <div class="tags">
+      <Chip v-for="tag in comic.tags" :text="tag.name" :key="tag.id" clickable />
+    </div>
   </div>
 </template>
 
@@ -203,6 +205,12 @@ export default class ComicPage extends Vue {
 
 .title {
   margin: 5px 0;
+}
+
+.tags {
+  margin: 8px;
+  display: flex;
+  overflow-x: auto;
 }
 
 @media screen and (max-width: 600px) {

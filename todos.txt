@@ -1,7 +1,5 @@
 NEXT STEPS
-	add tag seeds to database
-
-	fix formatting of tags
+	fix tags page / links
 
 	if id is not in order, don't crash app (or enforce ids in order)
 
@@ -16,6 +14,9 @@ NEXT STEPS
 	rss feed (use API server to statically generate?)
 
 	config.json not in repo
+
+	fix loading next page for webp on mobile
+	fix loading tags flash
 
 
 COMIC PAGE
