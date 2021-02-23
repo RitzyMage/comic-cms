@@ -18,6 +18,8 @@ NEXT STEPS
 	fix loading next page for webp on mobile
 	fix loading tags flash
 
+	styles on rotated mobile
+
 
 COMIC PAGE
 	when loading new page, get new title (and other info) and display
