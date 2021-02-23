@@ -47,7 +47,7 @@ export default class ComicDAO extends DAO {
       .from("comics")
       .join("comic_tags", "comics.id", "=", "comic_tags.comic")
       .join("tags", "tags.id", "=", "comic_tags.tag")
-      .where("tags.name", "=", tag);
+      .where(this.transaction.raw("LOWER(tags.name)"), "=", tag);
   }
 
   async getComic(id: number) {

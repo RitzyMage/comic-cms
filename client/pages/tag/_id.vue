@@ -2,6 +2,9 @@
   <div class="comicList">
     <h1>Comics with tag {{ $route.params.id }}</h1>
     <PageLink v-for="page in pages" :page="page" :key="page.title" />
+    <p v-if="!pages.length">
+      No comics found!
+    </p>
   </div>
 </template>
 
