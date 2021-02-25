@@ -17,9 +17,12 @@ import { Route } from "vue-router";
 
   async asyncData({ $axios, params, error }: any) {
     try {
-      return { comicInfo: await $axios.$get(`/${params.index}`) };
+      let comicInfo = await $axios.$get(`/${params.index}`);
+      console.log(comicInfo);
+      return { comicInfo };
     } catch (e) {
       error({
+        statusCode: e.response?.status,
         message: e.response?.statusText ?? "server error",
       });
     }
@@ -42,20 +45,6 @@ import { Route } from "vue-router";
       name,
       mode: "in-out",
     };
-  },
-
-  async validate({ params, $axios, error }: any) {
-    let index = parseInt(params.index);
-    try {
-      return await $axios.get("/count").then(({ data }: { data: { count: number } }) => {
-        return /^\d+$/.test(params.index) && index > 0 && index <= data.count;
-      });
-    } catch (e) {
-      error({
-        message: e.response?.statusText ?? "Server Error",
-      });
-    }
-    return true;
   },
 })
 export default class Page extends Vue {

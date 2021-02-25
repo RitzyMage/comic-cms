@@ -1,8 +1,4 @@
 NEXT STEPS
-	fix tags page / links
-
-	if id is not in order, don't crash app (or enforce ids in order)
-
 	if in production, build front end on comic creation
 
 	link to search page
@@ -19,6 +15,8 @@ NEXT STEPS
 	fix loading tags flash
 
 	styles on rotated mobile
+
+	fix undefined errors again
 
 
 COMIC PAGE

@@ -59,6 +59,10 @@ export default class ClientController {
 
     let comic = await comicDAO.getComic(id);
 
+    if (!comic) {
+      throw new Error(`comic ${id} does not exist`);
+    }
+
     let next, previous;
     if (comic.next) {
       next = await comicDAO.getComic(comic.next);

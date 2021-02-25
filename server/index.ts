@@ -8,6 +8,7 @@ import auth from "./middleware/auth";
 import AdminController from "./controllers/AdminController";
 import TagController from "./controllers/TagController";
 import ImageUpload from "./controllers/ImageUpload";
+import { resolve } from "path";
 require("dotenv").config();
 
 const app = express();
@@ -66,7 +67,15 @@ app.get("/api/images", async (req, res) => {
 
 app.get("/api/:id", async (req, res) => {
   let id = parseInt(req.params.id);
-  res.send(await clientController.getComicInfo(id));
+  try {
+    res.send(await clientController.getComicInfo(id));
+  } catch (e) {
+    let error = e as Error;
+    if (error.message.includes("does not exist")) {
+      return res.status(404).send(error.message);
+    }
+    res.status(500).send(`error ${e.message} thrown in getComicInfo`);
+  }
 });
 
 app.post("/api/comic", auth, async (req, res) => {
