@@ -1,11 +1,5 @@
 NEXT STEPS
 	if in production, build front end on comic creation
-
-	link to search page
-
-	favicon
-	
-	custom header links (e.g. store, blog, search?, rss)
 	
 	rss feed (use API server to statically generate?)
 

@@ -65,6 +65,10 @@ app.get("/api/images", async (req, res) => {
   });
 });
 
+app.get("/api/rss", async (req, res) => {
+  return res.send("test rss");
+});
+
 app.get("/api/:id", async (req, res) => {
   let id = parseInt(req.params.id);
   try {
