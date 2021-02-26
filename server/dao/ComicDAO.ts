@@ -41,6 +41,14 @@ export default class ComicDAO extends DAO {
       .andWhere("id", "<=", end);
   }
 
+  async getRecentUploads(count: number) {
+    return await this.transaction
+      .select("id", "image", "posted", "title")
+      .from("comics")
+      .orderBy("posted", "desc")
+      .limit(count);
+  }
+
   async getTaggedImages(tag: string) {
     return await this.transaction
       .select("comics.id", "image", "image_lowres", "title")

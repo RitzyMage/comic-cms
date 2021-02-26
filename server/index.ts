@@ -8,7 +8,7 @@ import auth from "./middleware/auth";
 import AdminController from "./controllers/AdminController";
 import TagController from "./controllers/TagController";
 import ImageUpload from "./controllers/ImageUpload";
-import { resolve } from "path";
+import FeedController from "./controllers/FeedController";
 require("dotenv").config();
 
 const app = express();
@@ -21,6 +21,7 @@ const authController = new AuthController();
 const adminController = new AdminController();
 const imageUploader = new ImageUpload();
 const tagController = new TagController();
+const feedController = new FeedController();
 
 app.get("/api/tags", async (req, res) => {
   res.send(await tagController.getTags());
@@ -66,7 +67,7 @@ app.get("/api/images", async (req, res) => {
 });
 
 app.get("/api/rss", async (req, res) => {
-  return res.send("test rss");
+  res.send(await feedController.generateFeed());
 });
 
 app.get("/api/:id", async (req, res) => {
