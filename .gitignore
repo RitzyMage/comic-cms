@@ -95,3 +95,4 @@ server/build
 *.db
 client/static/img/comics/*.png
 client/static/img/comics/*.webp
+**/feed.rss

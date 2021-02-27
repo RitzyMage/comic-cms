@@ -108,7 +108,9 @@ app.post("/api/comic", auth, async (req, res) => {
   });
   await feedController.generateUpdatedFeed();
 
-  /*await*/ buildController.generateStaticBuild();
+  if (process.env.NODE_ENV != "dev") {
+    /*await*/ buildController.generateStaticBuild();
+  }
 
   res.send({ success: true });
 });

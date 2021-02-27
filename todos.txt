@@ -1,6 +1,4 @@
 NEXT STEPS
-	if in production, build front end on comic creation
-
 	config.json not in repo
 
 	fix loading next page for webp on mobile
