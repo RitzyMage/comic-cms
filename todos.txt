@@ -1,7 +1,5 @@
 NEXT STEPS
 	if in production, build front end on comic creation
-	
-	rss feed (use API server to statically generate?)
 
 	config.json not in repo
 

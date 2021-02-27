@@ -43,6 +43,9 @@ export default {
    ** Build configuration
    */
   server: { port: 3311 },
+
+  target: "static",
+
   build: {
     /*
      ** You can extend webpack config here
