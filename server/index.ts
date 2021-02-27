@@ -66,11 +66,9 @@ app.get("/api/images", async (req, res) => {
   });
 });
 
-app.get("/api/rss", async (req, res) => {
-  res.send(await feedController.generateFeed());
-});
+app.get("/api/rss", (req, res) => res.sendFile(__dirname + "/feed.rss"));
 
-app.get("/api/:id", async (req, res) => {
+app.get("/api/comic/:id", async (req, res) => {
   let id = parseInt(req.params.id);
   try {
     res.send(await clientController.getComicInfo(id));
@@ -106,6 +104,8 @@ app.post("/api/comic", auth, async (req, res) => {
     ...imageData,
     tags,
   });
+  await feedController.generateUpdatedFeed();
+
   res.send({ success: true });
 });
 

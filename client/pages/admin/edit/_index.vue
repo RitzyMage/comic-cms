@@ -19,7 +19,7 @@ import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
   },
 
   async asyncData({ $axios, params }) {
-    let { comic } = await $axios.$get(`/${params.index}`);
+    let { comic } = await $axios.$get(`/comic/${params.index}`);
     return {
       tags: await $axios.$get("/tags"),
       data: {

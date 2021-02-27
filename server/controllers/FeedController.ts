@@ -2,6 +2,7 @@ import { Feed } from "feed";
 import { DAOFunction, TransactionType, TransactionFunction } from "../dao/DAOFunction";
 import ComicDAO from "../dao/ComicDAO";
 import { Transaction } from "knex";
+import fs from "fs";
 
 let TITLE = process.env.COMIC_TITLE ?? "";
 let CLIENT_URL = process.env.APP_URL ?? "";
@@ -27,7 +28,7 @@ export default class FeedController {
     });
   }
 
-  public generateFeed = DAOFunction(
+  public generateUpdatedFeed = DAOFunction(
     async (comicDAO: ComicDAO) => {
       let feed = this.getFeedGenerator();
       (await comicDAO.getRecentUploads(5)).forEach(
@@ -38,7 +39,10 @@ export default class FeedController {
             date: new Date(comic.posted),
           })
       );
-      return feed.rss2();
+      let feedContent = feed.rss2();
+      let feedFile = __dirname + "/../feed.rss";
+      fs.truncateSync(feedFile, 0);
+      fs.writeFileSync(feedFile, feedContent);
     },
     TransactionType.CLIENT,
     ComicDAO
