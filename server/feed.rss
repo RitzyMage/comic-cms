@@ -4,7 +4,7 @@
         <title>some comic's name</title>
         <link>http://localhost:3311</link>
         <description>This is a description of the comic</description>
-        <lastBuildDate>Sat, 27 Feb 2021 20:58:35 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 27 Feb 2021 21:17:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -27,6 +27,12 @@
             <pubDate>Sat, 27 Feb 2021 07:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[etst aagin]]></title>
+            <link>http://localhost:3311/comic/34</link>
+            <guid>http://localhost:3311/comic/34</guid>
+            <pubDate>Sat, 27 Feb 2021 07:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Shocking Reveal]]></title>
             <link>http://localhost:3311/comic/31</link>
             <guid>http://localhost:3311/comic/31</guid>
@@ -37,12 +43,6 @@
             <link>http://localhost:3311/comic/30</link>
             <guid>http://localhost:3311/comic/30</guid>
             <pubDate>Fri, 27 Mar 2020 06:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Well Turn Me Into A Newt]]></title>
-            <link>http://localhost:3311/comic/29</link>
-            <guid>http://localhost:3311/comic/29</guid>
-            <pubDate>Wed, 25 Mar 2020 06:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

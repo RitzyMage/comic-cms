@@ -9,6 +9,7 @@ import AdminController from "./controllers/AdminController";
 import TagController from "./controllers/TagController";
 import ImageUpload from "./controllers/ImageUpload";
 import FeedController from "./controllers/FeedController";
+import BuildController from "./controllers/BuildController";
 require("dotenv").config();
 
 const app = express();
@@ -22,6 +23,7 @@ const adminController = new AdminController();
 const imageUploader = new ImageUpload();
 const tagController = new TagController();
 const feedController = new FeedController();
+const buildController = new BuildController();
 
 app.get("/api/tags", async (req, res) => {
   res.send(await tagController.getTags());
@@ -105,6 +107,8 @@ app.post("/api/comic", auth, async (req, res) => {
     tags,
   });
   await feedController.generateUpdatedFeed();
+
+  /*await*/ buildController.generateStaticBuild();
 
   res.send({ success: true });
 });
