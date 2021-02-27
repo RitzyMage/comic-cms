@@ -1,12 +1,12 @@
 import * as Knex from "knex";
 
 export async function seed(knex: Knex): Promise<void> {
-  await knex("COMICS").update({ next: null });
-  await knex("COMICS").update({ previous: null });
-  await knex("COMIC_TAGS").del();
-  await knex("COMICS").del();
+  await knex("comics").update({ next: null });
+  await knex("comics").update({ previous: null });
+  await knex("comic_tags").del();
+  await knex("comics").del();
 
-  await knex("COMICS").insert([
+  await knex("comics").insert([
     {
       id: 1,
       title: "The Dark Age Of Spot",
@@ -397,11 +397,11 @@ export async function seed(knex: Knex): Promise<void> {
     },
   ]);
 
-  await knex("COMICS").where({ id: 1 }).update({ next: 2 });
+  await knex("comics").where({ id: 1 }).update({ next: 2 });
   for (let i = 2; i < 31; ++i) {
-    await knex("COMICS")
+    await knex("comics")
       .where({ id: i })
       .update({ previous: i - 1, next: i + 1 });
   }
-  await knex("COMICS").where({ id: 31 }).update({ previous: 30 });
+  await knex("comics").where({ id: 31 }).update({ previous: 30 });
 }

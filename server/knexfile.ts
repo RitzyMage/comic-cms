@@ -1,11 +1,8 @@
-// Update with your config settings.
-const knexStringCase = require("knex-stringcase");
-
 require("dotenv").config();
 let useSqliteDev = !!process.env.USE_SQLITE;
 
 if (useSqliteDev) {
-  module.exports = knexStringCase({
+  module.exports = {
     client: "sqlite3",
     connection: {
       filename: "./dev.db",
@@ -17,9 +14,9 @@ if (useSqliteDev) {
     seeds: {
       directory: "./database/seeds/",
     },
-  });
+  };
 } else {
-  module.exports = knexStringCase({
+  module.exports = {
     client: "mysql",
     connection: {
       host: "127.0.0.1",
@@ -34,11 +31,5 @@ if (useSqliteDev) {
     seeds: {
       directory: "./database/seeds/",
     },
-
-    wrapIdentifier: (value: string, origImpl: (val: string) => string) =>
-      origImpl(value.toUpperCase()),
-    appStringcase: ["snakecase", "lowercase"],
-    stringcase: "uppercase",
-    recursiveStringcase: () => true,
-  });
+  };
 }

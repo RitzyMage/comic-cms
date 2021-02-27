@@ -1,8 +1,8 @@
 import * as Knex from "knex";
 
 export async function seed(knex: Knex): Promise<void> {
-  await knex("TAGS").del();
-  await knex("TAGS").insert([
+  await knex("tags").del();
+  await knex("tags").insert([
     { name: "Spot (Superdog)", id: 1 },
     { name: "Stripe", id: 2 },
     { name: "The Cyborg", id: 3 },
@@ -30,7 +30,7 @@ export async function seed(knex: Knex): Promise<void> {
     { name: "Houndstooth", id: 25 },
   ]);
 
-  await knex("COMIC_TAGS").insert([
+  await knex("comic_tags").insert([
     { comic: 1, tag: 1 },
     { comic: 1, tag: 2 },
     { comic: 2, tag: 1 },
