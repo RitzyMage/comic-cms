@@ -1,6 +1,4 @@
 NEXT STEPS
-	config.json not in repo
-
 	fix loading next page for webp on mobile
 	fix loading tags flash
 

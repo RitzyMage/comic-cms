@@ -7,16 +7,17 @@
       <nuxt-link v-for="link in links" :to="link.href" :key="link.name" class="link">
         {{ link.name }}
       </nuxt-link>
-      <nuxt-link v-if="$auth.loggedIn" to="/admin">Manage Comics</nuxt-link>
-      <span v-if="$auth.loggedIn" class="auth-button" @click="logout">Log out</span>
-      <nuxt-link v-else class="auth-button" to="/admin">Log in</nuxt-link>
+      <client-only>
+        <nuxt-link v-if="$auth.loggedIn" to="/admin">Manage Comics</nuxt-link>
+        <span v-if="$auth.loggedIn" class="auth-button" @click="logout">Log out</span>
+        <nuxt-link v-else class="auth-button" to="/admin">Log in</nuxt-link>
+      </client-only>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "~/util/Vue";
-import { State } from "vuex-class";
+import { Vue, Component } from "~/util/Vue";
 import options from "~/options.json";
 
 @Component

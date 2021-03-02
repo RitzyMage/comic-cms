@@ -18,7 +18,6 @@ import { Route } from "vue-router";
   async asyncData({ $axios, params, error }: any) {
     try {
       let comicInfo = await $axios.$get(`/comic/${params.index}`);
-      console.log(comicInfo);
       return { comicInfo };
     } catch (e) {
       error({
