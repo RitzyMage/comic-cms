@@ -199,7 +199,9 @@ export default class ComicPage extends Vue {
 }
 
 .fade-in-leave-active .title,
-.fade-out-enter-active .title {
+.fade-out-enter-active .title,
+.fade-in-leave-active .tags,
+.fade-out-enter-active .tags {
   opacity: 0;
 }
 

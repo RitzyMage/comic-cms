@@ -1,5 +1,4 @@
 NEXT STEPS
-	fix loading next page for webp on mobile
 	fix loading tags flash
 
 	styles on rotated mobile
