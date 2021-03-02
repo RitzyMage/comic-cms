@@ -199,6 +199,11 @@ export default class ComicPage extends Vue {
 
 .comic-container {
   flex-grow: 1;
+  overflow: hidden;
+}
+
+.swiper-container {
+  max-height: 100%;
 }
 
 .swiper-slide {
