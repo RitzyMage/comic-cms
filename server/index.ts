@@ -68,8 +68,6 @@ app.get("/api/images", async (req, res) => {
   });
 });
 
-app.get("/api/rss", (req, res) => res.sendFile(__dirname + "/feed.rss"));
-
 app.get("/api/comic/:id", async (req, res) => {
   let id = parseInt(req.params.id);
   try {

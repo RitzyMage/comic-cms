@@ -2,7 +2,7 @@ import { Feed } from "feed";
 import { DAOFunction, TransactionType, TransactionFunction } from "../dao/DAOFunction";
 import ComicDAO from "../dao/ComicDAO";
 import { Transaction } from "knex";
-import fs from "fs";
+import { promises as fs } from "fs";
 
 let TITLE = process.env.COMIC_TITLE ?? "";
 let CLIENT_URL = process.env.APP_URL ?? "";
@@ -40,9 +40,9 @@ export default class FeedController {
           })
       );
       let feedContent = feed.rss2();
-      let feedFile = __dirname + "/../feed.rss";
-      fs.truncateSync(feedFile, 0);
-      fs.writeFileSync(feedFile, feedContent);
+      let feedFile = __dirname + "/../../client/static/feed.rss";
+      let file = await fs.open(feedFile, "w");
+      file.write(feedContent);
     },
     TransactionType.CLIENT,
     ComicDAO
