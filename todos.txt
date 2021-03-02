@@ -1,7 +1,6 @@
 NEXT STEPS
-	styles on rotated mobile
-
 	fix undefined errors again
+	mobile header
 
 
 COMIC PAGE
