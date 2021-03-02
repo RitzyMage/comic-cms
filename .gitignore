@@ -97,3 +97,4 @@ client/static/img/comics/*.png
 client/static/img/comics/*.webp
 **/feed.rss
 client/options.json
+update.sh
