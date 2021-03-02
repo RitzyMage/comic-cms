@@ -1,7 +1,7 @@
 <template>
-  <div class="page">
-    <div class="comic">
-      <h2 class="title">{{ this.title }}</h2>
+  <div class="comic-page-container">
+    <h2 class="title">{{ this.title }}</h2>
+    <div class="comic-container">
       <div
         v-swiper:mySwiper="{
           initialSlide: startingImage,
@@ -191,6 +191,16 @@ export default class ComicPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.comic-page-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.comic-container {
+  flex-grow: 1;
+}
+
 .swiper-slide {
   align-items: center;
   display: flex;
@@ -205,7 +215,12 @@ export default class ComicPage extends Vue {
 }
 
 .title {
-  margin: 5px 0;
+  padding: 4px 0;
+  margin: 0;
+}
+
+.date {
+  margin: 4px;
 }
 
 .tags {

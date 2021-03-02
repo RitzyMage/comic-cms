@@ -60,10 +60,14 @@ a:visited {
   max-width: 100vw;
   overflow: hidden;
   position: relative;
+  flex-grow: 1;
 }
 
 #app {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .icon {
