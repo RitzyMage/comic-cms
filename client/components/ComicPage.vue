@@ -195,11 +195,13 @@ export default class ComicPage extends Vue {
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .comic-container {
   flex-grow: 1;
   overflow: hidden;
+  width: 100vw;
 }
 
 .swiper-container {
@@ -232,6 +234,7 @@ export default class ComicPage extends Vue {
   margin: 8px;
   display: flex;
   overflow-x: auto;
+  max-width: 100vw;
 }
 
 @media screen and (max-width: 600px) {
