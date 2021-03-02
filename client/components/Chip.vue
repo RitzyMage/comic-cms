@@ -63,4 +63,18 @@ export default class Chip extends Vue {
 .chip--clickable {
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+  .chip {
+    line-height: 3rem;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .chip {
+    line-height: 3rem;
+    font-size: 0.8em;
+  }
+}
 </style>

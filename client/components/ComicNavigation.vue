@@ -108,21 +108,22 @@ export default class Navigation extends Vue {
   grid-template-areas: "first previous home next last";
   width: 100%;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  max-height: 10vh;
+  max-height: 5vh;
+  height: 50px;
 }
 
 .link {
   display: flex;
-  height: 50px;
   align-items: center;
   justify-content: center;
-  margin: 5px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   font-family: "Komika Axis", sans-serif;
   color: #bbb;
   font-size: 1.3em;
+  max-height: 5vh;
+  padding-bottom: 0.3rem;
 }
 
 .first {
@@ -163,6 +164,12 @@ export default class Navigation extends Vue {
 @media screen and (max-width: 600px) {
   .link {
     font-size: 1em;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .link {
+    font-size: 0.8em;
   }
 }
 </style>

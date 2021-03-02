@@ -242,6 +242,10 @@ export default class ComicPage extends Vue {
     font-size: 1.2em;
     max-height: 1.2em;
   }
+
+  .tags {
+    margin: 4px;
+  }
 }
 
 @media screen and (max-height: 600px) {
@@ -251,6 +255,9 @@ export default class ComicPage extends Vue {
   .title {
     font-size: 1.2em;
     max-height: 1.2em;
+  }
+  .tags {
+    margin: 4px;
   }
 }
 </style>

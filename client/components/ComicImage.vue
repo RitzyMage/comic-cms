@@ -48,6 +48,7 @@ export class ComicImage extends Vue {
     }
     this.updateScroll();
     window.addEventListener("resize", this.updateScroll);
+    screen.orientation.addEventListener("change", this.updateScroll);
   }
 
   private get containerHeight() {
