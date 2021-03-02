@@ -1,6 +1,4 @@
 NEXT STEPS
-	fix loading tags flash
-
 	styles on rotated mobile
 
 	fix undefined errors again

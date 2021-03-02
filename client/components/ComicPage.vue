@@ -29,7 +29,7 @@
       :navigate-next="navigateNext"
       :navigate-last="navigateLast"
     />
-    <p>
+    <p class="date">
       {{ postedDate }}
     </p>
     <div class="tags">
@@ -219,6 +219,12 @@ export default class ComicPage extends Vue {
   .title {
     font-size: 1.2em;
     max-height: 1.2em;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .date {
+    margin: 0;
   }
 }
 </style>

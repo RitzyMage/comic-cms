@@ -108,6 +108,7 @@ export default class Navigation extends Vue {
   grid-template-areas: "first previous home next last";
   width: 100%;
   grid-template-columns: 20% 20% 20% 20% 20%;
+  max-height: 10vh;
 }
 
 .link {
