@@ -3,7 +3,6 @@
     <div class="comic">
       <h2 class="title">{{ this.title }}</h2>
       <div
-        class="comic-height"
         v-swiper:mySwiper="{
           initialSlide: startingImage,
           centeredSlides: true,

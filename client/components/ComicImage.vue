@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="comicImageArea comic-height swiper-zoom-container"
-    ref="container"
-    :style="containerStyle"
-  >
+  <div class="comicImageArea swiper-zoom-container" ref="container" :style="containerStyle">
     <img
       v-if="info.src"
       :id="`comic-image-${id}`"

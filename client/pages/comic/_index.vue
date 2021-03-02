@@ -1,7 +1,5 @@
 <template>
-  <div class="comic">
-    <comic-page :page="this.$route.params.index" :comic-info="comicInfo" />
-  </div>
+  <comic-page :page="this.$route.params.index" :comic-info="comicInfo" />
 </template>
 
 <script lang="ts">

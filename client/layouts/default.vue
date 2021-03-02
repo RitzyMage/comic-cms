@@ -2,10 +2,8 @@
   <div id="app">
     <ToastDisplay />
     <NavHeader />
-    <div class="pageAnchor">
-      <div class="pageContainer">
-        <nuxt />
-      </div>
+    <div class="page">
+      <nuxt />
     </div>
   </div>
 </template>
@@ -58,12 +56,9 @@ a:visited {
   text-decoration: none;
 }
 
-.pageContainer {
+.page {
   max-width: 100vw;
   overflow: hidden;
-}
-
-.pageAnchor {
   position: relative;
 }
 
