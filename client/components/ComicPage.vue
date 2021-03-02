@@ -203,7 +203,7 @@ export default class ComicPage extends Vue {
 }
 
 .swiper-container {
-  max-height: 100%;
+  height: 100%;
 }
 
 .swiper-slide {
@@ -244,6 +244,10 @@ export default class ComicPage extends Vue {
 @media screen and (max-height: 600px) {
   .date {
     margin: 0;
+  }
+  .title {
+    font-size: 1.2em;
+    max-height: 1.2em;
   }
 }
 </style>
