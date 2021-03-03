@@ -15,10 +15,10 @@ export default class ComicLink extends Vue {
   private path!: number;
 
   @Prop(String)
-  private backgroundImage!: string;
+  private backgroundImage?: string;
 
   @Prop(String)
-  private smallBackgroundImage!: string;
+  private smallBackgroundImage?: string;
 
   @Prop()
   private arrow?: string | boolean;
@@ -45,7 +45,7 @@ export default class ComicLink extends Vue {
   }
 
   private get style() {
-    if (!this.backgroundImage) {
+    if (!this.backgroundImage || (!this.imageLoaded && !this.smallBackgroundImage)) {
       return "";
     }
     let image = this.imageLoaded ? this.backgroundImage : this.smallBackgroundImage;
