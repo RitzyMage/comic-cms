@@ -1,5 +1,4 @@
 NEXT STEPS
-	fix undefined errors again
 	mobile header
 
 
