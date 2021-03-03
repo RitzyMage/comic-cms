@@ -233,7 +233,6 @@ export default class ComicPage extends Vue {
 .tags {
   margin: 8px;
   display: flex;
-  overflow-x: auto;
   max-width: 100vw;
 }
 
@@ -245,6 +244,7 @@ export default class ComicPage extends Vue {
 
   .tags {
     margin: 4px;
+    overflow-x: auto;
   }
 }
 
@@ -258,6 +258,7 @@ export default class ComicPage extends Vue {
   }
   .tags {
     margin: 4px;
+    overflow-x: auto;
   }
 }
 </style>

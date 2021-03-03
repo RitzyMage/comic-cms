@@ -73,7 +73,7 @@ export default class Chip extends Vue {
 
 @media screen and (max-height: 600px) {
   .chip {
-    line-height: 3rem;
+    line-height: 4rem;
     font-size: 0.8em;
   }
 }
