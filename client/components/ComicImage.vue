@@ -51,10 +51,6 @@ export class ComicImage extends Vue {
     screen.orientation.addEventListener("change", this.updateScroll);
   }
 
-  private get containerHeight() {
-    return (this.$refs.container as Element).clientHeight;
-  }
-
   private get imageHeight() {
     return this.info.height;
   }
@@ -66,7 +62,7 @@ export class ComicImage extends Vue {
     }
 
     this.stopScroll = false;
-    let heightDifference = imageHeight - this.containerHeight;
+    let heightDifference = imageHeight - (this.$refs.container as Element).clientHeight;
     this.stopScroll = heightDifference <= MIN_SCROLL_HEIGHT && heightDifference >= 0;
     this.tooTall = heightDifference >= 0;
   }
