@@ -10,12 +10,16 @@
       :alt="info.alt"
       :title="info.title"
     />
+    <span v-if="shouldRotate" class="rotate">
+      <SmartphoneIcon />
+    </span>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from "~/util/Vue";
 import { directive } from "vue-awesome-swiper";
+import { SmartphoneIcon } from "vue-feather-icons";
 
 const MIN_SCROLL_HEIGHT = 200;
 const SMALL_SCREEN = 600;
@@ -31,7 +35,9 @@ export interface ImageInfo {
   isMain?: boolean;
 }
 
-@Component
+@Component({
+  components: { SmartphoneIcon },
+})
 export class ComicImage extends Vue {
   @Prop() private info!: ImageInfo;
   private imageLoaded = false;
@@ -68,13 +74,14 @@ export class ComicImage extends Vue {
     if (this.info.isMain && isScreenSmall) {
       let imageAspectRatio = this.imageWidth / this.imageHeight;
       let screenAspectRatio = screen.width / screen.height;
-      if (imageAspectRatio > ROTATION_ASPECT_RATIO && screenAspectRatio < ROTATION_ASPECT_RATIO) {
-        console.log("rotate, image is wide!");
-      } else if (
-        imageAspectRatio < ROTATION_ASPECT_RATIO &&
-        screenAspectRatio > ROTATION_ASPECT_RATIO
-      ) {
-        console.log("rotate, image is tall!");
+      let tooWide =
+        imageAspectRatio > ROTATION_ASPECT_RATIO && screenAspectRatio < ROTATION_ASPECT_RATIO;
+      let tooTall =
+        imageAspectRatio < ROTATION_ASPECT_RATIO && screenAspectRatio > ROTATION_ASPECT_RATIO;
+      if (tooWide || tooTall) {
+        this.shouldRotate = true;
+      } else {
+        this.shouldRotate = false;
       }
     }
   }
@@ -128,5 +135,11 @@ export default ComicImage;
 .comicImage {
   max-width: 100vw;
   max-height: unset;
+}
+
+.rotate {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
 }
 </style>

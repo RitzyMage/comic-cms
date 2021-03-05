@@ -43,6 +43,7 @@ MAKE OPEN SOURCE
 	add code of conduct
 
 UI layout
+	scss 8px grid system
 	toasts exit button
 	footer?
 	highlight current link in header
