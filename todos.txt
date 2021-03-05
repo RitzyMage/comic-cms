@@ -1,37 +1,31 @@
 NEXT STEPS
-	mobile header
-
+	phone rotation (show indicator if comic is wide?)
+	automatic bookmarking
+	clean up route locations on server
+	about page
 
 COMIC PAGE
 	when loading new page, get new title (and other info) and display
 	when loading new page and can't navigate, gray out navigation (?)
 		(maybe only if it takes too long? it might flicker otherwise)
 		(or show loading spinner?)
+	latest comic page (static path)
 
-	phone rotation (show indicator if comic is wide?)
-
-	automatic bookmarking
-
-
-OTHER PAGES
-	about page
-	blog section
-	main page layout and styling
-	latest comic page
-	link to search page
-
+NAVIGATION PAGES
 	chapters on archive page
+	do I really need lazy loading?
+	tag page lazy loading (refactor archives page to be a component?)
+	static build tag pages
 
+PAGES TO ADD
+	blog section
 
 ADMIN PORTION
-	re-build static build on add comic
 	re-build only needed pages on edit comic (is this possible?)
-
 	account creation / editing
-
 	make adding and editing comics more robust (e.g. if fails)
-
 	edit page actually lists comics (or is linked directly from comic page)
+	style autoselect for tags
 
 THEMES / CUSTOMIZATION
 	custom color themes
@@ -39,6 +33,7 @@ THEMES / CUSTOMIZATION
 	custom fonts
 	favicon
 	front page: show latest comic?
+	theme: grab colors from config file, not just css files
 
 MAKE OPEN SOURCE
 	automated tests
@@ -49,34 +44,18 @@ MAKE OPEN SOURCE
 
 UI layout
 	toasts exit button
-	footer
+	footer?
 	highlight current link in header
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
-	static build
 	optimize JS/CSS/other size
-
 	test client on 3G
-
-	host images on cdn (?)
-
 	cache necessary information (?)
 
 OTHER TASKS
 	usability tests for admin portion
-	
 	make running production build / installing on server easy
-
 	add video samples in README
-
-	clean up route locations on server
-
-	tag page lazy loading (refactor archives page to be a component?)
-	
-	add seeds for tags
-	
-	style autoselect for tags
-
-	theme: grab colors from database, not just css files
+	usability tests in general
 
 
