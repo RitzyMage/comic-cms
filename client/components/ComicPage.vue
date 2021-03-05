@@ -116,7 +116,7 @@ export default class ComicPage extends Vue {
       this.mainImage,
       ...[this.comicToImage(this.comicInfo.first), ...Array(FILLER_SLIDES).fill(this.mainImage)],
       this.comicToImage(this.previous),
-      this.mainImage,
+      { ...this.mainImage, isMain: true },
       this.comicToImage(this.next),
       ...[...Array(FILLER_SLIDES).fill(this.mainImage), this.comicToImage(this.comicInfo.last)],
     ];

@@ -18,6 +18,8 @@ import { Vue, Component, Prop } from "~/util/Vue";
 import { directive } from "vue-awesome-swiper";
 
 const MIN_SCROLL_HEIGHT = 200;
+const SMALL_SCREEN = 600;
+const ROTATION_ASPECT_RATIO = 1.1;
 
 export interface ImageInfo {
   src: string;
@@ -26,6 +28,7 @@ export interface ImageInfo {
   alt?: string;
   title?: string;
   smallSrc?: string;
+  isMain?: boolean;
 }
 
 @Component
@@ -34,6 +37,7 @@ export class ComicImage extends Vue {
   private imageLoaded = false;
   private tooTall = false;
   private stopScroll = false;
+  private shouldRotate = false;
 
   private get id() {
     return parseInt(this.$route.params.index);
@@ -55,14 +59,35 @@ export class ComicImage extends Vue {
     return this.info.height;
   }
 
+  private get imageWidth() {
+    return this.info.width;
+  }
+
+  private updateRotation() {
+    let isScreenSmall = screen.width <= SMALL_SCREEN || screen.height <= SMALL_SCREEN;
+    if (this.info.isMain && isScreenSmall) {
+      let imageAspectRatio = this.imageWidth / this.imageHeight;
+      let screenAspectRatio = screen.width / screen.height;
+      if (imageAspectRatio > ROTATION_ASPECT_RATIO && screenAspectRatio < ROTATION_ASPECT_RATIO) {
+        console.log("rotate, image is wide!");
+      } else if (
+        imageAspectRatio < ROTATION_ASPECT_RATIO &&
+        screenAspectRatio > ROTATION_ASPECT_RATIO
+      ) {
+        console.log("rotate, image is tall!");
+      }
+    }
+  }
+
   private updateScroll() {
+    this.updateRotation();
     let imageHeight = (this.$refs.image as HTMLImageElement)?.clientHeight;
     if (!imageHeight) {
       imageHeight = this.imageHeight;
     }
 
     this.stopScroll = false;
-    let heightDifference = imageHeight - (this.$refs.container as Element).clientHeight;
+    let heightDifference = imageHeight - (this.$refs.container as Element)?.clientHeight;
     this.stopScroll = heightDifference <= MIN_SCROLL_HEIGHT && heightDifference >= 0;
     this.tooTall = heightDifference >= 0;
   }
