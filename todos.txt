@@ -1,5 +1,4 @@
 NEXT STEPS
-	phone rotation (show indicator if comic is wide?)
 	automatic bookmarking
 	clean up route locations on server
 	about page

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "~/util/Vue";
+import { Component, Vue, Prop, Watch } from "~/util/Vue";
 @Component
 export default class ComicLink extends Vue {
   @Prop(String)
@@ -26,6 +26,12 @@ export default class ComicLink extends Vue {
   private imageLoaded = false;
 
   mounted() {
+    this.updateBg();
+  }
+
+  @Watch("backgroundImage")
+  private updateBg() {
+    this.imageLoaded = false;
     let img: HTMLImageElement | null = this.getDetachedImage();
     if (img) {
       img.onload = () => {

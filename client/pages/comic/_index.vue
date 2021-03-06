@@ -7,6 +7,9 @@ import ComicPage from "@/components/ComicPage.vue";
 
 import { Vue, Component } from "~/util/Vue";
 import { Route } from "vue-router";
+import { ComicInfo } from "~/util/ComicInfo";
+
+export const PAGE_KEY = "comic_cms_page";
 
 @Component({
   components: {
@@ -45,7 +48,28 @@ import { Route } from "vue-router";
   },
 })
 export default class Page extends Vue {
-  testVar!: string;
+  private comicInfo!: ComicInfo;
+  private get id() {
+    return this.$route.params.index;
+  }
+
+  private get isFirst() {
+    return this.id === "1";
+  }
+
+  private get isLast() {
+    return this.id === this.comicInfo.last.id.toString();
+  }
+
+  private get shouldSavePage() {
+    return !this.isFirst && !this.isLast;
+  }
+
+  mounted() {
+    if (this.shouldSavePage) {
+      localStorage.setItem(PAGE_KEY, this.id);
+    }
+  }
 }
 </script>
 
