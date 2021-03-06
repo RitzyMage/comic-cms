@@ -1,5 +1,4 @@
 NEXT STEPS
-	automatic bookmarking
 	clean up route locations on server
 	about page
 
@@ -15,6 +14,7 @@ NAVIGATION PAGES
 	do I really need lazy loading?
 	tag page lazy loading (refactor archives page to be a component?)
 	static build tag pages
+	tag page scroll
 
 PAGES TO ADD
 	blog section
