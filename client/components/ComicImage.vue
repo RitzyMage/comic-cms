@@ -12,7 +12,7 @@
     />
     <span v-if="shouldRotate" class="rotate">
       <SmartphoneIcon class="rotate-icon" />
-      <RotateCwIcon size="40" class="rotate-icon rotate-icon--large" />
+      <RotateCcwIcon size="32" class="rotate-icon rotate-icon--large rotate-icon--translucent" />
     </span>
   </div>
 </template>
@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "~/util/Vue";
 import { directive } from "vue-awesome-swiper";
-import { SmartphoneIcon, RotateCwIcon } from "vue-feather-icons";
+import { SmartphoneIcon, RotateCcwIcon } from "vue-feather-icons";
 
 const MIN_SCROLL_HEIGHT = 200;
 const SMALL_SCREEN = 600;
@@ -37,7 +37,7 @@ export interface ImageInfo {
 }
 
 @Component({
-  components: { SmartphoneIcon, RotateCwIcon },
+  components: { SmartphoneIcon, RotateCcwIcon },
 })
 export class ComicImage extends Vue {
   @Prop() private info!: ImageInfo;
@@ -84,6 +84,8 @@ export class ComicImage extends Vue {
       } else {
         this.shouldRotate = false;
       }
+    } else {
+      this.shouldRotate = false;
     }
   }
 
@@ -153,7 +155,11 @@ export default ComicImage;
 }
 
 .rotate-icon--large {
-  top: -8px;
-  left: -8px;
+  top: -4px;
+  left: -4px;
+}
+
+.rotate-icon--translucent {
+  opacity: 0.6;
 }
 </style>
