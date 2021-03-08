@@ -1,6 +1,5 @@
 NEXT STEPS
 	about page
-	fix archive and tag scrolling
 
 COMIC PAGE
 	when loading new page, get new title (and other info) and display
@@ -14,7 +13,7 @@ NAVIGATION PAGES
 	do I really need lazy loading?
 	tag page lazy loading (refactor archives page to be a component?)
 	static build tag pages
-	tag page scroll
+	tag page for spot not working
 
 PAGES TO ADD
 	blog section

@@ -16,6 +16,8 @@ export const PAGE_KEY = "comic_cms_page";
     "comic-page": ComicPage,
   },
 
+  layout: "comic",
+
   async asyncData({ $axios, params, error }: any) {
     try {
       let comicInfo = await $axios.$get(`/comic/${params.index}`);
