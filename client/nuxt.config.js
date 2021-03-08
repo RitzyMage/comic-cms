@@ -73,7 +73,7 @@ export default {
 
   generate: {
     routes() {
-      return axios.get(process.env.API_URL + "/count").then(res => {
+      return axios.get(process.env.API_URL + "/comic/count").then(res => {
         let count = res.data.count;
         return [...Array(count - 1).keys()].map(item => "/comic/" + (item + 1));
       });

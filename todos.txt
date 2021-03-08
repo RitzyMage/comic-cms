@@ -1,6 +1,6 @@
 NEXT STEPS
-	clean up route locations on server
 	about page
+	fix archive and tag scrolling
 
 COMIC PAGE
 	when loading new page, get new title (and other info) and display
@@ -57,5 +57,6 @@ OTHER TASKS
 	make running production build / installing on server easy
 	add video samples in README
 	usability tests in general
+	refactor components to be cleaner
 
 

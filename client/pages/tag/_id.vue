@@ -18,7 +18,7 @@ import PageLink from "@/components/PageLink.vue";
   },
 
   async asyncData({ $axios, params }) {
-    let { images: pages, count: totalNumber } = await $axios.$get(`/images?tag=${params.id}`);
+    let { images: pages, count: totalNumber } = await $axios.$get(`/comic/images?tag=${params.id}`);
     return { pages, totalNumber };
   },
 })

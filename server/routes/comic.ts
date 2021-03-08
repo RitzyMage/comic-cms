@@ -12,21 +12,8 @@ const imageUploader = new ImageUpload();
 const clientController = new ClientController();
 
 import { Express } from "express";
-var express = require("express"),
-  router: Express = express.Router();
-
-router.get("/:id", async (req, res) => {
-  let id = parseInt(req.params.id);
-  try {
-    res.send(await clientController.getComicInfo(id));
-  } catch (e) {
-    let error = e as Error;
-    if (error.message.includes("does not exist")) {
-      return res.status(404).send(error.message);
-    }
-    res.status(500).send(`error ${e.message} thrown in getComicInfo`);
-  }
-});
+var express = require("express");
+let router: Express = express.Router();
 
 router.post("/", auth, async (req, res) => {
   let { title, transcript, mouseover, image, tags } = req.body;
@@ -80,6 +67,48 @@ router.patch("/:id", auth, async (req, res) => {
     },
   });
   res.send({ success: true });
+});
+
+router.get("/count", async (req, res) => res.send(await clientController.getComicCount()));
+
+router.get("/search", async (req, res) =>
+  res.send(await clientController.search(req.query.params as string))
+);
+
+router.get("/images", async (req, res) => {
+  let count = await clientController.getComicCount();
+  if (req.query.tag) {
+    let tag = (req.query.tag as string).toLowerCase().replace(/[^a-z0-9-. ]/g, "");
+    return res.send({
+      images: await clientController.getTaggedImages(tag),
+      ...count,
+    });
+  }
+  if (req.query.first && req.query.last) {
+    let first = parseInt(req.query.first as string);
+    let last = parseInt(req.query.last as string);
+    return res.send({
+      images: await clientController.getBlockImages({ first, last }),
+      ...count,
+    });
+  }
+  res.send({
+    images: await clientController.getEndImages(),
+    ...count,
+  });
+});
+
+router.get("/:id", async (req, res) => {
+  let id = parseInt(req.params.id);
+  try {
+    res.send(await clientController.getComicInfo(id));
+  } catch (e) {
+    let error = e as Error;
+    if (error.message.includes("does not exist")) {
+      return res.status(404).send(error.message);
+    }
+    res.status(500).send(`error ${e.message} thrown in getComicInfo`);
+  }
 });
 
 export default router;

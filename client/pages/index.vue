@@ -27,7 +27,7 @@ import { ComicInfo } from "~/util/ComicInfo";
   async asyncData({ $axios }) {
     let {
       images: { first, last },
-    } = await $axios.$get("/images");
+    } = await $axios.$get("/comic/images");
     return { first, last };
   },
 })
@@ -51,7 +51,7 @@ export default class MainPage extends Vue {
     this.lastReadPage = localStorage.getItem(PAGE_KEY);
     if (this.lastReadPage) {
       let lastReadPageInfo = (
-        await this.$axios.$get(`/images?first=${this.lastReadPage}&last=${this.lastReadPage}`)
+        await this.$axios.$get(`/comic/images?first=${this.lastReadPage}&last=${this.lastReadPage}`)
       ).images[0];
       console.log(lastReadPageInfo);
       this.lastReadImage = lastReadPageInfo.image;

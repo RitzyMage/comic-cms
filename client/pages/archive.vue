@@ -20,7 +20,7 @@ const LINK_HEIGHT = 140;
 
   async asyncData({ $axios }) {
     let { images: pages, count: totalNumber } = await $axios.$get(
-      `/images?first=1&last=${CHUNK_SIZE * 2}`
+      `/comic/images?first=1&last=${CHUNK_SIZE * 2}`
     );
     return { pages, totalNumber };
   },
@@ -59,7 +59,7 @@ export default class ComicArchives extends Vue {
       let startIndex = this.numLoaded + 1;
 
       let { images: newPages, count } = await this.$axios.$get(
-        `/images?first=${startIndex}&last=${startIndex + CHUNK_SIZE}`
+        `/comic/images?first=${startIndex}&last=${startIndex + CHUNK_SIZE}`
       );
       this.pages = this.pages.concat(newPages).sort((a, b) => a.id - b.id);
       this.totalNumber = count;

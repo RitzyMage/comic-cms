@@ -49,7 +49,7 @@ export default class Search extends Vue {
 
   private async search() {
     this.comics = await this.$axios.$get(
-      `/search?params=${this.searchTerm.replace(/[\&?\/]/, " ")}`
+      `/comic/search?params=${this.searchTerm.replace(/[\&?\/]/, " ")}`
     );
     this.loading = false;
   }
