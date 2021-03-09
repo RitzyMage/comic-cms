@@ -35,21 +35,18 @@ export default class NavHeader extends Vue {
   display: flex;
   background-color: $primary;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-evenly;
 }
 
 .header-link {
-  height: calc(100% - 20px);
   flex-grow: 1;
-  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: $mediumBackground;
   cursor: pointer;
   margin: 0;
-  height: 100%;
 }
 
 .header-link:hover {
