@@ -1,5 +1,5 @@
 <template>
-  <div class="comicList">
+  <div class="comicList mainContainer">
     <router-link to="/search">search</router-link>
     <PageLink v-for="page in pages" :page="page" :key="page.title" />
   </div>
@@ -84,7 +84,5 @@ export default class ComicArchives extends Vue {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 </style>

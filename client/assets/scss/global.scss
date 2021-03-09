@@ -18,13 +18,17 @@ body {
   font-family: "Kalam", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: $font;
   background-color: $darkBackground;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.mainContainer {
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 a,

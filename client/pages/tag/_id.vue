@@ -1,5 +1,5 @@
 <template>
-  <div class="comicList">
+  <div class="comicList mainContainer">
     <h1>Comics with tag {{ $route.params.id }}</h1>
     <PageLink v-for="page in pages" :page="page" :key="page.title" />
     <p v-if="!pages.length">
@@ -30,7 +30,5 @@ export default class TaggedComics extends Vue {}
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="loginPage">
+  <div class="loginPage mainContainer">
     <h1>LOGIN</h1>
     <TextInput v-model="username" name="username" />
     <TextInput password v-model="password" name="password" />
@@ -36,10 +36,3 @@ export class Login extends Vue {
 
 export default Login;
 </script>
-
-<style scoped>
-.loginPage {
-  max-width: 800px;
-  margin: 0 auto;
-}
-</style>

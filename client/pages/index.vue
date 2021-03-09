@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mainContainer">
     <h1>{{ title }}</h1>
     <div class="main-links">
       <PageLink v-if="lastReadPage" :page="lastRead" arrow="true" />
@@ -65,7 +65,5 @@ export default class MainPage extends Vue {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  margin: 0 auto;
-  max-width: 800px;
 }
 </style>
