@@ -20,7 +20,7 @@
 import TextInput from "@/components/inputs/TextInput.vue";
 import ImageInput from "@/components/inputs/ImageInput.vue";
 import TagInput from "@/components/inputs/TagInput.vue";
-import { Vue, Component, Prop } from "@/util/Vue";
+import { Vue, Component, Prop } from "vue-property-decorator";
 
 export interface ComicFormData {
   transcript: string;

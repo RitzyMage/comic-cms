@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "~/util/Vue";
+import { Vue, Component, Prop } from "vue-property-decorator";
 import { directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import ComicNavigation from "~/components/ComicNavigation.vue";

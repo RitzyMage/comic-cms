@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "~/util/Vue";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import ListLink from "./ListLink.vue";
 
 @Component({
@@ -23,7 +23,7 @@ export default class PageLink extends Vue {
 
   @Prop(String)
   private arrow?: string;
-  
+
   private get path(): string {
     return "/comic/" + this.page.id;
   }

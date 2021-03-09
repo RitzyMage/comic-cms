@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "~/util/Vue";
+import { Component, Vue } from "vue-property-decorator";
 import PageLink from "../components/PageLink.vue";
 
 const CHUNK_SIZE = 6;

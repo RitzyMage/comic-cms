@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "../util/Vue";
+import { Vue, Component } from "vue-property-decorator";
 import TextInput from "@/components/inputs/TextInput.vue";
 import { SearchIcon } from "vue-feather-icons";
 import { Comic } from "~/util/ComicInfo";

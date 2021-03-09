@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from "~/util/Vue";
+import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 @Component
 export default class ComicLink extends Vue {
   @Prop(String)

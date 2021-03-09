@@ -5,7 +5,7 @@
 <script lang="ts">
 import ComicPage from "@/components/ComicPage.vue";
 
-import { Vue, Component } from "~/util/Vue";
+import { Vue, Component } from "vue-property-decorator";
 import { Route } from "vue-router";
 import { ComicInfo } from "~/util/ComicInfo";
 

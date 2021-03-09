@@ -11,7 +11,7 @@
 <script>
 import NavHeader from "~/components/NavHeader.vue";
 import ToastDisplay from "~/components/ToastDisplay.vue";
-import { Vue, Component } from "~/util/Vue";
+import { Vue, Component } from "vue-property-decorator";
 
 @Component({
   components: {

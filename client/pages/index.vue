@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "~/util/Vue";
+import { Vue, Component, Prop } from "vue-property-decorator";
 import { PAGE_KEY } from "~/pages/comic/_index.vue";
 import PageLink from "~/components/PageLink.vue";
 import ListLink from "~/components/ListLink.vue";

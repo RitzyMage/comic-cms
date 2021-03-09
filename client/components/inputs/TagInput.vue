@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Multiselect from "vue-multiselect";
-import { Vue, Component, Prop } from "@/util/Vue";
+import { Vue, Component, Prop } from "vue-property-decorator";
 import Chip from "@/components/Chip.vue";
 
 @Component({

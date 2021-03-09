@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "../util/Vue";
+import { Vue, Component, Prop } from "vue-property-decorator";
 import TextInput from "@/components/inputs/TextInput.vue";
 import Button from "@/components/inputs/Button.vue";
 

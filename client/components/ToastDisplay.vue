@@ -9,7 +9,7 @@
 <script lang="ts">
 import { toastStore } from "~/store";
 import ToastInfo from "~/util/ToastInfo";
-import { Vue, Component } from "~/util/Vue";
+import { Vue, Component } from "vue-property-decorator";
 
 @Component
 export default class ToastDisplay extends Vue {

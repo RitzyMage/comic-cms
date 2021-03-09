@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from "@/util/Vue";
+import { Vue, Prop, Component } from "vue-property-decorator";
 import { XIcon } from "vue-feather-icons";
 @Component({
   components: {

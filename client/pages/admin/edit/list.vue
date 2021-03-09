@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "~/util/Vue";
+import { Vue, Component } from "vue-property-decorator";
 
 @Component({
   name: "Edit-List",
