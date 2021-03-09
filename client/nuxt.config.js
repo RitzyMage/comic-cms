@@ -38,7 +38,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/pwa", "@nuxtjs/auth"],
+  modules: ["@nuxtjs/pwa", "@nuxtjs/auth-next", "@nuxt/content"],
   /*
    ** Build configuration
    */
