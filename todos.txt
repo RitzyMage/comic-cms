@@ -1,5 +1,10 @@
 NEXT STEPS
-	about page
+	bem scss
+	scss 8px grid system
+	tag page for spot not working
+	refactor components to be cleaner
+	edit page actually lists comics (or is linked directly from comic page)
+	get placeholder webps on seed
 
 COMIC PAGE
 	when loading new page, get new title (and other info) and display
@@ -13,16 +18,14 @@ NAVIGATION PAGES
 	do I really need lazy loading?
 	tag page lazy loading (refactor archives page to be a component?)
 	static build tag pages
-	tag page for spot not working
 
 PAGES TO ADD
 	blog section
 
 ADMIN PORTION
 	re-build only needed pages on edit comic (is this possible?)
-	account creation / editing
+	account creation / editing (or config file)
 	make adding and editing comics more robust (e.g. if fails)
-	edit page actually lists comics (or is linked directly from comic page)
 	style autoselect for tags
 
 THEMES / CUSTOMIZATION
@@ -39,9 +42,9 @@ MAKE OPEN SOURCE
 	update README to include more info about database, running, etc
 	add contributing guidelines
 	add code of conduct
+	style guide
 
 UI layout
-	scss 8px grid system
 	toasts exit button
 	footer?
 	highlight current link in header
@@ -56,6 +59,5 @@ OTHER TASKS
 	make running production build / installing on server easy
 	add video samples in README
 	usability tests in general
-	refactor components to be cleaner
 
 
