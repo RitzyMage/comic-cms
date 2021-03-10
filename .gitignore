@@ -98,3 +98,4 @@ client/static/img/comics/*.webp
 **/feed.rss
 client/options.json
 update.sh
+client/content/**/*.md
