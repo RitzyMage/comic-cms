@@ -47,6 +47,7 @@ export default class TextInput extends Vue {
 
 <style scoped lang="scss">
 @import "~/assets/scss/colors.scss";
+@import "~/assets/scss/grid.scss";
 
 .textInput {
   display: flex;
@@ -61,23 +62,23 @@ export default class TextInput extends Vue {
 
 .textInput-icon {
   position: absolute;
-  right: 4px;
-  bottom: 4px;
+  right: #{$gridUnit / 2};
+  bottom: #{$gridUnit / 2};
   opacity: 0.6;
 }
 
 .textInput-input {
   background-color: $lightBackground;
   border: 0px;
-  border-radius: 4px 4px 0 0;
+  border-radius: #{$gridUnit / 2} #{$gridUnit / 2} 0 0;
   outline: none;
   color: white;
-  padding: 8px 0 8px 8px;
+  padding: #{$gridUnit * 1} 0 #{$gridUnit * 1} #{$gridUnit * 1};
   width: 100%;
 }
 
 .textInput-input--rounded {
-  border-radius: 32px;
+  border-radius: #{$gridUnit * 4};
 }
 
 .textInput-input:focus {
@@ -91,8 +92,8 @@ export default class TextInput extends Vue {
 
 .textInput-input--large {
   border-radius: 4px;
-  padding: 8px;
-  width: calc(100% - 8px);
+  padding: #{$gridUnit * 1};
+  width: calc(100% - #{$gridUnit * 1});
 }
 
 .textInput-input--large:focus,

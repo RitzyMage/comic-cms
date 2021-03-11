@@ -73,10 +73,11 @@ export default class ComicLink extends Vue {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/colors.scss";
+@import "~/assets/scss/grid.scss";
 .listLink {
-  height: 120px;
+  height: #{$gridUnit * 12};
   width: 100%;
-  margin: 10px 0;
+  margin: #{$gridUnit} 0;
   display: flex;
   align-items: baseline;
   justify-content: flex-start;
@@ -131,25 +132,31 @@ export default class ComicLink extends Vue {
   z-index: 1;
   font-size: 1.2em;
   background: #111;
-  padding: 8px 32px 8px 16px;
+  padding: #{$gridUnit * 1} #{$gridUnit * 4} #{$gridUnit * 1} #{$gridUnit * 2};
   clip-path: polygon(0% 0%, 100% 0%, calc(100% - 32px) 100%, 0% 100%);
   margin: 8px;
 }
 
 .innerLink--arrow-right {
-  clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 50%, calc(100% - 32px) 100%, 0 100%);
-  margin-left: 32px;
+  clip-path: polygon(
+    0 0,
+    calc(100% - #{$gridUnit * 4}) 0,
+    100% 50%,
+    calc(100% - #{$gridUnit * 4}) 100%,
+    0 100%
+  );
+  margin-left: #{$gridUnit * 4};
 }
 
 .innerLink--arrow-left {
-  clip-path: polygon(100% 0, 32px 0, 0% 50%, 32px 100%, 100% 100%);
-  padding-left: 32px;
-  padding-right: 16px;
-  margin-right: 32px;
+  clip-path: polygon(100% 0, #{$gridUnit * 4} 0, 0% 50%, #{$gridUnit * 4} 100%, 100% 100%);
+  padding-left: #{$gridUnit * 4};
+  padding-right: #{$gridUnit * 2};
+  margin-right: #{$gridUnit * 4};
 }
 
 .innerLink--arrow-none {
   clip-path: none;
-  padding: 8px 16px;
+  padding: #{$gridUnit * 1} #{$gridUnit * 2};
 }
 </style>

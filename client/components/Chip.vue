@@ -37,12 +37,12 @@ export default class Chip extends Vue {
 
 <style scoped lang="scss">
 @import "~/assets/scss/colors.scss";
-
+@import "~/assets/scss/grid.scss";
 .chip {
   background-color: $secondaryDark;
   color: white;
-  padding: 0 8px;
-  margin: 0 4px;
+  padding: 0 #{$gridUnit * 1};
+  margin: 0 #{$gridUnit / 2};
   border-radius: 2px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   display: inline-flex;
@@ -57,7 +57,7 @@ export default class Chip extends Vue {
   color: white;
   display: flex;
   padding: 0;
-  margin-left: 8px;
+  margin-left: #{$gridUnit * 1};
 }
 
 .chip--clickable {

@@ -61,11 +61,13 @@ export class EditComic extends Vue {
 export default EditComic;
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "~/assets/scss/grid.scss";
+
 .editForm {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: #{$gridUnit * 80};
   margin: 0 auto;
 }
 </style>

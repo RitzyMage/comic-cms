@@ -92,9 +92,10 @@ export default class ComicForm extends Vue {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "~/assets/scss/grid.scss";
 .comicForm {
-  max-width: 550px;
+  max-width: #{$gridUnit * 80};
   margin: 0 auto;
 }
 </style>

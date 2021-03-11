@@ -17,12 +17,13 @@ export default class Button extends Vue {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/colors.scss";
+@import "~/assets/scss/grid.scss";
 
 .button {
   border: none;
   background-color: $primary;
-  padding: 8px;
-  margin: 8px;
+  padding: #{$gridUnit * 1};
+  margin: #{$gridUnit * 1};
   border-radius: 2px;
 }
 

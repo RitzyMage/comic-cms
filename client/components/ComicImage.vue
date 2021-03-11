@@ -124,6 +124,8 @@ export default ComicImage;
 </script>
 
 <style scoped lang="scss">
+@import "~/assets/scss/grid.scss";
+
 .comicImageArea {
   background-repeat: no-repeat;
   width: auto;
@@ -142,10 +144,10 @@ export default ComicImage;
 
 .rotate {
   position: absolute;
-  bottom: 16px;
-  right: 16px;
-  height: 24px;
-  width: 24px;
+  bottom: #{$gridUnit * 2};
+  right: #{$gridUnit * 2};
+  height: #{$gridUnit * 3};
+  width: #{$gridUnit * 3};
 }
 
 .rotate-icon {
@@ -155,8 +157,8 @@ export default ComicImage;
 }
 
 .rotate-icon--large {
-  top: -4px;
-  left: -4px;
+  top: #{$gridUnit / -2};
+  left: #{$gridUnit / -2};
 }
 
 .rotate-icon--translucent {

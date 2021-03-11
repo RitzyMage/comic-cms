@@ -56,9 +56,11 @@ export default class Search extends Vue {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "~/assets/scss/grid.scss";
+
 .search-page {
-  max-width: 600px;
+  max-width: #{$gridUnit * 80};
   margin: 0 auto;
 }
 </style>

@@ -1,6 +1,4 @@
 NEXT STEPS
-	bem scss
-	scss 8px grid system
 	tag page for spot not working
 	refactor components to be cleaner
 	edit page actually lists comics (or is linked directly from comic page)

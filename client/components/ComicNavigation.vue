@@ -103,13 +103,15 @@ export default class Navigation extends Vue {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/colors.scss";
+@import "~/assets/scss/grid.scss";
+
 .comicNav {
   display: grid;
   grid-template-areas: "first previous home next last";
   width: 100%;
   grid-template-columns: 20% 20% 20% 20% 20%;
   max-height: 5vh;
-  height: 50px;
+  height: #{$gridUnit * 6};
 }
 
 .comicNav-link {

@@ -191,6 +191,7 @@ export default class ComicPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/grid.scss";
 .comicPage {
   height: 100%;
   display: flex;
@@ -222,16 +223,16 @@ export default class ComicPage extends Vue {
 }
 
 .comicPage-title {
-  padding: 4px 0;
+  padding: #{$gridUnit / 2} 0;
   margin: 0;
 }
 
 .comicPage-date {
-  margin: 4px;
+  margin: #{$gridUnit / 2};
 }
 
 .comicPage-tags {
-  margin: 8px;
+  margin: #{$gridUnit};
   display: flex;
   max-width: 100vw;
 }
@@ -243,7 +244,7 @@ export default class ComicPage extends Vue {
   }
 
   .comicPage-tags {
-    margin: 4px;
+    margin: #{$gridUnit / 2};
     overflow-x: auto;
   }
 
