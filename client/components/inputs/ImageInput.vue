@@ -1,5 +1,5 @@
 <template>
-  <input class="image-input" type="file" accept="image/*" @change="imageChange" />
+  <input class="imageInput" type="file" accept="image/*" @change="imageChange" />
 </template>
 
 <script lang="ts">
@@ -35,7 +35,7 @@ export default class ImageInput extends Vue {
 <style lang="scss">
 @import "~/assets/scss/colors.scss";
 
-.image-input {
+.imageInput {
   background-color: $lightBackground;
   border: 0px;
   border-radius: 4px 4px 0 0;
@@ -46,7 +46,7 @@ export default class ImageInput extends Vue {
   font-family: "Kalam", sans-serif;
 }
 
-.image-input::-webkit-file-upload-button {
+.imageInput::-webkit-file-upload-button {
   background-color: $secondaryLight;
   color: $darkBackground;
   border: none;

@@ -18,7 +18,7 @@ export default class ToastDisplay extends Vue {
   }
 
   getClass(toast: ToastInfo) {
-    return toast.error ? "toast-error" : "toast-success";
+    return toast.error ? "toast--error" : "toast--success";
   }
 }
 </script>
@@ -34,11 +34,11 @@ export default class ToastDisplay extends Vue {
   align-items: center;
 }
 
-.toast-error {
+.toast--error {
   background-color: #921212;
 }
 
-.toast-success {
+.toast--success {
   background-color: #128232;
 }
 

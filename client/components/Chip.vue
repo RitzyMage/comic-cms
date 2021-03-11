@@ -2,7 +2,7 @@
   <span :class="`chip ${classes}`" @click="onClick">
     {{ text }}
     <button class="chip-delete" v-if="deletable">
-      <XIcon class="chip-delete-icon" size="16" @click="() => $emit('delete')" />
+      <XIcon class="chip-icon" size="16" @click="() => $emit('delete')" />
     </button>
   </span>
 </template>

@@ -1,16 +1,16 @@
 <template>
-  <div class="links">
+  <div class="comicNav">
     <nuxt-link
       :to="firstURL"
       id="first-link"
       :event="''"
       @click.native.prevent="navigateFirst"
       v-if="previousExists"
-      class="link first"
+      class="comicNav-link comicNav-link--first"
     >
       first
     </nuxt-link>
-    <div v-else class="empty first"></div>
+    <div v-else class="comicNav-link--empty comicNav-link--first"></div>
 
     <nuxt-link
       :to="previousURL"
@@ -18,13 +18,13 @@
       :event="''"
       @click.native.prevent="navigatePrevious"
       v-if="previousExists"
-      class="link previous"
+      class="comicNav-link comicNav-link--previous"
     >
       previous
     </nuxt-link>
-    <div v-else class="empty previous"></div>
+    <div v-else class="comicNav-link--empty comicNav-link--previous"></div>
 
-    <nuxt-link :to="home" id="home-link" class="link home">home</nuxt-link>
+    <nuxt-link :to="home" id="home-link" class="comicNav-link comicNav-link--home">home</nuxt-link>
 
     <nuxt-link
       :to="nextURL"
@@ -32,11 +32,11 @@
       :event="''"
       @click.native.prevent="navigateNext"
       v-if="nextExists"
-      class="link next"
+      class="comicNav-link comicNav-link--next"
     >
       next
     </nuxt-link>
-    <div v-else class="empty next"></div>
+    <div v-else class="comicNav-link--empty comicNav-link--next"></div>
 
     <nuxt-link
       :to="lastURL"
@@ -44,11 +44,11 @@
       :event="''"
       @click.native.prevent="navigateLast"
       v-if="nextExists"
-      class="link last"
+      class="comicNav-link comicNav-link--last"
     >
       last
     </nuxt-link>
-    <div v-else class="empty last"></div>
+    <div v-else class="comicNav-link--empty comicNav-link--last"></div>
   </div>
 </template>
 
@@ -103,7 +103,7 @@ export default class Navigation extends Vue {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/colors.scss";
-.links {
+.comicNav {
   display: grid;
   grid-template-areas: "first previous home next last";
   width: 100%;
@@ -112,7 +112,7 @@ export default class Navigation extends Vue {
   height: 50px;
 }
 
-.link {
+.comicNav-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,49 +126,49 @@ export default class Navigation extends Vue {
   padding-bottom: 0.3rem;
 }
 
-.first {
+.comicNav-link--first {
   grid-area: "first";
   background-image: url("/img/first.svg");
 }
 
-.previous {
+.comicNav-link--previous {
   grid-area: "previous";
   background-image: url("/img/previous.svg");
 }
 
-.home {
+.comicNav-link--home {
   grid-area: "home";
   background-image: url("/img/home.svg");
 }
 
-.next {
+.comicNav-link--next {
   grid-area: "next";
   background-image: url("/img/next.svg");
 }
 
-.last {
+.comicNav-link--last {
   grid-area: "last";
   background-image: url("/img/last.svg");
 }
 
-.empty {
+.comicNav-link--empty {
   background-image: none;
 }
 
-.fade-in-leave-active .links,
-.fade-out-leave-active .links {
+.fade-in-leave-active .comicNav,
+.fade-out-leave-active .comicNav {
   z-index: -1;
   pointer-events: none;
 }
 
 @media screen and (max-width: 600px) {
-  .link {
+  .comicNav-link {
     font-size: 1em;
   }
 }
 
 @media screen and (max-height: 600px) {
-  .link {
+  .comicNav-link {
     font-size: 0.8em;
   }
 }

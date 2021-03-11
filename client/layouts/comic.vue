@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="comic-app">
+  <div id="app" class="app app--comic">
     <ToastDisplay />
     <NavHeader />
     <div class="page">
@@ -23,9 +23,7 @@ export default class ComicLayout extends Vue {}
 </script>
 
 <style lang="scss">
-@import "assets/scss/global.scss";
-
-.comic-app {
+.app--comic {
   height: 100vh;
 }
 </style>

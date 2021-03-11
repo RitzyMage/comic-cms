@@ -1,9 +1,14 @@
 <template>
-  <div class="text-input">
-    <label class="text-input-label">{{ name }}</label>
-    <textarea v-if="large" class="largeInput" :value="value" @input="update" />
+  <div class="textInput">
+    <label class="textInput-label">{{ name }}</label>
+    <textarea
+      v-if="large"
+      class="textInput-input textInput-input--large"
+      :value="value"
+      @input="update"
+    />
     <input v-else :class="inputClass" :type="type" :value="value" @input="update" />
-    <component v-if="icon" :is="icon" class="text-input-icon"></component>
+    <component v-if="icon" :is="icon" class="textInput-icon"></component>
   </div>
 </template>
 
@@ -31,9 +36,9 @@ export default class TextInput extends Vue {
   }
 
   get inputClass() {
-    let result = "input";
+    let result = "textInput-input";
     if (this.rounded) {
-      result += " rounded";
+      result += " textInput-input--rounded";
     }
     return result;
   }
@@ -43,25 +48,25 @@ export default class TextInput extends Vue {
 <style scoped lang="scss">
 @import "~/assets/scss/colors.scss";
 
-.text-input {
+.textInput {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.text-input-label {
+.textInput-label {
   text-transform: capitalize;
   text-align: left;
 }
 
-.text-input-icon {
+.textInput-icon {
   position: absolute;
   right: 4px;
   bottom: 4px;
   opacity: 0.6;
 }
 
-.input {
+.textInput-input {
   background-color: $lightBackground;
   border: 0px;
   border-radius: 4px 4px 0 0;
@@ -71,31 +76,27 @@ export default class TextInput extends Vue {
   width: 100%;
 }
 
-.rounded {
+.textInput-input--rounded {
   border-radius: 32px;
 }
 
-.input:focus {
+.textInput-input:focus {
   border-bottom: 1px solid $primary;
 }
 
-.input:focus ~ .text-input-icon {
+.textInput-input:focus ~ .textInput-icon {
   opacity: 0.9;
   bottom: 5px;
 }
 
-.largeInput {
-  background-color: $lightBackground;
-  border: 0px;
+.textInput-input--large {
   border-radius: 4px;
-  outline: none;
-  color: white;
   padding: 8px;
   width: calc(100% - 8px);
 }
 
-.largeInput:focus,
-.rounded:focus {
+.textInput-input--large:focus,
+.textInput-input--rounded:focus {
   border: 1px solid $primary;
 }
 </style>

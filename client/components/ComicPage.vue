@@ -1,7 +1,7 @@
 <template>
-  <div class="comic-page-container">
-    <h2 class="title">{{ this.title }}</h2>
-    <div class="comic-container">
+  <div class="comicPage">
+    <h2 class="comicPage-title">{{ this.title }}</h2>
+    <div class="comicPage-comic">
       <div
         v-swiper:mySwiper="{
           initialSlide: startingImage,
@@ -28,10 +28,10 @@
       :navigate-next="navigateNext"
       :navigate-last="navigateLast"
     />
-    <p class="date">
+    <p class="comicPage-date">
       {{ postedDate }}
     </p>
-    <div class="tags">
+    <div class="comicPage-tags">
       <Chip v-for="tag in comic.tags" :text="tag.name" :key="tag.id" clickable />
     </div>
   </div>
@@ -191,14 +191,14 @@ export default class ComicPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.comic-page-container {
+.comicPage {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.comic-container {
+.comicPage-comic {
   flex-grow: 1;
   overflow: hidden;
   width: 100vw;
@@ -214,51 +214,41 @@ export default class ComicPage extends Vue {
   justify-content: center;
 }
 
-.fade-in-leave-active .title,
-.fade-out-enter-active .title,
-.fade-in-leave-active .tags,
-.fade-out-enter-active .tags {
+.fade-in-leave-active .comicPage-title,
+.fade-out-enter-active .comicPage-title,
+.fade-in-leave-active .comicPage-tags,
+.fade-out-enter-active .comicPage-tags {
   opacity: 0;
 }
 
-.title {
+.comicPage-title {
   padding: 4px 0;
   margin: 0;
 }
 
-.date {
+.comicPage-date {
   margin: 4px;
 }
 
-.tags {
+.comicPage-tags {
   margin: 8px;
   display: flex;
   max-width: 100vw;
 }
 
-@media screen and (max-width: 600px) {
-  .title {
+@media screen and (max-width: 600px), screen and (max-height: 600px) {
+  .comicPage-title {
     font-size: 1.2em;
     max-height: 1.2em;
   }
 
-  .tags {
+  .comicPage-tags {
     margin: 4px;
     overflow-x: auto;
   }
-}
 
-@media screen and (max-height: 600px) {
-  .date {
+  .comicPage-date {
     margin: 0;
-  }
-  .title {
-    font-size: 1.2em;
-    max-height: 1.2em;
-  }
-  .tags {
-    margin: 4px;
-    overflow-x: auto;
   }
 }
 </style>
