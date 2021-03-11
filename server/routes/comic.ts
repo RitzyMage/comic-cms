@@ -78,7 +78,7 @@ router.get("/search", async (req, res) =>
 router.get("/images", async (req, res) => {
   let count = await clientController.getComicCount();
   if (req.query.tag) {
-    let tag = (req.query.tag as string).toLowerCase().replace(/[^a-z0-9-. ]/g, "");
+    let tag = (req.query.tag as string).toLowerCase().replace(/[^a-z0-9-(). ]/g, "");
     return res.send({
       images: await clientController.getTaggedImages(tag),
       ...count,
