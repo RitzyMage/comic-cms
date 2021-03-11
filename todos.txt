@@ -1,5 +1,4 @@
 NEXT STEPS
-	tag page for spot not working
 	refactor components to be cleaner
 	edit page actually lists comics (or is linked directly from comic page)
 	get placeholder webps on seed
@@ -46,6 +45,7 @@ UI layout
 	toasts exit button
 	footer?
 	highlight current link in header
+	search icon in header?
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimize JS/CSS/other size

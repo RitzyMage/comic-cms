@@ -77,7 +77,8 @@ export default class ComicLink extends Vue {
 .listLink {
   height: #{$gridUnit * 12};
   width: 100%;
-  margin: #{$gridUnit} 0;
+  margin: 0;
+  margin-bottom: #{$gridUnit};
   display: flex;
   align-items: baseline;
   justify-content: flex-start;

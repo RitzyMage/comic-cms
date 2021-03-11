@@ -11,7 +11,7 @@ import PageLink from "../components/PageLink.vue";
 
 const CHUNK_SIZE = 6;
 
-const LINK_HEIGHT = 140;
+const LINK_HEIGHT = 104;
 
 @Component({
   components: {
