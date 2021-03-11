@@ -62,7 +62,7 @@ export default class TextInput extends Vue {
 
 .textInput-icon {
   position: absolute;
-  right: #{$gridUnit / 2};
+  right: #{$gridUnit};
   bottom: #{$gridUnit / 2};
   opacity: 0.6;
 }
@@ -79,6 +79,7 @@ export default class TextInput extends Vue {
 
 .textInput-input--rounded {
   border-radius: #{$gridUnit * 4};
+  width: calc(100% - #{$gridUnit});
 }
 
 .textInput-input:focus {

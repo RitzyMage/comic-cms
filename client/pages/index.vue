@@ -2,10 +2,29 @@
   <div class="container mainContainer">
     <h1>{{ title }}</h1>
     <div class="main-links">
-      <PageLink v-if="lastReadPage" :page="lastRead" arrow="true" />
-      <PageLink :page="{ ...first, title: 'Start From the Beginning!' }" arrow="left" />
-      <ListLink path="/archive" name="All Comics" arrow="true" />
-      <PageLink :page="{ ...last, title: 'Read the lastest comic!' }" arrow="right" />
+      <PageLink
+        v-if="lastReadPage"
+        :path="`/comic/${lastReadPage}`"
+        name="Continue where you left off!"
+        :smallBackgroundImage="lastReadImageLowres"
+        :backgroundImage="lastReadImage"
+        arrow="true"
+      />
+      <PageLink
+        name="Start From the Beginning!"
+        :path="`/comic/1`"
+        :smallBackgroundImage="first.image_lowres"
+        :backgroundImage="first.image"
+        arrow="left"
+      />
+      <PageLink path="/archive" name="All Comics" arrow="true" />
+      <PageLink
+        :path="`/comic/${last.id}`"
+        name="Read the latest comic!"
+        :smallBackgroundImage="last.image_lowres"
+        :backgroundImage="last.image"
+        arrow="right"
+      />
     </div>
   </div>
 </template>
@@ -14,7 +33,7 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
 import { PAGE_KEY } from "~/pages/comic/_index.vue";
 import PageLink from "~/components/PageLink.vue";
-import ListLink from "~/components/ListLink.vue";
+import ListLink from "~/components/PageLink.vue";
 import options from "~/options.json";
 import { ComicInfo } from "~/util/ComicInfo";
 
@@ -37,15 +56,6 @@ export default class MainPage extends Vue {
 
   private lastReadImage = "";
   private lastReadImageLowres = "";
-
-  private get lastRead() {
-    return {
-      title: "Continue where you left off!",
-      image: this.lastReadImage,
-      id: this.lastReadPage,
-      imageLowres: this.lastReadImageLowres,
-    };
-  }
 
   async mounted() {
     this.lastReadPage = localStorage.getItem(PAGE_KEY);

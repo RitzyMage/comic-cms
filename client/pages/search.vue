@@ -1,11 +1,18 @@
 <template>
-  <div class="search-page">
+  <div class="searchPage">
     <TextInput v-model="searchInput" name="search" rounded :icon="SearchIcon" />
     <p v-if="loading">
       LOADING
     </p>
-    <div v-else-if="comics.length">
-      <PageLink v-for="comic in comics" :key="comic.id" :page="comic" />
+    <div v-else-if="comics.length" class="searchPage-results">
+      <PageLink
+        v-for="comic in comics"
+        :path="`/comic/${comic.id}`"
+        :name="comic.title"
+        :smallBackgroundImage="comic.image_lowres"
+        :backgroundImage="comic.image"
+        :key="comic.id"
+      />
     </div>
     <div v-else>
       No results found.
@@ -59,8 +66,12 @@ export default class Search extends Vue {
 <style scoped lang="scss">
 @import "~/assets/scss/grid.scss";
 
-.search-page {
+.searchPage {
   max-width: #{$gridUnit * 80};
   margin: 0 auto;
+}
+
+.searchPage-results {
+  padding-top: #{$gridUnit * 2};
 }
 </style>

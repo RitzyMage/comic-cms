@@ -1,7 +1,14 @@
 <template>
   <div class="comicList mainContainer">
     <router-link to="/search">search</router-link>
-    <PageLink v-for="page in pages" :page="page" :key="page.title" />
+    <PageLink
+      v-for="page in pages"
+      :path="`/comic/${page.id}`"
+      :name="page.title"
+      :smallBackgroundImage="page.image_lowres"
+      :backgroundImage="page.image"
+      :key="page.title"
+    />
   </div>
 </template>
 

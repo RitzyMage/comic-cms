@@ -1,7 +1,14 @@
 <template>
   <div class="comicList mainContainer">
     <h1>Comics with tag {{ $route.params.id }}</h1>
-    <PageLink v-for="page in pages" :page="page" :key="page.title" />
+    <PageLink
+      v-for="page in pages"
+      :path="`/comic/${page.id}`"
+      :name="page.title"
+      :smallBackgroundImage="page.image_lowres"
+      :backgroundImage="page.image"
+      :key="page.title"
+    />
     <p v-if="!pages.length">
       No comics found!
     </p>
