@@ -1,5 +1,4 @@
 NEXT STEPS
-	get placeholder webps on seed
 
 COMIC PAGE
 	when loading new page, get new title (and other info) and display
