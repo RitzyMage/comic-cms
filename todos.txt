@@ -1,6 +1,4 @@
 NEXT STEPS
-	refactor components to be cleaner
-	edit page actually lists comics (or is linked directly from comic page)
 	get placeholder webps on seed
 
 COMIC PAGE
@@ -57,5 +55,6 @@ OTHER TASKS
 	make running production build / installing on server easy
 	add video samples in README
 	usability tests in general
+	catch server errors better (and make error page look good)
 
 
