@@ -63,10 +63,7 @@ const FILLER_TIME = 20;
 export default class ComicPage extends Vue {
   @Prop() private comicInfo!: ComicInfo;
   private mySwiper!: any;
-
-  private get title() {
-    return this.comic.title;
-  }
+  private title: string = "";
 
   private get postedDate() {
     return new Date(this.comic.posted).toLocaleDateString("en-US", {
@@ -165,18 +162,25 @@ export default class ComicPage extends Vue {
   }
 
   mounted() {
+    this.title = this.comic.title;
     this.mySwiper.on("slideChangeTransitionEnd", () => {
       if (this.mySwiper.realIndex == 1) {
         this.removeAllSlidesExcept(1);
         this.$router.push(this.nav.firstURL);
       } else if (this.mySwiper.realIndex == this.startingImage - 1) {
         this.removeAllSlidesExcept(this.startingImage - 1);
+        if (this.previous) {
+          this.title = this.previous.title;
+        }
         this.$router.push(this.nav.previousURL);
       } else if (this.mySwiper.realIndex == this.startingImage + 1) {
         this.removeAllSlidesExcept(this.startingImage + 1);
         this.$router.push(this.nav.nextURL);
       } else if (this.mySwiper.realIndex == this.lastImageIndex) {
         this.removeAllSlidesExcept(this.lastImageIndex);
+        if (this.next) {
+          this.title = this.next.title;
+        }
         this.$router.push(this.nav.lastURL);
       } else {
         this.mySwiper.slideTo(this.startingImage);
@@ -217,6 +221,8 @@ export default class ComicPage extends Vue {
 
 .fade-in-leave-active .comicPage-title,
 .fade-out-enter-active .comicPage-title,
+.fade-in-enter-active .comicPage-title,
+.fade-out-leave-active .comicPage-title,
 .fade-in-leave-active .comicPage-tags,
 .fade-out-enter-active .comicPage-tags {
   opacity: 0;
