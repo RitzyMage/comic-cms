@@ -1,14 +1,16 @@
 NEXT STEPS
-
-COMIC PAGE
 	when loading new page, get new title (and other info) and display
 	when loading new page and can't navigate, gray out navigation (?)
 		(maybe only if it takes too long? it might flicker otherwise)
 		(or show loading spinner?)
+	chapters on archive page
+	catch server errors better (and make error page look good)
+	re-build only needed pages on edit comic (is this possible?)
+
+COMIC PAGE
 	latest comic page (static path)
 
 NAVIGATION PAGES
-	chapters on archive page
 	do I really need lazy loading?
 	tag page lazy loading (refactor archives page to be a component?)
 	static build tag pages
@@ -17,7 +19,6 @@ PAGES TO ADD
 	blog section
 
 ADMIN PORTION
-	re-build only needed pages on edit comic (is this possible?)
 	account creation / editing (or config file)
 	make adding and editing comics more robust (e.g. if fails)
 	style autoselect for tags
@@ -26,7 +27,7 @@ THEMES / CUSTOMIZATION
 	custom color themes
 	custom button images
 	custom fonts
-	favicon
+	favicon (not in repo? over override?)
 	front page: show latest comic?
 	theme: grab colors from config file, not just css files
 
@@ -40,9 +41,8 @@ MAKE OPEN SOURCE
 
 UI layout
 	toasts exit button
-	footer?
 	highlight current link in header
-	search icon in header?
+	search icon instead of link in header
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimize JS/CSS/other size
@@ -54,6 +54,5 @@ OTHER TASKS
 	make running production build / installing on server easy
 	add video samples in README
 	usability tests in general
-	catch server errors better (and make error page look good)
 
 
