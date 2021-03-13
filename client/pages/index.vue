@@ -63,8 +63,12 @@ export default class MainPage extends Vue {
       let lastReadPageInfo = (
         await this.$axios.$get(`/comic/images?first=${this.lastReadPage}&last=${this.lastReadPage}`)
       ).images[0];
-      this.lastReadImage = lastReadPageInfo.image;
-      this.lastReadImageLowres = lastReadPageInfo.image_lowres;
+      if (!lastReadPageInfo) {
+        this.lastReadPage = null;
+      } else {
+        this.lastReadImage = lastReadPageInfo.image;
+        this.lastReadImageLowres = lastReadPageInfo.image_lowres;
+      }
     }
   }
 }
