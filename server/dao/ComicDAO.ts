@@ -9,6 +9,7 @@ export default class ComicDAO extends DAO {
   }
 
   async getComicCount(): Promise<number | DatabaseError> {
+    return new DatabaseError("test error");
     try {
       return Number((await this.transaction("comics").count("id", { as: "count" }).first())?.count);
     } catch (e) {
