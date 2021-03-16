@@ -1,14 +1,19 @@
 import { Transaction } from "knex";
 import { AddComicDatabase, EditComicParams } from "../utils/addComicParams";
 import DAO from "./DAO";
+import DatabaseError from "./DatabaseError";
 
 export default class ComicDAO extends DAO {
   constructor(transaction: Transaction) {
     super(transaction);
   }
 
-  async getComicCount() {
-    return await this.transaction("comics").count("id", { as: "count" }).first();
+  async getComicCount(): Promise<number | DatabaseError> {
+    try {
+      return Number((await this.transaction("comics").count("id", { as: "count" }).first())?.count);
+    } catch (e) {
+      return new DatabaseError("could not get comic info from database");
+    }
   }
 
   async getEndImages() {

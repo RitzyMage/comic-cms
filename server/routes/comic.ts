@@ -12,6 +12,7 @@ const imageUploader = new ImageUpload();
 const clientController = new ClientController();
 
 import { Express } from "express";
+import { isObject } from "util";
 var express = require("express");
 let router: Express = express.Router();
 
@@ -28,7 +29,11 @@ router.post("/", auth, async (req, res) => {
     return res.status(400).send("image required");
   }
 
-  let index = Number((await clientController.getComicCount())?.count) + 1;
+  let count = await clientController.getComicCount();
+  if (typeof count === "object") {
+    return res.status(500).send(count);
+  }
+  let index = count + 1;
   let imageData = await imageUploader.uploadImage(image, index);
 
   await adminController.addComic({
@@ -77,24 +82,30 @@ router.get("/search", async (req, res) =>
 
 router.get("/images", async (req, res) => {
   let count = await clientController.getComicCount();
+  if (typeof count === "object") {
+    return res.status(500).send(count);
+  }
   if (req.query.tag) {
     let tag = (req.query.tag as string).toLowerCase().replace(/[^a-z0-9-(). ]/g, "");
     return res.send({
       images: await clientController.getTaggedImages(tag),
-      ...count,
+      count,
     });
   }
   if (req.query.first && req.query.last) {
     let first = parseInt(req.query.first as string);
     let last = parseInt(req.query.last as string);
+    if (typeof count === "object") {
+      return res.status(500).send(count);
+    }
     return res.send({
       images: await clientController.getBlockImages({ first, last }),
-      ...count,
+      count,
     });
   }
   res.send({
     images: await clientController.getEndImages(),
-    ...count,
+    count,
   });
 });
 

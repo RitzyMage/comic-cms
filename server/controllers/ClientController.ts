@@ -2,6 +2,8 @@ import { DAOFunction, TransactionType, TransactionFunction } from "../dao/DAOFun
 import ComicDAO from "../dao/ComicDAO";
 import TagDAO from "../dao/TagDAO";
 import { Transaction } from "knex";
+import isError from "../utils/IsError";
+import DatabaseError from "../dao/DatabaseError";
 
 interface Range {
   first: number;
@@ -72,12 +74,16 @@ export default class ClientController {
     }
 
     comic.tags = await tagDAO.getComicTags(id);
+    let count = await comicDAO.getComicCount();
+    if (isError(count)) {
+      return count as DatabaseError;
+    }
     return {
       comic,
       previous,
       next,
       ...(await comicDAO.getEndImages()),
-      ...(await comicDAO.getComicCount()),
+      count,
     };
   }, TransactionType.CLIENT);
 }
