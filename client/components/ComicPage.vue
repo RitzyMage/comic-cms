@@ -19,7 +19,7 @@
     <ComicNavigation
       ref="nav"
       :get-swiper="getSwiper"
-      :max-comic="comicInfo.count"
+      :max-comic="comicInfo.last.id"
       :previous="previousURL"
       :page="comic.id"
       :next="nextURL"

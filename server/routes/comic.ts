@@ -11,12 +11,21 @@ const adminController = new AdminController();
 const imageUploader = new ImageUpload();
 const clientController = new ClientController();
 
-import { Express } from "express";
+import { Express, Response } from "express";
 import { isObject } from "util";
 import isError from "../utils/IsError";
 import CheckIfError from "../utils/CheckIfError";
+import CustomError from "../utils/CustomError";
+import { ERROR_TYPE } from "../utils/ErrorType";
 var express = require("express");
 let router: Express = express.Router();
+
+function returnError(res: Response<any>, error: CustomError) {
+  if (error.type === ERROR_TYPE.CLIENT) {
+    return res.status(400).send(error);
+  }
+  return res.status(500).send(error);
+}
 
 router.post("/", auth, async (req, res) => {
   let { title, transcript, mouseover, image, tags } = req.body;
@@ -33,7 +42,7 @@ router.post("/", auth, async (req, res) => {
 
   let count = CheckIfError(await clientController.getComicCount());
   if (count.error) {
-    return res.status(500).send(count.error);
+    return returnError(res, count.error);
   }
   let index = count.result + 1;
   let imageData = await imageUploader.uploadImage(image, index);
@@ -83,9 +92,9 @@ router.get("/search", async (req, res) =>
 );
 
 router.get("/images", async (req, res) => {
-  let count = await clientController.getComicCount();
-  if (isError(count)) {
-    return res.status(500).send(count);
+  let count = CheckIfError(await clientController.getComicCount());
+  if (count.error) {
+    return returnError(res, count.error);
   }
   if (req.query.tag) {
     let tag = (req.query.tag as string).toLowerCase().replace(/[^a-z0-9-(). ]/g, "");
@@ -97,9 +106,6 @@ router.get("/images", async (req, res) => {
   if (req.query.first && req.query.last) {
     let first = parseInt(req.query.first as string);
     let last = parseInt(req.query.last as string);
-    if (isError(count)) {
-      return res.status(500).send(count);
-    }
     return res.send({
       images: await clientController.getBlockImages({ first, last }),
       count,
