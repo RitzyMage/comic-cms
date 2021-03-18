@@ -2,6 +2,7 @@ import { Express } from "express";
 var express = require("express");
 let router: Express = express.Router();
 import AuthController from "../controllers/AuthController";
+import CheckIfError from "../utils/CheckIfError";
 
 const authController = new AuthController();
 
@@ -11,7 +12,11 @@ router.post("/login", async (req, res) => {
   if (!token) {
     res.status(400).send("Invalid username or password");
   } else {
-    res.send(token);
+    let { result: tokenResult, error } = CheckIfError(token);
+    if (error) {
+      res.status(500).send(error);
+    }
+    res.send(tokenResult);
   }
 });
 

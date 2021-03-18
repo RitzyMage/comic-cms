@@ -45,16 +45,31 @@ router.post("/", auth, async (req, res) => {
     return returnError(res, count.error);
   }
   let index = count.result + 1;
-  let imageData = await imageUploader.uploadImage(image, index);
 
-  await adminController.addComic({
-    title,
-    transcript,
-    mouseover,
-    ...imageData,
-    tags,
-  });
-  await feedController.generateUpdatedFeed();
+  let imageDataResult = CheckIfError(await imageUploader.uploadImage(image, index));
+  if (imageDataResult.error) {
+    return returnError(res, imageDataResult.error);
+  }
+  let imageData = imageDataResult.result;
+
+  let addResult = CheckIfError(
+    await adminController.addComic({
+      title,
+      transcript,
+      mouseover,
+      ...imageData,
+      tags,
+    })
+  );
+  if (addResult.error) {
+    return returnError(res, addResult.error);
+  }
+
+  let feedResult = CheckIfError(await feedController.generateUpdatedFeed());
+  if (feedResult.error) {
+    console.error("error while generating feed");
+    console.error(feedResult.error);
+  }
 
   if (process.env.NODE_ENV != "dev") {
     /*await*/ buildController.generateStaticBuild();

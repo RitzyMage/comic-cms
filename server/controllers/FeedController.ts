@@ -3,6 +3,7 @@ import { DAOFunction, TransactionType, TransactionFunction } from "../dao/DAOFun
 import ComicDAO from "../dao/ComicDAO";
 import { Transaction } from "knex";
 import { promises as fs } from "fs";
+import CheckIfError from "../utils/CheckIfError";
 
 let TITLE = process.env.COMIC_TITLE ?? "";
 let CLIENT_URL = process.env.APP_URL ?? "";
@@ -31,13 +32,17 @@ export default class FeedController {
   public generateUpdatedFeed = DAOFunction(
     async (comicDAO: ComicDAO) => {
       let feed = this.getFeedGenerator();
-      (await comicDAO.getRecentUploads(5)).forEach(
-        (comic: { id: string; title: string; posted: string }) =>
-          feed.addItem({
-            title: comic.title,
-            link: `${CLIENT_URL}/comic/${comic.id}`,
-            date: new Date(comic.posted),
-          })
+
+      let recentUploadResult = CheckIfError(await comicDAO.getRecentUploads(5));
+      if (recentUploadResult.error) {
+        return recentUploadResult.error;
+      }
+      recentUploadResult.result.forEach(comic =>
+        feed.addItem({
+          title: comic.title,
+          link: `${CLIENT_URL}/comic/${comic.id}`,
+          date: new Date(comic.posted),
+        })
       );
       let feedContent = feed.rss2();
       let feedFile = __dirname + "/../../client/static/feed.rss";

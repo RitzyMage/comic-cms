@@ -3,6 +3,7 @@ import ComicDAO from "../dao/ComicDAO";
 import TagDAO from "../dao/TagDAO";
 import { AddComicParams, AddComicDatabase, EditComicParams } from "../utils/addComicParams";
 import { Transaction } from "knex";
+import CheckIfError from "../utils/CheckIfError";
 
 export default class AdminController {
   public addComic = TransactionFunction(
@@ -16,8 +17,11 @@ export default class AdminController {
       };
       delete (databaseParams as any).tags;
 
-      let newComicID = await comicDAO.create(databaseParams, posted);
-      await tagDAO.addTags(params.tags, newComicID);
+      let newComicResult = CheckIfError(await comicDAO.create(databaseParams, posted));
+      if (newComicResult.error) {
+        return newComicResult.error;
+      }
+      return await tagDAO.addTags(params.tags, newComicResult.result);
     },
     TransactionType.ADMIN
   );
@@ -35,12 +39,19 @@ export default class AdminController {
           newObj[key] = oldObj[key];
         }
       }
+
       if (Object.keys(databaseParams).length > 0) {
-        await comicDAO.update(databaseParams, id);
+        let result = CheckIfError(await comicDAO.update(databaseParams, id));
+        if (result.error) {
+          return result.error;
+        }
       }
 
       if (params.tags) {
-        await tagDAO.replaceTags(params.tags, id);
+        let result = CheckIfError(await tagDAO.replaceTags(params.tags, id));
+        if (result.error) {
+          return result.error;
+        }
       }
     },
     TransactionType.ADMIN

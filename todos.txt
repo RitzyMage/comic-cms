@@ -1,6 +1,11 @@
 NEXT STEPS
-	catch server errors better (and make error page look good)
+	catch server errors better
+		all endpoints should check parameters
+		test
+		front end should always check errors when calling server (and use type annotations)
+		make error page look good
 	re-build only needed pages on edit comic (is this possible?)
+	move interfaces to not be part of DAO files
 
 COMIC PAGE
 	latest comic page (static path)

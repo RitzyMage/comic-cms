@@ -1,9 +1,10 @@
 import { DAOFunction, TransactionType, TransactionFunction } from "../dao/DAOFunction";
-import ComicDAO from "../dao/ComicDAO";
-import TagDAO from "../dao/TagDAO";
+import ComicDAO, { Comic } from "../dao/ComicDAO";
+import TagDAO, { Tag } from "../dao/TagDAO";
 import { Transaction } from "knex";
 import isError from "../utils/IsError";
 import DatabaseError from "../dao/DatabaseError";
+import CheckIfError from "../utils/CheckIfError";
 
 interface Range {
   first: number;
@@ -59,31 +60,54 @@ export default class ClientController {
     let comicDAO = new ComicDAO(transaction);
     let tagDAO = new TagDAO(transaction);
 
-    let comic = await comicDAO.getComic(id);
+    let comicResult = CheckIfError(await comicDAO.getComic(id));
+    if (comicResult.error) {
+      return comicResult.error;
+    }
+    let comic = comicResult.result;
 
     if (!comic) {
       throw new Error(`comic ${id} does not exist`);
     }
 
-    let next, previous;
+    let next: Comic | undefined;
+    let previous: Comic | undefined;
     if (comic.next) {
-      next = await comicDAO.getComic(comic.next);
+      let nextResult = CheckIfError(await comicDAO.getComic(comic.next));
+      if (!nextResult.error) {
+        next = nextResult.result;
+      }
     }
     if (comic.previous) {
-      previous = await comicDAO.getComic(comic.previous);
+      let previousResult = CheckIfError(await comicDAO.getComic(comic.previous));
+      if (!previousResult.error) {
+        previous = previousResult.result;
+      }
     }
 
-    comic.tags = await tagDAO.getComicTags(id);
-    let count = await comicDAO.getComicCount();
-    if (isError(count)) {
-      return count as DatabaseError;
+    let tagsResult = CheckIfError(await tagDAO.getComicTags(id));
+    if (tagsResult.error) {
+      return tagsResult.error;
     }
+    comic.tags = tagsResult.result;
+
+    let countResult = CheckIfError(await comicDAO.getComicCount());
+    if (countResult.error) {
+      return countResult.error;
+    }
+
+    let endImages = CheckIfError(await comicDAO.getEndImages());
+    if (endImages.error) {
+      return endImages.error;
+    }
+
     return {
       comic,
       previous,
       next,
-      ...(await comicDAO.getEndImages()),
-      count,
+      first: endImages.result.first,
+      last: endImages.result.last,
+      count: countResult.result,
     };
   }, TransactionType.CLIENT);
 }
