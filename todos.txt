@@ -22,6 +22,7 @@ ADMIN PORTION
 	account creation / editing (or config file)
 	make adding and editing comics more robust (e.g. if fails)
 	style autoselect for tags
+	editing comic should redirect to comic rather than admin edit page
 
 THEMES / CUSTOMIZATION
 	custom color themes

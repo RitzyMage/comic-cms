@@ -11,33 +11,32 @@ const adminController = new AdminController();
 const imageUploader = new ImageUpload();
 const clientController = new ClientController();
 
-import { Express, Response } from "express";
-import { isObject } from "util";
-import isError from "../utils/IsError";
+import { Express } from "express";
 import CheckIfError from "../utils/CheckIfError";
-import CustomError from "../utils/CustomError";
-import { ERROR_TYPE } from "../utils/ErrorType";
+import ClientError from "../utils/ClientError";
+import { returnError } from "../utils/returnError";
 var express = require("express");
 let router: Express = express.Router();
-
-function returnError(res: Response<any>, error: CustomError) {
-  if (error.type === ERROR_TYPE.CLIENT) {
-    return res.status(400).send(error);
-  }
-  return res.status(500).send(error);
-}
 
 router.post("/", auth, async (req, res) => {
   let { title, transcript, mouseover, image, tags } = req.body;
 
   if (!title) {
-    return res.status(400).send("title required");
+    return returnError(res, new ClientError(`title required"`));
   }
   if (!transcript) {
-    return res.status(400).send("transcript required");
+    return returnError(res, new ClientError(`transcript required"`));
   }
   if (!image) {
-    return res.status(400).send("image required");
+    return returnError(res, new ClientError(`image required"`));
+  }
+  if (tags) {
+    if (!Array.isArray(tags)) {
+      return returnError(res, new ClientError(`if tags are given, they must be an array"`));
+    }
+    if (!tags.every(tag => typeof tag === "string")) {
+      return returnError(res, new ClientError(`each tag must be a string"`));
+    }
   }
 
   let count = CheckIfError(await clientController.getComicCount());
@@ -82,6 +81,10 @@ router.patch("/:id", auth, async (req, res) => {
   let { title, transcript, mouseover, image, tags } = req.body;
   let id = parseInt(req.params.id);
 
+  if (isNaN(id)) {
+    return returnError(res, new ClientError(`invalid comic id ${id}`));
+  }
+
   let imageData;
   if (image) {
     imageData = await imageUploader.uploadImage(image, id);
@@ -100,49 +103,90 @@ router.patch("/:id", auth, async (req, res) => {
   res.send({ success: true });
 });
 
-router.get("/count", async (req, res) => res.send(await clientController.getComicCount()));
+router.get("/count", async (req, res) => {
+  let result = CheckIfError(await clientController.getComicCount());
+  if (result.error) {
+    return returnError(res, result.error);
+  }
+  return res.send(result.result);
+});
 
-router.get("/search", async (req, res) =>
-  res.send(await clientController.search(req.query.params as string))
-);
+router.get("/search", async (req, res) => {
+  let search = req.query.params;
+  if (typeof search !== "string") {
+    return returnError(res, new ClientError(`search terms must be string`));
+  }
+
+  let result = CheckIfError(await clientController.search(req.query.params as string));
+  if (result.error) {
+    return returnError(res, result.error);
+  }
+
+  return res.send(result.result);
+});
 
 router.get("/images", async (req, res) => {
+  let { tag, first, last } = req.query;
+
   let count = CheckIfError(await clientController.getComicCount());
   if (count.error) {
     return returnError(res, count.error);
   }
-  if (req.query.tag) {
-    let tag = (req.query.tag as string).toLowerCase().replace(/[^a-z0-9-(). ]/g, "");
+  if (tag) {
+    if (typeof tag !== "string") {
+      return returnError(res, new ClientError(`tag must be string`));
+    }
+    let tagEscaped = (req.query.tag as string).toLowerCase().replace(/[^a-z0-9-(). ]/g, "");
+    let imageResult = CheckIfError(await clientController.getTaggedImages(tagEscaped));
+    if (imageResult.error) {
+      return returnError(res, imageResult.error);
+    }
+
     return res.send({
-      images: await clientController.getTaggedImages(tag),
+      images: imageResult.result,
       count,
     });
   }
-  if (req.query.first && req.query.last) {
-    let first = parseInt(req.query.first as string);
-    let last = parseInt(req.query.last as string);
+  if (first && last) {
+    let firstIndex = parseInt(first as string);
+    let lastIndex = parseInt(last as string);
+    if (isNaN(firstIndex) || isNaN(lastIndex)) {
+      return returnError(res, new ClientError(`invalid range ${firstIndex} to ${lastIndex}`));
+    }
+
+    let imageResult = CheckIfError(
+      await clientController.getBlockImages({ first: firstIndex, last: lastIndex })
+    );
+    if (imageResult.error) {
+      return returnError(res, imageResult.error);
+    }
     return res.send({
-      images: await clientController.getBlockImages({ first, last }),
+      images: imageResult.result,
       count,
     });
+  }
+
+  let endImagesResult = CheckIfError(await clientController.getEndImages());
+  if (endImagesResult.error) {
+    return returnError(res, endImagesResult.error);
   }
   res.send({
-    images: await clientController.getEndImages(),
+    images: endImagesResult.result,
     count,
   });
 });
 
 router.get("/:id", async (req, res) => {
   let id = parseInt(req.params.id);
-  try {
-    res.send(await clientController.getComicInfo(id));
-  } catch (e) {
-    let error = e as Error;
-    if (error.message.includes("does not exist")) {
-      return res.status(404).send(error.message);
-    }
-    res.status(500).send(`error ${e.message} thrown in getComicInfo`);
+  if (isNaN(id)) {
+    return returnError(res, new ClientError(`${id} is not a valid id`));
   }
+
+  let getComicResult = CheckIfError(await clientController.getComicInfo(id));
+  if (getComicResult.error) {
+    return returnError(res, getComicResult.error);
+  }
+  return res.send(getComicResult.result);
 });
 
 export default router;

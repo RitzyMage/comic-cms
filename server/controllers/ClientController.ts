@@ -5,6 +5,7 @@ import { Transaction } from "knex";
 import isError from "../utils/IsError";
 import DatabaseError from "../dao/DatabaseError";
 import CheckIfError from "../utils/CheckIfError";
+import ClientError from "../utils/ClientError";
 
 interface Range {
   first: number;
@@ -59,6 +60,14 @@ export default class ClientController {
   public getComicInfo = TransactionFunction(async (transaction: Transaction, id: number) => {
     let comicDAO = new ComicDAO(transaction);
     let tagDAO = new TagDAO(transaction);
+
+    let existsResult = CheckIfError(await comicDAO.comicExists(id));
+    if (existsResult.error) {
+      return existsResult.error;
+    }
+    if (!existsResult.result) {
+      return new ClientError(`Comic ${id} does not exist`);
+    }
 
     let comicResult = CheckIfError(await comicDAO.getComic(id));
     if (comicResult.error) {

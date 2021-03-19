@@ -8,6 +8,9 @@ const authController = new AuthController();
 
 router.post("/login", async (req, res) => {
   let { username, password } = req.body;
+  if (!username || !password) {
+    return res.status(400).send("must send username and password");
+  }
   let token = await authController.verifyUser({ username, password });
   if (!token) {
     res.status(400).send("Invalid username or password");

@@ -66,7 +66,7 @@ export default class ComicDAO extends DAO {
   }
 
   async findComicsMatching(toFind: string[]): Promise<ComicImage[] | DatabaseError> {
-    let terms = toFind.join(" ").replace(/\W+/gi, "");
+    let terms = toFind.join(" ");
 
     try {
       return await this.transaction
@@ -125,6 +125,16 @@ export default class ComicDAO extends DAO {
         .where(this.transaction.raw("LOWER(tags.name)"), "=", tag);
     } catch (e) {
       return new DatabaseError(`database error while fetching comics marked with tag ${tag}`);
+    }
+  }
+
+  async comicExists(id: number): Promise<boolean | DatabaseError> {
+    try {
+      let matches = await this.transaction.select("id").from("comics").where({ id });
+      return matches.length > 0;
+    } catch (e) {
+      console.error(e);
+      return new DatabaseError(`could not get comic ${id} from database`);
     }
   }
 

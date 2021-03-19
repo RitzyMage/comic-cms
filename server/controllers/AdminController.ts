@@ -4,6 +4,7 @@ import TagDAO from "../dao/TagDAO";
 import { AddComicParams, AddComicDatabase, EditComicParams } from "../utils/addComicParams";
 import { Transaction } from "knex";
 import CheckIfError from "../utils/CheckIfError";
+import ClientError from "../utils/ClientError";
 
 export default class AdminController {
   public addComic = TransactionFunction(
@@ -30,6 +31,14 @@ export default class AdminController {
     async (transaction: Transaction, { id, params }: { id: number; params: EditComicParams }) => {
       let comicDAO = new ComicDAO(transaction);
       let tagDAO = new TagDAO(transaction);
+
+      let existsResult = CheckIfError(await comicDAO.comicExists(id));
+      if (existsResult.error) {
+        return existsResult.error;
+      }
+      if (!existsResult.result) {
+        return new ClientError(`Comic ${id} does not exist`);
+      }
 
       let databaseParams: EditComicParams = {};
       for (let key in params) {
