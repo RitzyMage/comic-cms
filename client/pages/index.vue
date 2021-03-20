@@ -44,10 +44,8 @@ import { ComicInfo } from "~/util/ComicInfo";
   },
 
   async asyncData({ $axios }) {
-    let {
-      images: { first, last },
-    } = await $axios.$get("/comic/images");
-    return { first, last };
+    let { images } = await $axios.$get("/comic/images");
+    return images;
   },
 })
 export default class MainPage extends Vue {

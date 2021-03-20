@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <h1 v-if="error.statusCode === 404">Page not found</h1>
-    <h1 v-else>Error</h1>
-    <p>{{ errorMessage }}</p>
-    <nuxt-link to="/">Home page</nuxt-link>
+  <div class="mainContainer errorPage">
+    <h1 v-if="error.statusCode === 404" class="errorPage-header">Page not found</h1>
+    <h1 class="errorPage-header" v-else>Error</h1>
+    <p class="errorPage-message">{{ errorMessage }}</p>
+    <nuxt-link to="/">Return to home page</nuxt-link>
   </div>
 </template>
 
@@ -17,3 +17,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.errorPage {
+  text-align: center;
+}
+
+.errorPage-header {
+  font-size: 3em;
+}
+
+.errorPage-message {
+  font-size: 1.5em;
+}
+</style>

@@ -13,8 +13,10 @@
 </template>
 
 <script lang="ts">
+import { NuxtError } from "@nuxt/types";
 import { Component, Vue } from "vue-property-decorator";
 import PageLink from "../components/PageLink.vue";
+import ServerError from "../util/ServerError";
 
 const CHUNK_SIZE = 6;
 
@@ -25,7 +27,7 @@ const LINK_HEIGHT = 104;
     PageLink,
   },
 
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, error }) {
     let { images: pages, count: totalNumber } = await $axios.$get(
       `/comic/images?first=1&last=${CHUNK_SIZE * 2}`
     );
