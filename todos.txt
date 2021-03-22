@@ -1,4 +1,9 @@
 NEXT STEPS
+	static build tag pages
+	style autoselect for tags
+	toasts exit button
+	highlight current link in header
+	search icon instead of link in header
 
 COMIC PAGE
 	latest comic page (static path)
@@ -6,7 +11,6 @@ COMIC PAGE
 NAVIGATION PAGES
 	do I really need lazy loading?
 	tag page lazy loading (refactor archives page to be a component?)
-	static build tag pages
 
 PAGES TO ADD
 	blog section
@@ -14,7 +18,6 @@ PAGES TO ADD
 ADMIN PORTION
 	account creation / editing (or config file)
 	make adding and editing comics more robust (e.g. if fails)
-	style autoselect for tags
 	editing comic should redirect to comic rather than admin edit page
 
 THEMES / CUSTOMIZATION
@@ -32,11 +35,6 @@ MAKE OPEN SOURCE
 	add contributing guidelines
 	add code of conduct
 	style guide
-
-UI layout
-	toasts exit button
-	highlight current link in header
-	search icon instead of link in header
 
 OPTIMIZATIONS (MAKE BLAZING FAST)
 	optimize JS/CSS/other size
