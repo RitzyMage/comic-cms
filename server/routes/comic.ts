@@ -108,7 +108,7 @@ router.get("/count", async (req, res) => {
   if (result.error) {
     return returnError(res, result.error);
   }
-  return res.send(result.result);
+  return res.send({ count: result.result });
 });
 
 router.get("/search", async (req, res) => {

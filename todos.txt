@@ -1,5 +1,4 @@
 NEXT STEPS
-	static build tag pages
 	style autoselect for tags
 	toasts exit button
 	highlight current link in header

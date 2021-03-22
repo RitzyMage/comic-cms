@@ -72,11 +72,15 @@ export default {
   },
 
   generate: {
-    routes() {
-      return axios.get(process.env.API_URL + "/comic/count").then(res => {
-        let count = res.data.count;
-        return [...Array(count - 1).keys()].map(item => "/comic/" + (item + 1));
-      });
+    async routes() {
+      const [comicsCount, tags] = await Promise.all([
+        axios.get(process.env.API_URL + "/comic/count"),
+        axios.get(process.env.API_URL + "/tags"),
+      ]);
+      let count = comicsCount.data.count;
+      let comicsRoutes = [...Array(count - 1).keys()].map(item => "/comic/" + (item + 1));
+      let tagsRoutes = tags.data.map(tag => `/tag/${tag}`);
+      return [...comicsRoutes, ...tagsRoutes];
     },
   },
 };
