@@ -1,5 +1,4 @@
 NEXT STEPS
-	style autoselect for tags
 	toasts exit button
 	highlight current link in header
 	search icon instead of link in header

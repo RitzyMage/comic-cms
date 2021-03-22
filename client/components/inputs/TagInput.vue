@@ -1,6 +1,7 @@
 <template>
   <multiselect
     v-model="selectedTags"
+    class="comicTagInput"
     :options="tags"
     tag-placeholder="Add this as new tag"
     placeholder="Search or add a tag"
@@ -45,3 +46,44 @@ export default class TagInput extends Vue {
 </script>
 
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+
+<style lang="scss">
+@import "~/assets/scss/colors.scss";
+@import "~/assets/scss/grid.scss";
+
+.comicTagInput,
+.comicTagInput input {
+  color: $font;
+}
+
+.comicTagInput input::placeholder {
+  color: $font;
+  opacity: 0.5;
+}
+
+.comicTagInput .multiselect__content-wrapper::-webkit-scrollbar-track {
+  background: $darkBackground;
+}
+.comicTagInput .multiselect__content-wrapper::-webkit-scrollbar-thumb {
+  background: $primary;
+}
+
+.comicTagInput .multiselect__tags,
+.comicTagInput input,
+.comicTagInput .multiselect__content-wrapper {
+  border: none;
+  background-color: $lightBackground;
+}
+
+.comicTagInput .multiselect__option--highlight {
+  background-color: $secondary;
+  color: $darkBackground;
+  font-weight: bold;
+}
+
+.comicTagInput .multiselect__option--highlight::after {
+  background-color: $secondaryDark;
+  color: $font;
+  font-weight: normal;
+}
+</style>
