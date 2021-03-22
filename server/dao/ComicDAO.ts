@@ -3,39 +3,11 @@ import { AddComicDatabase, EditComicParams } from "../utils/addComicParams";
 import CheckIfError from "../utils/CheckIfError";
 import CustomError from "../utils/CustomError";
 import ServerError from "../utils/ServerError";
+import { Comic } from "../utils/Comic";
+import { ComicImage } from "../utils/ComicImage";
+import { ComicUpload } from "../utils/ComicUpload";
 import DAO from "./DAO";
 import DatabaseError from "./DatabaseError";
-import { Tag } from "./TagDAO";
-
-export interface ComicImage {
-  id: string;
-  image: string;
-  image_lowres: string;
-  height: number;
-  width: number;
-}
-
-export interface ComicUpload {
-  id: string;
-  title: string;
-  image: string;
-  posted: string;
-}
-
-export interface Comic {
-  id: string;
-  title: string;
-  transcript: string;
-  mouseover: string;
-  image: string;
-  height: string;
-  width: string;
-  image_lowres: string;
-  posted: string;
-  next?: number;
-  previous?: number;
-  tags?: Tag[];
-}
 
 export default class ComicDAO extends DAO {
   constructor(transaction: Transaction) {

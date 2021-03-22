@@ -2,11 +2,7 @@ import CustomError from "../utils/CustomError";
 import ServerError from "../utils/ServerError";
 import DAO from "./DAO";
 import DatabaseError from "./DatabaseError";
-
-export interface Tag {
-  id: number;
-  name: string;
-}
+import { Tag } from "./Tag";
 
 export default class TagDAO extends DAO {
   async getComicTags(comicId: number): Promise<Tag[] | DatabaseError> {

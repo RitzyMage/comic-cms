@@ -1,6 +1,4 @@
 NEXT STEPS
-	re-build only needed pages on edit comic (is this possible?)
-	move interfaces to not be part of DAO files
 
 COMIC PAGE
 	latest comic page (static path)

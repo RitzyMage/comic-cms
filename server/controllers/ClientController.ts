@@ -1,6 +1,8 @@
 import { DAOFunction, TransactionType, TransactionFunction } from "../dao/DAOFunction";
-import ComicDAO, { Comic } from "../dao/ComicDAO";
-import TagDAO, { Tag } from "../dao/TagDAO";
+import ComicDAO from "../dao/ComicDAO";
+import { Comic } from "../utils/Comic";
+import TagDAO from "../dao/TagDAO";
+import { Tag } from "../dao/Tag";
 import { Transaction } from "knex";
 import isError from "../utils/IsError";
 import DatabaseError from "../dao/DatabaseError";
