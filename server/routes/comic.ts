@@ -22,20 +22,20 @@ router.post("/", auth, async (req, res) => {
   let { title, transcript, mouseover, image, tags } = req.body;
 
   if (!title) {
-    return returnError(res, new ClientError(`title required"`));
+    return returnError(res, new ClientError(`title required`));
   }
   if (!transcript) {
-    return returnError(res, new ClientError(`transcript required"`));
+    return returnError(res, new ClientError(`transcript required`));
   }
   if (!image) {
-    return returnError(res, new ClientError(`image required"`));
+    return returnError(res, new ClientError(`image required`));
   }
   if (tags) {
     if (!Array.isArray(tags)) {
-      return returnError(res, new ClientError(`if tags are given, they must be an array"`));
+      return returnError(res, new ClientError(`if tags are given, they must be an array`));
     }
     if (!tags.every(tag => typeof tag === "string")) {
-      return returnError(res, new ClientError(`each tag must be a string"`));
+      return returnError(res, new ClientError(`each tag must be a string`));
     }
   }
 

@@ -2,6 +2,7 @@
   <div class="toasts">
     <p v-for="toast in toasts" :key="toast.id" :class="`toast ${getClass(toast)}`">
       {{ toast.message }}
+      <button class="close-toast" @click="() => closeToast(toast.id)"><XIcon /></button>
     </p>
   </div>
 </template>
@@ -10,8 +11,11 @@
 import { toastStore } from "~/store";
 import ToastInfo from "~/util/ToastInfo";
 import { Vue, Component } from "vue-property-decorator";
+import { XIcon } from "vue-feather-icons";
 
-@Component
+@Component({
+  components: { XIcon },
+})
 export default class ToastDisplay extends Vue {
   get toasts() {
     return toastStore.toasts;
@@ -19,6 +23,10 @@ export default class ToastDisplay extends Vue {
 
   getClass(toast: ToastInfo) {
     return toast.error ? "toast--error" : "toast--success";
+  }
+
+  closeToast(id: number) {
+    toastStore.removeToast(id);
   }
 }
 </script>
@@ -33,6 +41,7 @@ export default class ToastDisplay extends Vue {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
 }
 
 .toast--error {
@@ -47,5 +56,6 @@ export default class ToastDisplay extends Vue {
   width: #{$gridUnit * 25};
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 60%);
   border-radius: 4px;
+  padding: #{$gridUnit * 1/2};
 }
 </style>
