@@ -1,6 +1,4 @@
 NEXT STEPS
-	toasts exit button style
-	highlight current link in header
 	search icon instead of link in header
 
 COMIC PAGE
@@ -18,6 +16,8 @@ ADMIN PORTION
 	make adding and editing comics more robust (e.g. if fails)
 	editing comic should redirect to comic rather than admin edit page
 	client validation on adding / submitting pages
+	style admin submit button
+	style arrow on tags select
 
 THEMES / CUSTOMIZATION
 	custom color themes

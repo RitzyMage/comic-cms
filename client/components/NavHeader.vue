@@ -57,4 +57,9 @@ export default class NavHeader extends Vue {
   font-size: 1.2em;
   color: $darkBackground;
 }
+
+.nuxt-link-exact-active {
+  background-color: $primaryDark;
+  color: $font;
+}
 </style>
