@@ -1,8 +1,8 @@
 <template>
   <div class="toasts">
     <p v-for="toast in toasts" :key="toast.id" :class="`toast ${getClass(toast)}`">
-      {{ toast.message }}
-      <button class="close-toast" @click="() => closeToast(toast.id)"><XIcon /></button>
+      <span class="toast-message">{{ toast.message }}</span>
+      <button class="toast-close" @click="() => closeToast(toast.id)"><XIcon /></button>
     </p>
   </div>
 </template>
@@ -33,6 +33,7 @@ export default class ToastDisplay extends Vue {
 
 <style scoped lang="scss">
 @import "~/assets/scss/grid.scss";
+@import "~/assets/scss/colors.scss";
 .toasts {
   position: absolute;
   bottom: #{$gridUnit * 2};
@@ -57,5 +58,18 @@ export default class ToastDisplay extends Vue {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 60%);
   border-radius: 4px;
   padding: #{$gridUnit * 1/2};
+  display: flex;
+  justify-content: space-between;
+}
+
+.toast-close {
+  background-color: unset;
+  border: none;
+  color: $font;
+}
+
+.toast-message {
+  display: flex;
+  align-items: center;
 }
 </style>
