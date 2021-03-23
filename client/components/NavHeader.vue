@@ -9,14 +9,18 @@
       <a v-if="$auth.loggedIn" class="header-link" @click="logout">Log out</a>
       <nuxt-link v-else class="header-link" to="/admin">Log in</nuxt-link>
     </client-only>
+    <nuxt-link to="/search" class="header-link"><SearchIcon /></nuxt-link>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import { SearchIcon } from "vue-feather-icons";
 import options from "~/options.json";
 
-@Component
+@Component({
+  components: { SearchIcon },
+})
 export default class NavHeader extends Vue {
   private links = options.links;
 
