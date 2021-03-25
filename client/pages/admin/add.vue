@@ -31,7 +31,7 @@ export class AddComic extends Vue {
   private async submit() {
     let result = await this.$axios.post("/comic", this.data);
     if (result) {
-      this.$router.push("/admin");
+      this.$router.push("/");
     }
   }
 }

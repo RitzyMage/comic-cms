@@ -5,9 +5,11 @@
       {{ link.name }}
     </nuxt-link>
     <client-only>
-      <nuxt-link v-if="$auth.loggedIn" to="/admin" class="header-link">Manage Comics</nuxt-link>
+      <nuxt-link v-if="$auth.loggedIn" to="/admin/add-comic" class="header-link">
+        Add Comic
+      </nuxt-link>
       <a v-if="$auth.loggedIn" class="header-link" @click="logout">Log out</a>
-      <nuxt-link v-else class="header-link" to="/admin">Log in</nuxt-link>
+      <nuxt-link v-else class="header-link" to="/login">Log in</nuxt-link>
     </client-only>
     <nuxt-link to="/search" class="header-link"><SearchIcon /></nuxt-link>
   </div>
