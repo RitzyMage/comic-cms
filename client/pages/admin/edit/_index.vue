@@ -45,7 +45,7 @@ export class EditComic extends Vue {
   private submit() {
     try {
       this.$axios.patch(`/comic/${this.index}`, this.data);
-      this.$router.push("/admin");
+      this.$router.push(`/comic/${this.index}`);
     } catch (e) {
       console.error(e);
     }
