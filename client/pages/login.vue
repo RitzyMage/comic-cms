@@ -27,7 +27,9 @@ export class Login extends Vue {
           password: this.password,
         },
       });
-      this.$NotifyToast("Logged In");
+      if (result) {
+        this.$NotifyToast("Logged In");
+      }
     } catch (e) {
       this.$ErrorToast("Login Error");
     }
