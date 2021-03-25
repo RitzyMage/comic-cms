@@ -4,7 +4,6 @@ import { DAOFunction, TransactionType } from "../dao/DAOFunction";
 import UserDAO from "../dao/UserDAO";
 import CheckIfError from "../utils/CheckIfError";
 
-const SALT_ROUNDS = 10;
 
 interface UserInfo {
   username: string;
@@ -29,13 +28,4 @@ export default class AuthController {
     UserDAO
   );
 
-  addUser = DAOFunction(
-    async (userDAO: UserDAO, { username, password }: UserInfo) => {
-      let hash = bcrypt.hashSync(password, bcrypt.genSaltSync(SALT_ROUNDS));
-      let user = { username, hash };
-      return userDAO.create(user);
-    },
-    TransactionType.ADMIN,
-    UserDAO
-  );
 }
