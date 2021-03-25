@@ -4,7 +4,6 @@ import { DAOFunction, TransactionType } from "../dao/DAOFunction";
 import UserDAO from "../dao/UserDAO";
 import CheckIfError from "../utils/CheckIfError";
 
-
 interface UserInfo {
   username: string;
   password: string;
@@ -20,12 +19,11 @@ export default class AuthController {
       let user = userResult.result;
       let match = !!user && bcrypt.compareSync(password, user.hash);
       if (!match) {
-        return false;
+        return { token: "" };
       }
       return { token: jwt.sign({ username }, process.env.JWT_SECRET ?? "") };
     },
     TransactionType.CLIENT,
     UserDAO
   );
-
 }

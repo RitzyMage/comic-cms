@@ -3,24 +3,25 @@ var express = require("express");
 let router: Express = express.Router();
 import AuthController from "../controllers/AuthController";
 import CheckIfError from "../utils/CheckIfError";
+import ClientError from "../utils/ClientError";
+import { returnError } from "../utils/returnError";
 
 const authController = new AuthController();
 
 router.post("/login", async (req, res) => {
   let { username, password } = req.body;
   if (!username || !password) {
-    return res.status(400).send("must send username and password");
+    return returnError(res, new ClientError("must send username and password"));
   }
-  let token = await authController.verifyUser({ username, password });
-  if (!token) {
-    res.status(400).send("Invalid username or password");
-  } else {
-    let { result: tokenResult, error } = CheckIfError(token);
-    if (error) {
-      res.status(500).send(error);
-    }
-    res.send(tokenResult);
+  let tokenResult = CheckIfError(await authController.verifyUser({ username, password }));
+
+  if (tokenResult.error) {
+    return returnError(res, tokenResult.error);
   }
+  if (!tokenResult.result.token) {
+    return returnError(res, new ClientError("Invalid username or password"));
+  }
+  res.send(tokenResult.result);
 });
 
 export default router;

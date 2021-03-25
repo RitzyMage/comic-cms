@@ -21,7 +21,7 @@ export class Login extends Vue {
 
   private async login() {
     try {
-      await this.$auth.loginWith("local", {
+      let result = await this.$auth.loginWith("local", {
         data: {
           username: this.username,
           password: this.password,
