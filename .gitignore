@@ -100,3 +100,4 @@ client/options.json
 update.sh
 client/content/**/*.md
 client/static/favicon.ico
+client/assets/scss/colors.scss
