@@ -8,6 +8,27 @@ Built using [TypeScript](https://www.typescriptlang.org).
 
 Comic CMS consists of a client and server. The client is using [nuxtjs](https://nuxtjs.org); the server is using [express](http://expressjs.com). After pulling, run `npm ci` in both directories to install all depenencies.
 
+You'll want to create a `colors.scss` file in `client/assets/colors/scss` with the following content:
+
+```
+$primary: #64b5f6;
+$primaryLight: #9be7ff;
+$primaryDark: #2286c3;
+
+$secondary: #81c784;
+$secondaryLight: #b2fab4;
+$secondaryDark: #519657;
+
+$darkBackground: #333;
+$mediumBackground: #444;
+$lightBackground: #555;
+$font: white;
+```
+
+(replace these with the color of your choice)
+
+You can also create a favicon in `client/static/favicon.ico` for your site.
+
 You must have mysql or mariadb set up on your server. The client directory and server directory each need a .env file.
 
 The client .env file should look like this:
