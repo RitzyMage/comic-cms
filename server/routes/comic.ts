@@ -100,6 +100,9 @@ router.patch("/:id", auth, async (req, res) => {
       tags,
     },
   });
+  if (process.env.NODE_ENV != "dev") {
+    /*await*/ buildController.generateStaticBuild();
+  }
   res.send({ success: true });
 });
 
