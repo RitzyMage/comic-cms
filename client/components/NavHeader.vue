@@ -5,7 +5,7 @@
       {{ link.name }}
     </nuxt-link>
     <client-only>
-      <nuxt-link v-if="$auth.loggedIn" to="/admin/add-comic" class="header-link">
+      <nuxt-link v-if="$auth.loggedIn" to="/admin/add" class="header-link">
         Add Comic
       </nuxt-link>
       <a v-if="$auth.loggedIn" class="header-link" @click="logout">Log out</a>
