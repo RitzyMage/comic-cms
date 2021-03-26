@@ -1,6 +1,9 @@
 <template>
   <div class="textInput">
-    <label class="textInput-label">{{ name }}</label>
+    <label class="textInput-label">
+      <span v-if="required" class="requiredStar">*</span>
+      {{ name }}
+    </label>
     <textarea
       v-if="large"
       class="textInput-input textInput-input--large"
@@ -22,6 +25,7 @@ export default class TextInput extends Vue {
   @Prop(Boolean) private password!: boolean;
   @Prop(Boolean) private large!: boolean;
   @Prop(Boolean) private rounded!: boolean;
+  @Prop({ type: Boolean, default: false }) private required!: boolean;
   @Prop() private icon?: Vue;
 
   update({ target: { value } }: { target: { value: HTMLInputElement } }) {
@@ -100,5 +104,9 @@ export default class TextInput extends Vue {
 .textInput-input--large:focus,
 .textInput-input--rounded:focus {
   border: 1px solid $primary;
+}
+
+.requiredStar {
+  color: red;
 }
 </style>

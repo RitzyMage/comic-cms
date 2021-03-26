@@ -1,11 +1,14 @@
 <template>
   <div class="comicForm">
-    <TextInput v-model="title" name="title" />
+    <TextInput v-model="title" name="title" :required="required" />
 
-    <span>Image</span>
+    <span>
+      <span v-if="required" class="requiredStar">*</span>
+      Image
+    </span>
     <ImageInput v-model="image" />
 
-    <TextInput large v-model="transcript" name="transcript" />
+    <TextInput large v-model="transcript" name="transcript" :required="required" />
 
     <span>Tags</span>
     <TagInput v-model="selectedTags" :tags="allTags" @addTag="addTag" />
@@ -40,6 +43,7 @@ export interface ComicFormData {
 export default class ComicForm extends Vue {
   @Prop() private value!: ComicFormData;
   @Prop() private allTags!: any;
+  @Prop({ type: Boolean, default: false }) private required!: boolean;
 
   private get selectedTags() {
     return this.value.tags;
@@ -97,5 +101,9 @@ export default class ComicForm extends Vue {
 .comicForm {
   max-width: #{$gridUnit * 80};
   margin: 0 auto;
+}
+
+.requiredStar {
+  color: red;
 }
 </style>

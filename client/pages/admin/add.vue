@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Add Comic</h1>
-    <ComicForm v-model="data" :all-tags="tags" @submit="submit" />
+    <ComicForm v-model="data" :all-tags="tags" @submit="submit" required />
   </div>
 </template>
 
