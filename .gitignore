@@ -99,3 +99,4 @@ client/static/img/comics/*.webp
 client/options.json
 update.sh
 client/content/**/*.md
+client/static/favicon.ico
