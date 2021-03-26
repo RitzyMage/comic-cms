@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Edit {{ index }}</h1>
+  <div class="mainContainer">
+    <h1>Edit "{{ comic ? comic.title : "loading..." }}"</h1>
     <ComicForm v-model="data" :all-tags="tags" @submit="submit" />
   </div>
 </template>

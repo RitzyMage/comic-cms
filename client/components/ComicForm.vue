@@ -15,7 +15,7 @@
 
     <TextInput v-model="mouseover" name="mouseover text" />
 
-    <button @click="submit">Submit</button>
+    <Button @click="submit">Submit</Button>
   </div>
 </template>
 
@@ -23,6 +23,7 @@
 import TextInput from "@/components/inputs/TextInput.vue";
 import ImageInput from "@/components/inputs/ImageInput.vue";
 import TagInput from "@/components/inputs/TagInput.vue";
+import Button from "@/components/inputs/Button.vue";
 import { Vue, Component, Prop } from "vue-property-decorator";
 
 export interface ComicFormData {
@@ -38,6 +39,7 @@ export interface ComicFormData {
     TextInput,
     ImageInput,
     TagInput,
+    Button,
   },
 })
 export default class ComicForm extends Vue {

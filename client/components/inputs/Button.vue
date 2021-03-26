@@ -23,7 +23,7 @@ export default class Button extends Vue {
   border: none;
   background-color: $primary;
   padding: #{$gridUnit * 1};
-  margin: #{$gridUnit * 1};
+  margin: #{$gridUnit * 1} 0;
   border-radius: 2px;
 }
 

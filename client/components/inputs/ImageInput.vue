@@ -43,7 +43,7 @@ export default class ImageInput extends Vue {
   outline: none;
   color: white;
   padding: #{$gridUnit * 1} 0 #{$gridUnit * 1} #{$gridUnit * 1};
-  width: 100%;
+  width: calc(100% - #{$gridUnit * 1});
   font-family: "Kalam", sans-serif;
 }
 

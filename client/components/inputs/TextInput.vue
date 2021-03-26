@@ -78,7 +78,6 @@ export default class TextInput extends Vue {
   outline: none;
   color: white;
   padding: #{$gridUnit * 1} 0 #{$gridUnit * 1} #{$gridUnit * 1};
-  width: 100%;
 }
 
 .textInput-input--rounded {
@@ -98,7 +97,7 @@ export default class TextInput extends Vue {
 .textInput-input--large {
   border-radius: 4px;
   padding: #{$gridUnit * 1};
-  width: calc(100% - #{$gridUnit * 1});
+  width: calc(100% - #{$gridUnit * 2});
 }
 
 .textInput-input--large:focus,
