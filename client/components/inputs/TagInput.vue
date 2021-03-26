@@ -81,6 +81,10 @@ export default class TagInput extends Vue {
   font-weight: bold;
 }
 
+.comicTagInput .multiselect__select:before {
+  top: 78%;
+}
+
 .comicTagInput .multiselect__option--highlight::after {
   background-color: $secondaryDark;
   color: $font;
