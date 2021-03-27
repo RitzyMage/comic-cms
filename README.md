@@ -8,7 +8,7 @@ Built using [TypeScript](https://www.typescriptlang.org).
 
 Comic CMS consists of a client and server. The client is using [nuxtjs](https://nuxtjs.org); the server is using [express](http://expressjs.com). After pulling, run `npm ci` in both directories to install all depenencies.
 
-You'll want to create a `colors.scss` file in `client/assets/colors/scss` with the following content:
+You'll want to create a `colors.scss` file in `client/assets/scss` with the following content:
 
 ```
 $primary: #64b5f6;
@@ -26,6 +26,25 @@ $font: white;
 ```
 
 (replace these with the color of your choice)
+
+and similarly create a `colors.scss` file in `client/assets/scss`:
+
+```
+@font-face {
+  font-family: "Kalam";
+  src: url("/fonts/Kalam-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Komika Axis";
+  src: url("/fonts/KOMIKAX_.ttf") format("truetype");
+}
+
+$textFont: "Kalam", sans-serif;
+$emphasisFont: "Komika Axis", sans-serif;
+```
+
+replacing these with the fonts of your choice.
 
 You can also create a favicon in `client/static/favicon.ico` for your site.
 

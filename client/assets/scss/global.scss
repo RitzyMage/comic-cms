@@ -1,22 +1,13 @@
 @import "assets/scss/colors.scss";
 @import "assets/scss/grid.scss";
-
-@font-face {
-  font-family: "Kalam";
-  src: url("/fonts/Kalam-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Komika Axis";
-  src: url("/fonts/KOMIKAX_.ttf") format("truetype");
-}
+@import "assets/scss/fonts.scss";
 
 body {
   margin: 0;
 }
 
 .app {
-  font-family: "Kalam", sans-serif;
+  font-family: $textFont;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $font;

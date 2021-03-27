@@ -34,6 +34,7 @@ export default class ImageInput extends Vue {
 
 <style lang="scss">
 @import "~/assets/scss/colors.scss";
+@import "~/assets/scss/fonts.scss";
 @import "~/assets/scss/grid.scss";
 
 .imageInput {
@@ -44,7 +45,7 @@ export default class ImageInput extends Vue {
   color: white;
   padding: #{$gridUnit * 1} 0 #{$gridUnit * 1} #{$gridUnit * 1};
   width: calc(100% - #{$gridUnit * 1});
-  font-family: "Kalam", sans-serif;
+  font-family: $textFont;
 }
 
 .imageInput::-webkit-file-upload-button {
@@ -52,7 +53,7 @@ export default class ImageInput extends Vue {
   color: $darkBackground;
   border: none;
   border-radius: 2px;
-  font-family: "Kalam", sans-serif;
+  font-family: $textFont;
   box-shadow: 2px 2px 1px $darkBackground;
 }
 </style>

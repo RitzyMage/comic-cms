@@ -104,6 +104,7 @@ export default class Navigation extends Vue {
 <style lang="scss" scoped>
 @import "~/assets/scss/colors.scss";
 @import "~/assets/scss/grid.scss";
+@import "~/assets/scss/fonts.scss";
 
 .comicNav {
   display: grid;
@@ -121,7 +122,7 @@ export default class Navigation extends Vue {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  font-family: "Komika Axis", sans-serif;
+  font-family: $emphasisFont;
   color: #bbb;
   font-size: 1.3em;
   max-height: 5vh;
