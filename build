@@ -2,7 +2,9 @@
 echo "running production build"
 
 cd server
+npm ci
 npm run build
 
 cd ../client
+npm ci
 npm run generate

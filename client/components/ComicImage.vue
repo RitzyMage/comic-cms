@@ -22,7 +22,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import { directive } from "vue-awesome-swiper";
 import { SmartphoneIcon, RotateCcwIcon } from "vue-feather-icons";
 
-const MIN_SCROLL_HEIGHT = 200;
+const MIN_SCROLL_PERCENTAGE = 0.4;
 const SMALL_SCREEN = 600;
 const ROTATION_ASPECT_RATIO = 1.1;
 
@@ -98,7 +98,9 @@ export class ComicImage extends Vue {
 
     this.stopScroll = false;
     let heightDifference = imageHeight - (this.$refs.container as Element)?.clientHeight;
-    this.stopScroll = heightDifference <= MIN_SCROLL_HEIGHT && heightDifference >= 0;
+    let minScrollHeight = MIN_SCROLL_PERCENTAGE * screen.height;
+    console.log(minScrollHeight, heightDifference);
+    this.stopScroll = heightDifference <= minScrollHeight && heightDifference >= 0;
     this.tooTall = heightDifference >= 0;
   }
 
