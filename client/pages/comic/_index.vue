@@ -1,9 +1,11 @@
 <template>
   <div class="pageContainer">
     <comic-page :page="this.$route.params.index" :comic-info="comicInfo" />
-    <div v-if="$auth.loggedIn" class="editButton" @click="$router.push(`/admin/edit/${id}`)">
-      <EditIcon class="editButton-icon" />
-    </div>
+    <client-only>
+      <div v-if="$auth.loggedIn" class="editButton" @click="$router.push(`/admin/edit/${id}`)">
+        <EditIcon class="editButton-icon" />
+      </div>
+    </client-only>
   </div>
 </template>
 
