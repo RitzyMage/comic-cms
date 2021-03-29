@@ -21,6 +21,7 @@ body {
 .mainContainer {
   margin: 0 auto;
   max-width: #{100 * $gridUnit};
+  padding: 0 #{1 * $gridUnit};
 }
 
 a,
