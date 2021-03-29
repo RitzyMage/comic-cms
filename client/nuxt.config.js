@@ -34,15 +34,24 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxt/typescript-build", "@nuxtjs/dotenv", "@nuxtjs/axios"],
+  buildModules: ["@nuxtjs/pwa", "@nuxt/typescript-build", "@nuxtjs/dotenv", "@nuxtjs/axios"],
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/pwa", "@nuxtjs/auth-next", "@nuxt/content"],
+  modules: ["@nuxtjs/auth-next", "@nuxt/content"],
   /*
    ** Build configuration
    */
   server: { port: 3311 },
+
+  pwa: {
+    meta: {
+      theme_color: "#222",
+    },
+    manifest: {
+      theme_color: "#222",
+    },
+  },
 
   target: "static",
 
