@@ -17,6 +17,12 @@ import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
   async asyncData({ $axios }) {
     return { tags: await $axios.$get("/tags") };
   },
+
+  head() {
+    return {
+      title: `Add Comic`,
+    };
+  },
 })
 export class AddComic extends Vue {
   private tags!: any;

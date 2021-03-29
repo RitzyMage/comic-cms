@@ -11,9 +11,15 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
 import TextInput from "@/components/inputs/TextInput.vue";
 import Button from "@/components/inputs/Button.vue";
+import options from "~/options.json";
 
 @Component({
   components: { TextInput, Button },
+  head() {
+    return {
+      title: `${options.name} login`,
+    };
+  },
 })
 export class Login extends Vue {
   private username = "";

@@ -99,7 +99,6 @@ export class ComicImage extends Vue {
     this.stopScroll = false;
     let heightDifference = imageHeight - (this.$refs.container as Element)?.clientHeight;
     let minScrollHeight = MIN_SCROLL_PERCENTAGE * screen.height;
-    console.log(minScrollHeight, heightDifference);
     this.stopScroll = heightDifference <= minScrollHeight && heightDifference >= 0;
     this.tooTall = heightDifference >= 0;
   }

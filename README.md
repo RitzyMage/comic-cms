@@ -13,7 +13,7 @@ Built using [TypeScript](https://www.typescriptlang.org).
 
 ## Installation
 
-Comic CMS consists of a client and server. The client is using [nuxtjs](https://nuxtjs.org); the server is using [express](http://expressjs.com). After pulling, run `npm ci` in both directories to install all depenencies.
+Comic CMS consists of a client and server. The client is using [nuxtjs](https://nuxtjs.org); the server is using [express](http://expressjs.com). After pulling, run `npm ci` in both directories to install all dependencies.
 
 You'll want to create a `colors.scss` file in `client/assets/scss` with the following content:
 
@@ -34,7 +34,7 @@ $font: white;
 
 (replace these with the color of your choice)
 
-and similarly create a `colors.scss` file in `client/assets/scss`:
+and similarly create a `fonts.scss` file in `client/assets/scss`:
 
 ```
 @font-face {

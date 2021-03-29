@@ -30,6 +30,12 @@ import ComicForm, { ComicFormData } from "~/components/ComicForm.vue";
       },
     };
   },
+
+  head() {
+    return {
+      title: `Edit comic ${((this as unknown) as { data: ComicFormData }).data.title}`,
+    };
+  },
 })
 export class EditComic extends Vue {
   public $axios!: any;

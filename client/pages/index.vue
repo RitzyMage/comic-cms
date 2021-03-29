@@ -47,6 +47,12 @@ import { ComicInfo } from "~/util/ComicInfo";
     let { images } = await $axios.$get("/comic/images");
     return images;
   },
+
+  head() {
+    return {
+      title: `${options.name}`,
+    };
+  },
 })
 export default class MainPage extends Vue {
   private title: string = options.name;

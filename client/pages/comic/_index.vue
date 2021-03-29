@@ -14,6 +14,7 @@ import { Vue, Component } from "vue-property-decorator";
 import { Route } from "vue-router";
 import { ComicInfo } from "~/util/ComicInfo";
 import { EditIcon } from "vue-feather-icons";
+import options from "~/options.json";
 
 export const PAGE_KEY = "comic_cms_page";
 
@@ -35,6 +36,13 @@ export const PAGE_KEY = "comic_cms_page";
         message: e.response?.statusText ?? "server error",
       });
     }
+  },
+
+  head() {
+    return {
+      //@ts-ignore
+      title: `${options.name}: ${(this.comicInfo as ComicInfo).comic.title}`,
+    };
   },
 
   transition: (to?: Route, from?: Route) => {
