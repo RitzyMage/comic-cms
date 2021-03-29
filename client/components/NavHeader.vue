@@ -8,8 +8,6 @@
       <nuxt-link v-if="$auth.loggedIn" to="/admin/add" class="header-link">
         Add Comic
       </nuxt-link>
-      <a v-if="$auth.loggedIn" class="header-link" @click="logout">Log out</a>
-      <nuxt-link v-else class="header-link" to="/login">Log in</nuxt-link>
     </client-only>
     <nuxt-link to="/search" class="header-link"><SearchIcon /></nuxt-link>
   </div>
