@@ -33,7 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.5",
     "mysql": "^2.18.1",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.0.3"
   },
   "devDependencies": {
     "ts-node": "^9.0.0",
