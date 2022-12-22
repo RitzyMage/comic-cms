@@ -30,7 +30,7 @@
     "image-size": "^0.9.3",
     "imagemin": "^7.0.1",
     "imagemin-webp": "^6.0.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "knex": "^0.21.5",
     "mysql": "^2.18.1",
     "sqlite3": "^5.0.0"
