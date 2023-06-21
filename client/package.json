@@ -20,7 +20,7 @@
     "@types/webpack": "^4.41.26",
     "fs-extra": "^9.0.1",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.14.4",
+    "nuxt": "^3.4.3",
     "sass-loader": "^8.0.2",
     "swiper": "^5.4.0",
     "vue-awesome-swiper": "^4.1.1",
