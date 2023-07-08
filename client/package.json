@@ -19,7 +19,7 @@
     "@types/swiper": "^5.3.1",
     "@types/webpack": "^4.41.26",
     "fs-extra": "^9.0.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^9.0.0",
     "nuxt": "^2.14.4",
     "sass-loader": "^8.0.2",
     "swiper": "^5.4.0",
